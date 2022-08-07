@@ -1,9 +1,10 @@
 BEGIN TRANSACTION;
 
 DROP TABLE IF EXISTS users;
+DROP TABLE IF EXISTS repair;
 DROP TABLE IF EXISTS pothole;
 DROP TABLE IF EXISTS address;
-DROP TABLE IF EXISTS repair;
+
 
 CREATE TABLE users (
 	user_id SERIAL,
@@ -18,29 +19,30 @@ CREATE TABLE address (
 	street_number varchar(10) NOT NULL,
 	street_name varchar(50) NOT NULL,
 	city varchar(20) NOT NULL,
-	state_abreviation varchar(2) NOT NULL,
+	state_abbreviation varchar(2) NOT NULL,
 	zipcode varchar(5) NOT NULL,
 	CONSTRAINT PK_address PRIMARY KEY (address_id)	
-);
-
-CREATE TABLE repair (
-	repair_id SERIAL,
-	status boolean NOT NULL,
-	repair_date timestamp,
-	CONSTRAINT PK_repair PRIMARY KEY (repair_id)	
 );
 
 CREATE TABLE pothole (
 	pothole_id SERIAL,
 	address_id int NOT NULL,
-	repair_id int NOT NULL,
 	direction varchar(10)NOT NULL,
 	severity varchar(2)NOT NULL,
 	discovery_date timestamp NOT NULL,
 	description varchar(300),
 	CONSTRAINT PK_pothole PRIMARY KEY (pothole_id),
-	CONSTRAINT FK_address FOREIGN KEY (address_id) REFERENCES address (address_id),
-	CONSTRAINT FK_repair FOREIGN KEY (repair_id) REFERENCES repair (repair_id)
+	CONSTRAINT FK_address FOREIGN KEY (address_id) REFERENCES address (address_id)
+	
+);
+
+CREATE TABLE repair (
+	repair_id SERIAL,
+	pothole_id int NOT NULL,
+	status boolean NOT NULL,
+	repair_date timestamp,
+	CONSTRAINT PK_repair PRIMARY KEY (repair_id),
+	CONSTRAINT FK_pothole FOREIGN KEY (pothole_id) REFERENCES pothole (pothole_id)
 );
 
 COMMIT TRANSACTION;
