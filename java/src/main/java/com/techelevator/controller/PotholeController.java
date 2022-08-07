@@ -14,7 +14,7 @@ public class PotholeController {
     @Autowired
     private PotholeDao potholeDao;
 
-    @RequestMapping(path = "/potholes", method = RequestMethod.GET)
+    @RequestMapping(path = "/pothole", method = RequestMethod.GET)
     public List<Pothole> retrievePotholes() {
 
         return potholeDao.retrievePotholes();
