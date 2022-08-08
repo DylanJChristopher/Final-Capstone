@@ -93,9 +93,12 @@ public class JdbcPotholeDao implements PotholeDao{
         Repair repair = new Repair();
 
         repair.setStatus(results.getBoolean("status"));
-        repair.setRepairDate(results.getTimestamp("repair_date").toLocalDateTime());
-
-
+        if (results.getTimestamp("repair_date") != null) {
+            repair.setRepairDate(results.getTimestamp("repair_date").toLocalDateTime());
+        }
+        else {
+            repair.setRepairDate(null);
+        }
         return repair;
 
 
