@@ -41,6 +41,22 @@ public class JdbcPotholeDao implements PotholeDao{
 
     }
 
+    public  void addPothole(Pothole pothole){
+
+        String potholeSql ="INSERT INTO pothole (direction, address_id, severity, discovery_date, description)" +
+        "VALUES (?, (SELECT address_id FROM address WHERE street_name = ?), ?, ?, ?)";
+
+        String addressSql = "INSERT INTO address (street_number, street_name, city, state_abbreviation, zipcode) " +
+                "VALUES ( ?,?,?,?,?)";
+        String repairSql = "INSERT INTO repair (pothole_id, status) "+
+                "VALUES ((SELECT pothole_id FROM pothole WHERE discovery_date = ?), false)";
+        jdbcTemplate.update(addressSql,pothole.getAddress().getStreetNumber(), pothole.getAddress().getStreetName(), pothole.getAddress().getCity(), pothole.getAddress().getState(), pothole.getAddress().getZipCode());
+
+        jdbcTemplate.update(potholeSql,pothole.getDirection(), pothole.getAddress().getStreetName(), pothole.getSeverity(),pothole.getDiscoveryDate(),pothole.getDescription());
+        jdbcTemplate.update(repairSql, pothole.getDiscoveryDate());
+
+    }
+
     private Pothole mapRowToPothole(SqlRowSet results) {
         Pothole pothole = new Pothole();
 

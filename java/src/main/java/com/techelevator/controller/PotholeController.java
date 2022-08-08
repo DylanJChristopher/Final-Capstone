@@ -5,6 +5,7 @@ import com.techelevator.model.Pothole;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -18,6 +19,10 @@ public class PotholeController {
     public List<Pothole> retrievePotholes() {
 
         return potholeDao.retrievePotholes();
+    }
+    @RequestMapping(path = "/pothole",method =RequestMethod.POST )
+    public void reportPothole(@Valid @RequestBody Pothole pothole){
+        potholeDao.addPothole(pothole);
     }
 
 }
