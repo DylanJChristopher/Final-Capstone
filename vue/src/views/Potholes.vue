@@ -1,6 +1,7 @@
 <template>
   <div>
-<potholes-list/>
+    <user-location></user-location>
+  <potholes-list/>
 
   </div>
 </template>
@@ -11,12 +12,13 @@
 
 
 import PotholesList from "../components/PotholesList.vue";
-
+import UserLocation from '../components/UserLocation.vue';
 
 
 export default {
     components: {
-        PotholesList
+        PotholesList,
+        UserLocation
         
 
     }
