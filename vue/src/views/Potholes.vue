@@ -1,25 +1,22 @@
 <template>
   <div>
+      <user-location/>
 <potholes-list/>
 <report-pothole/>
   </div>
 </template>
 
 <script>
+import UserLocation from "../components/UserLocation.vue";
+
 import ReportPothole from "../components/ReportPothole.vue";
-
-
-
-
-
 import PotholesList from "../components/PotholesList.vue";
-
-
 
 export default {
     components: {
         PotholesList,
-        ReportPothole
+        ReportPothole,
+        UserLocation
 
     }
 

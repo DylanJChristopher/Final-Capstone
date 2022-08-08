@@ -2,7 +2,7 @@
   <div>
       <div class="form-floating mb-3">
   <input type="Street Name" class="form-control" id="floatingInput" placeholder="Street Name">
-  <label for="floatingInput">Street Name</label>
+  <label for="floatingInput"></label>
 </div>
 <div class="form-floating">
   <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
