@@ -6,6 +6,7 @@ import Logout from '../views/Logout.vue'
 import Register from '../views/Register.vue'
 import store from '../store/index'
 import Potholes from '../views/Potholes.vue'
+import UserLocation from '../views/UserLocation.vue'
 
 Vue.use(Router)
 
@@ -61,7 +62,16 @@ const router = new Router({
       meta: {
         requiresAuth: false
       }
+    },
+    {
+      path: '/map',
+      name: 'map',
+      component: UserLocation,  
+      meta: {
+        requiresAuth: false
+      }
     }
+
   ]
 })
 

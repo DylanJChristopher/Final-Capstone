@@ -15,8 +15,9 @@
         <router-link v-bind:to="{ name: '#' }">Submit a TIP</router-link>
       </div>
     </header>
-
+    
     <router-view />
+
     <footer>&#169; Copyright of TIPS</footer>
   </div>
 </template>
