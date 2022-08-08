@@ -6,6 +6,7 @@ public class Pothole {
 
     private int potholeId;
     private Address address;
+    private Repair repair;
     private String direction;
     private int severity;
     private LocalDateTime discoveryDate;
@@ -57,6 +58,14 @@ public class Pothole {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public Repair getRepair() {
+        return repair;
+    }
+
+    public void setRepair(Repair repair) {
+        this.repair = repair;
     }
 }
 

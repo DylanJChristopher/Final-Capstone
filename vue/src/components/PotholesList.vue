@@ -19,7 +19,7 @@
 <td>{{pothole.address.streetNumber}} {{pothole.address.streetName}}</td>
 <td>{{pothole.address.zipCode}}</td>
 <td>{{pothole.direction}}</td>
-<td>Status</td>
+<td>{{pothole.repair.status}}</td>
 <td>{{pothole.severity}}</td>
 <td>{{pothole.discoveryDate}}</td>
 <td>{{pothole.description}}</td>

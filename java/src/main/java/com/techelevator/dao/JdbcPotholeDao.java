@@ -2,6 +2,7 @@ package com.techelevator.dao;
 
 import com.techelevator.model.Address;
 import com.techelevator.model.Pothole;
+import com.techelevator.model.Repair;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
 import org.springframework.stereotype.Component;
@@ -22,9 +23,10 @@ public class JdbcPotholeDao implements PotholeDao{
     public List<Pothole> retrievePotholes(){
         List<Pothole> potholes = new ArrayList<>();
 
-        String sql = "SELECT pothole.*, address.* " +
+        String sql = "SELECT pothole.*, address.*, repair.* " +
                 "FROM pothole " +
-                "JOIN address ON pothole.address_id = address.address_id";
+                "JOIN address ON pothole.address_id = address.address_id " +
+                "JOIN repair ON pothole.pothole_id = repair.pothole_id";
 
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql);
 
@@ -51,6 +53,7 @@ public class JdbcPotholeDao implements PotholeDao{
 
 
         pothole.setAddress(mapRowTAddress(results));
+        pothole.setRepair(mapRowToRepair(results));
 
         return pothole;
     }
@@ -66,6 +69,18 @@ public class JdbcPotholeDao implements PotholeDao{
         address.setZipCode(results.getInt("zipcode"));
 
         return address;
+
+
+    }
+    private Repair mapRowToRepair(SqlRowSet results){
+
+        Repair repair = new Repair();
+
+        repair.setStatus(results.getBoolean("status"));
+        repair.setRepairDate(results.getTimestamp("repair_date").toLocalDateTime());
+
+
+        return repair;
 
 
     }
