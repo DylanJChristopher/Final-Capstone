@@ -1,7 +1,6 @@
 <template>
   <div>
     <div>
-      <h2>Vue Js Search and Add Marker</h2>
       <label>
         <gmap-autocomplete @place_changed="initMarker"></gmap-autocomplete>
         <button @click="addLocationMarker">Add</button>
@@ -15,19 +14,22 @@
         :center="center"
         style="width:100%;  height: 600px;"
       >
+      // @click="center=m.position" was after :key="index"
       <gmap-marker
         :key="index"
         v-for="(m, index) in locationMarkers"
         :position="m.position"
-        @click="center=m.position"
+
       ></gmap-marker>
     </gmap-map>
   </div>
 </template>
  
 <script>
+
 export default {
   name: "user-location",
+  props: ['pothole'],
   data() {
     return {
       center: { 
@@ -36,10 +38,11 @@ export default {
       },
       locationMarkers: [],
       locPlaces: [],
-      existingPlace: null
+      existingPlace: null,
+
     };
   },
- 
+
   mounted() {
     this.locateGeoLocation();
   },
