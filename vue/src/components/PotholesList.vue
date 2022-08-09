@@ -31,13 +31,12 @@
 
 <script>
 
-import potHolesService from '../services/PotholesService';
+// import potHolesService from '../services/PotholesService';
 export default {
+  props: ['potholes'],
     data(){
         return {
-            potholes: [
-                
-            ]
+          
             
         
         }
@@ -49,12 +48,12 @@ export default {
 
     },
    
-created(){
-    potHolesService.retrievePotholes().then(response => {
-        this.potholes= response.data
+// created(){
+//     potHolesService.retrievePotholes().then(response => {
+//         this.potholes= response.data
     
-    })
-}
+//     })
+// }
 
 }
 </script>
