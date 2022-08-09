@@ -1,8 +1,9 @@
 <template>
   <div>
+      <report-pothole/>
       <user-location/>
-<potholes-list/>
-<report-pothole/>
+<potholes-list   />
+
   </div>
 </template>
 

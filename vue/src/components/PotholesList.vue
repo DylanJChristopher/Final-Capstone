@@ -42,10 +42,17 @@ export default {
         
         }
     },
+    computed: {
+        methodSomething(){
+            return null
+        }
+
+    },
+   
 created(){
     potHolesService.retrievePotholes().then(response => {
         this.potholes= response.data
-
+    
     })
 }
 
