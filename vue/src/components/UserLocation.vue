@@ -2,16 +2,16 @@
   <div>
     <div>
       <label>
-        <gmap-autocomplete @place_changed="initMarker"></gmap-autocomplete>
+        
         <button
-          @click="
+          v-on:click="
           addressToString();
           retrieveAllPotholeLocations();
             addLocationMarker();
             
           "
         >
-          Add
+           Click Twice but do NOT double click to Display Reported Potholes
         </button>
       </label>
       <br />
@@ -78,7 +78,7 @@ export default {
           this.partialData2 = this.partialData[0];
         
 
-        if (this.existingPlace) {
+         
           const marker = {
             lat: this.partialData2.geometry.location.lat,
             lng: this.partialData2.geometry.location.lng,
@@ -88,7 +88,7 @@ export default {
           this.center = marker;
            this.partialData2 = null;
         }
-      }
+      
     },
     locateGeoLocation: function () {
       navigator.geolocation.getCurrentPosition((res) => {
@@ -117,5 +117,8 @@ export default {
       }
     },
   },
-};
+computed: {
+ 
+},
+}
 </script>
