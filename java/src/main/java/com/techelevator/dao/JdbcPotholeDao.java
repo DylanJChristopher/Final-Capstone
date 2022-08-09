@@ -43,7 +43,7 @@ public class JdbcPotholeDao implements PotholeDao{
 
     public  void addPothole(Pothole pothole){
 
-        String potholeSql ="INSERT INTO pothole (direction, address_id, severity, discovery_date, description)" +
+        String potholeSql ="INSERT INTO pothole (direction, address_id, severity, discovery_date, description) " +
         "VALUES (?, (SELECT address_id FROM address WHERE street_name = ?), ?, ?, ?)";
 
         String addressSql = "INSERT INTO address (street_number, street_name, city, state_abbreviation, zipcode) " +
