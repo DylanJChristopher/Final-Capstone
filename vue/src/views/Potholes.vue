@@ -1,9 +1,14 @@
 <template>
   <div>
+      <div id='components'>
+          <div id= 'pot-and-report'>
+          <potholes-list v-bind:potholes ='potholes' id='pothole-list'  />
+      
+      </div>
+      <user-location v-bind:potholes='potholes' id='user-location'/>
       <report-pothole/>
-      <user-location v-bind:potholes='potholes'/>
-<potholes-list v-bind:potholes ='potholes'  />
 
+</div>
   </div>
 </template>
 
@@ -39,5 +44,15 @@ created(){
 </script>
 
 <style scoped>
+#components{
+    display: flex;
+    
+}
+#user-location{
+    width: 67%;
+}
+#pot-and-report{
+    width: 33%;
+}
 
 </style>

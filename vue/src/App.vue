@@ -21,3 +21,22 @@
     <footer>&#169; Copyright of TIPS</footer>
   </div>
 </template>
+
+<style >
+div{
+  font-family: sans-serif;
+  font-weight: bold;
+  
+}
+button{
+  font-family: sans-serif;
+  font-weight: bold;
+}
+header{
+  background-color: #281C15;
+}
+footer{
+  background-color: #281C15;
+}
+
+</style>
