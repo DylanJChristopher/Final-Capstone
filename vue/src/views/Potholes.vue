@@ -49,10 +49,12 @@ created(){
     
 }
 #user-location{
-    width: 67%;
+    width: 65vw;
+    height: 100vh;
 }
 #pot-and-report{
-    width: 33%;
+    width: 35vw;
+    height: 100vh;
 }
 
 </style>

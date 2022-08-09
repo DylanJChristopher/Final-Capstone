@@ -16,27 +16,44 @@
       </div>
     </header>
     
-    <router-view />
+    <router-view id= 'router-view'/>
 
     <footer>&#169; Copyright of TIPS</footer>
   </div>
 </template>
 
 <style >
-div{
+#router-view{
+grid-area: router-view;
+
+}
+
+header{
+  background-color: #281C15;
+  grid-area: header;
+}
+footer{
+  background-color: #281C15;
+  grid-area: footer;
+}
+#app{
+  display: grid;
+  grid-template-columns: 
+                1fr 1fr 1fr;
+                grid-template-areas: "header      header      header"
+                                     "router-view router-view router-view"
+                                     "router-view router-view router-view"
+                                     "router-view router-view router-view"
+                                     "footer      footer      footer";
   font-family: sans-serif;
   font-weight: bold;
+  height: auto;
   
 }
 button{
   font-family: sans-serif;
   font-weight: bold;
 }
-header{
-  background-color: #281C15;
-}
-footer{
-  background-color: #281C15;
-}
+
 
 </style>
