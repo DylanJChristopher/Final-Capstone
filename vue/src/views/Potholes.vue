@@ -2,7 +2,7 @@
   <div>
       <report-pothole/>
       <user-location/>
-<potholes-list/>
+<potholes-list   />
 
   </div>
 </template>
