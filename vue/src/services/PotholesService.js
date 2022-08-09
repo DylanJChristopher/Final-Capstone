@@ -8,6 +8,7 @@ export default{
     
     },
     reportPothole(pothole){
+        console.log('blake')
         return axios.post('/pothole', pothole)
     }
   

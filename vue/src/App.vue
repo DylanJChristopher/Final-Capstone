@@ -12,7 +12,7 @@
         <router-link v-bind:to="{ name: 'potholes' }"
           >Pottiest Holes </router-link
         >|
-        <router-link v-bind:to="{ name: '#' }">Submit a TIP</router-link>
+        <!-- <router-link v-bind:to="{ name: '#' }">Submit a TIP</router-link> -->
       </div>
     </header>
     

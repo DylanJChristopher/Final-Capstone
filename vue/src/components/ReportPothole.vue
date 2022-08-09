@@ -157,11 +157,15 @@ export default {
     },
     submitPothole() {
         console.log("yageen");
-        this.formReset;
-      PotholeService.reportPothole(this.pothole);
+        this.formReset()
+      PotholeService.reportPothole(this.pothole).then((response) => {
+          if(response.status == 200){
+              console.log('elise');
+          }
+      });
           
       
-        this.$router.push("/");
+    
           
       
     },
