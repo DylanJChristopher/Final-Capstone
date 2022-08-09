@@ -26,6 +26,7 @@
 </template>
  
 <script>
+import mapService from '../services/MapService.js'
 
 export default {
   name: "user-location",
@@ -33,12 +34,18 @@ export default {
   data() {
     return {
       center: { 
-        lat: 39.983334,
-        lng: -82.983330
+        lat: 40.0155,
+        lng: -82.9932
       },
       locationMarkers: [],
       locPlaces: [],
       existingPlace: null,
+
+       addressMarker: null,
+       partialData: [],
+       partialData2: null,
+
+       //1275+Kinnear+Rd,+Columbus,+OH
 
     };
   },
@@ -52,15 +59,21 @@ export default {
       this.existingPlace = loc;
     },
     addLocationMarker() {
+      mapService.getMapInformation().then((response) => {
+        this.addressMarker = response.data;
+        this.partialData = this.addressMarker.results;
+        this.partialData2 = this.partialData[0];
+      });
+      
       if (this.existingPlace) {
         const marker = {
-          lat: this.existingPlace.geometry.location.lat(),
-          lng: this.existingPlace.geometry.location.lng()
+          lat: this.partialData2.geometry.location.lat,
+          lng: this.partialData2.geometry.location.lng
         };
         this.locationMarkers.push({ position: marker });
-        this.locPlaces.push(this.existingPlace);
+        this.locPlaces.push(this.partialData2);
         this.center = marker;
-        this.existingPlace = null;
+        this.partialData2 = null;
       }
     },
     locateGeoLocation: function() {
