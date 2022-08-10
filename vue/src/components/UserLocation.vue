@@ -11,11 +11,11 @@
             
           "
         >
-           Click Twice but do NOT double click to Display Reported Potholes
+           Refresh
         </button>
       </label>
     </div>
-    <gmap-map :zoom="10" :center="center" id="mapElement">
+    <gmap-map :zoom="11" :center="center" id="mapElement">
       // @click="center=m.position" was after :key="index"
       <gmap-marker
         :key="index"
@@ -36,7 +36,7 @@ export default {
   data() {
     return {
       center: {
-        lat: 40.0155,
+        lat: 39.0155,
         lng: -82.9932,
       },
       locationMarkers: [],
