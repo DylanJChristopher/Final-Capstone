@@ -67,7 +67,8 @@ export default {
           lng: res.coords.longitude
         };
       });
-    }
+    },
+
   }
 };
 </script>
