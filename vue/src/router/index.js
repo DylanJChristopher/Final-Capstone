@@ -8,6 +8,7 @@ import store from '../store/index'
 import Potholes from '../views/Potholes.vue'
 
 
+
 Vue.use(Router)
 
 /**
@@ -62,7 +63,8 @@ const router = new Router({
       meta: {
         requiresAuth: false
       }
-    },
+    }
+   
 
 
   ]
