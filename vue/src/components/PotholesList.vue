@@ -1,304 +1,80 @@
 <template>
-  <div>
-    <section>
-      <h1>Fixed Table header</h1>
-  <div class="tbl-header">
-    <table cellpadding="0" cellspacing="0" border="0">
-      <thead>
-        <tr>
-          <th>Code</th>
-          <th>Company</th>
-          <th>Price</th>
-          <th>Change</th>
-          <th>Change %</th>
-        </tr>
-      </thead>
-    </table>
-  </div>
-  <div class="tbl-content">
-    <table cellpadding="0" cellspacing="0" border="0">
-      <tbody>
-        <tr>
-          <td>AAC</td>
-          <td>AUSTRALIAN COMPANY </td>
-          <td>$1.38</td>
-          <td>+2.01</td>
-          <td>-0.36%</td>
-        </tr>
-        <tr>
-          <td>AAD</td>
-          <td>AUSENCO</td>
-          <td>$2.38</td>
-          <td>-0.01</td>
-          <td>-1.36%</td>
-        </tr>
-        <tr>
-          <td>AAX</td>
-          <td>ADELAIDE</td>
-          <td>$3.22</td>
-          <td>+0.01</td>
-          <td>+1.36%</td>
-        </tr>
-        <tr>
-          <td>XXD</td>
-          <td>ADITYA BIRLA</td>
-          <td>$1.02</td>
-          <td>-1.01</td>
-          <td>+2.36%</td>
-        </tr>
-        <tr>
-          <td>AAC</td>
-          <td>AUSTRALIAN COMPANY </td>
-          <td>$1.38</td>
-          <td>+2.01</td>
-          <td>-0.36%</td>
-        </tr>
-        <tr>
-          <td>AAD</td>
-          <td>AUSENCO</td>
-          <td>$2.38</td>
-          <td>-0.01</td>
-          <td>-1.36%</td>
-        </tr>
-        <tr>
-          <td>AAX</td>
-          <td>ADELAIDE</td>
-          <td>$3.22</td>
-          <td>+0.01</td>
-          <td>+1.36%</td>
-        </tr>
-        <tr>
-          <td>XXD</td>
-          <td>ADITYA BIRLA</td>
-          <td>$1.02</td>
-          <td>-1.01</td>
-          <td>+2.36%</td>
-        </tr>
-        <tr>
-          <td>AAC</td>
-          <td>AUSTRALIAN COMPANY </td>
-          <td>$1.38</td>
-          <td>+2.01</td>
-          <td>-0.36%</td>
-        </tr>
-        <tr>
-          <td>AAD</td>
-          <td>AUSENCO</td>
-          <td>$2.38</td>
-          <td>-0.01</td>
-          <td>-1.36%</td>
-        </tr>
-        <tr>
-          <td>AAX</td>
-          <td>ADELAIDE</td>
-          <td>$3.22</td>
-          <td>+0.01</td>
-          <td>+1.36%</td>
-        </tr>
-        <tr>
-          <td>XXD</td>
-          <td>ADITYA BIRLA</td>
-          <td>$1.02</td>
-          <td>-1.01</td>
-          <td>+2.36%</td>
-        </tr>
-        <tr>
-          <td>AAC</td>
-          <td>AUSTRALIAN COMPANY </td>
-          <td>$1.38</td>
-          <td>+2.01</td>
-          <td>-0.36%</td>
-        </tr>
-        <tr>
-          <td>AAD</td>
-          <td>AUSENCO</td>
-          <td>$2.38</td>
-          <td>-0.01</td>
-          <td>-1.36%</td>
-        </tr>
-        <tr>
-          <td>AAX</td>
-          <td>ADELAIDE</td>
-          <td>$3.22</td>
-          <td>+0.01</td>
-          <td>+1.36%</td>
-        </tr>
-        <tr>
-          <td>XXD</td>
-          <td>ADITYA BIRLA</td>
-          <td>$1.02</td>
-          <td>-1.01</td>
-          <td>+2.36%</td>
-        </tr>
-        <tr>
-          <td>AAC</td>
-          <td>AUSTRALIAN COMPANY </td>
-          <td>$1.38</td>
-          <td>+2.01</td>
-          <td>-0.36%</td>
-        </tr>
-        <tr>
-          <td>AAD</td>
-          <td>AUSENCO</td>
-          <td>$2.38</td>
-          <td>-0.01</td>
-          <td>-1.36%</td>
-        </tr>
-        <tr>
-          <td>AAX</td>
-          <td>ADELAIDE</td>
-          <td>$3.22</td>
-          <td>+0.01</td>
-          <td>+1.36%</td>
-        </tr>
-        <tr>
-          <td>XXD</td>
-          <td>ADITYA BIRLA</td>
-          <td>$1.02</td>
-          <td>-1.01</td>
-          <td>+2.36%</td>
-        </tr>
-        <tr>
-          <td>AAC</td>
-          <td>AUSTRALIAN COMPANY </td>
-          <td>$1.38</td>
-          <td>+2.01</td>
-          <td>-0.36%</td>
-        </tr>
-        <tr>
-          <td>AAD</td>
-          <td>AUSENCO</td>
-          <td>$2.38</td>
-          <td>-0.01</td>
-          <td>-1.36%</td>
-        </tr>
-        <tr>
-          <td>AAX</td>
-          <td>ADELAIDE</td>
-          <td>$3.22</td>
-          <td>+0.01</td>
-          <td>+1.36%</td>
-        </tr>
-        <tr>
-          <td>XXD</td>
-          <td>ADITYA BIRLA</td>
-          <td>$1.02</td>
-          <td>-1.01</td>
-          <td>+2.36%</td>
-        </tr>
-        <tr>
-          <td>AAC</td>
-          <td>AUSTRALIAN COMPANY </td>
-          <td>$1.38</td>
-          <td>+2.01</td>
-          <td>-0.36%</td>
-        </tr>
-        <tr>
-          <td>AAD</td>
-          <td>AUSENCO</td>
-          <td>$2.38</td>
-          <td>-0.01</td>
-          <td>-1.36%</td>
-        </tr>
-        <tr>
-          <td>AAX</td>
-          <td>ADELAIDE</td>
-          <td>$3.22</td>
-          <td>+0.01</td>
-          <td>+1.36%</td>
-        </tr>
-        <tr>
-          <td>XXD</td>
-          <td>ADITYA BIRLA</td>
-          <td>$1.02</td>
-          <td>-1.01</td>
-          <td>+2.36%</td>
-        </tr>
-        <tr>
-          <td>AAC</td>
-          <td>AUSTRALIAN COMPANY </td>
-          <td>$1.38</td>
-          <td>+2.01</td>
-          <td>-0.36%</td>
-        </tr>
-        <tr>
-          <td>AAD</td>
-          <td>AUSENCO</td>
-          <td>$2.38</td>
-          <td>-0.01</td>
-          <td>-1.36%</td>
-        </tr>
-        <tr>
-          <td>AAX</td>
-          <td>ADELAIDE</td>
-          <td>$3.22</td>
-          <td>+0.01</td>
-          <td>+1.36%</td>
-        </tr>
-        <tr>
-          <td>XXD</td>
-          <td>ADITYA BIRLA</td>
-          <td>$1.02</td>
-          <td>-1.01</td>
-          <td>+2.36%</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
+  <div >
+    <section >
+      <section >
+      <h1>Reported Potholes</h1>
+      <div class="tbl-header">
+        <table  cellpadding="0" cellspacing="0" border="0">
+          <thead>
+            <tr>
+              <th>Pothole Image</th>
+              <th>Nearest Address</th>
+              <th>Zip Code</th>
+              <th>Direction</th>
+              <th>Status</th>
+              <th>Severity</th>
+              <th>Discovery Date</th>
+            </tr>
+          </thead>
+        </table>
+      </div>
+      <div class="tbl-content">
+        <table cellpadding="0" cellspacing="0" border="0">
+          <tbody v-for="pothole in potholes" v-bind:key="pothole.id">
+            <tr>
+              <td>Pothole Image</td>
+              <td>
+                {{ pothole.address.streetNumber }}
+                {{ pothole.address.streetName }}
+              </td>
+              <td>{{ pothole.address.zipCode }}</td>
+              <td>{{ pothole.direction }}</td>
+              <td>{{ pothole.repair.status }}</td>
+              <td>{{ pothole.severity }}</td>
+              <td>{{ pothole.discoveryDate }}</td>
+            </tr>
+            <tr>
+              <td colspan="7">
+              Description: 
+               {{ pothole.description }}
+              </td>
+            </tr>
+            <tr>
+              <td id = "placeholder" colspan="7">
+
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      </section>
     </section>
-      <!-- <table class="cinereousTable">
-<thead>
-<tr>
-<th>Pothole Image</th>
-<th>Nearest Address</th>
-<th>Zip Code</th>
-<th>Direction</th>
-<th>Status</th>
-<th>Severity</th>
-<th>Discovery Date</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr v-for="pothole in potholes" v-bind:key="pothole.id">
-<td>Pothole Image</td>
-<td>{{pothole.address.streetNumber}} {{pothole.address.streetName}}</td>
-<td>{{pothole.address.zipCode}}</td>
-<td>{{pothole.direction}}</td>
-<td>{{pothole.repair.status}}</td>
-<td>{{pothole.severity}}</td>
-<td>{{pothole.discoveryDate}}</td>
-<td>{{pothole.description}}</td>
-</tr>
-</tbody>
-</table> -->
   </div>
 </template>
 
 <script>
-
 // import potHolesService from '../services/PotholesService';
 export default {
-  props: ['potholes'],
-    data(){
-        return {
-          
-            
-        
-        }
+  props: ["potholes"],
+  data() {
+    return {};
+  },
+  computed: {
+    methodSomething() {
+      return null;
     },
-    computed: {
-        methodSomething(){
-            return null
-        }
-
-    },
-}
+  },
+};
 </script>
 
 <style scoped>
 
-h1{
+#placeholder{
+background-color: rgba(255, 255, 255, 0.3);
+padding: 2px;
+
+}
+h1 {
   font-size: 30px;
   color: #fff;
   text-transform: uppercase;
@@ -306,50 +82,48 @@ h1{
   text-align: center;
   margin-bottom: 15px;
 }
-table{
-  width:100%;
+table {
+  width: 100%;
   table-layout: fixed;
 }
-.tbl-header{
-  background-color: rgba(255,255,255,0.3);
- }
-.tbl-content{
-  height:300px;
-  overflow-x:auto;
-  margin-top: 0px;
-  border: 1px solid rgba(255,255,255,0.3);
+.tbl-header {
+  background-color: rgba(255, 255, 255, 0.3);
 }
-th{
+.tbl-content {
+  height: 100vh;
+  overflow-x: auto;
+  margin-top: 0px;
+  /* border: 1px solid rgba(255, 255, 255, 0.3); */
+}
+th {
   padding: 20px 15px;
   text-align: left;
   font-weight: 500;
-  font-size: 12px;
+  font-size: 10px;
   color: #fff;
   text-transform: uppercase;
 }
-td{
+td {
   padding: 15px;
   text-align: left;
-  vertical-align:middle;
+  vertical-align: middle;
   font-weight: 300;
   font-size: 12px;
   color: #fff;
-  border-bottom: solid 1px rgba(255,255,255,0.1);
+  /* border-bottom: solid 1px rgba(255, 255, 255, 0.1); */
 }
-
 
 /* demo styles */
 
 @import url(https://fonts.googleapis.com/css?family=Roboto:400,500,300,700);
-body{
+body {
   background: -webkit-linear-gradient(left, #25c481, #25b7c4);
   background: linear-gradient(to right, #25c481, #25b7c4);
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
 }
-section{
-  background-color: brown;
+section {
+  
 }
-
 
 /* follow me template */
 .made-with-love {
@@ -363,7 +137,7 @@ section{
 }
 .made-with-love i {
   font-style: normal;
-  color: #F50057;
+  color: #f50057;
   font-size: 14px;
   position: relative;
   top: 2px;
@@ -375,32 +149,4 @@ section{
 .made-with-love a:hover {
   text-decoration: underline;
 }
-
-/* table.cinereousTable {
-  border: 1px solid #1C6EA4;
-  background-color: #EEEEEE;
-  width: 100%;
-  text-align: center;
-}
-table.cinereousTable td, table.cinereousTable th {
-  padding: 3px 2px;
-}
-table.cinereousTable tbody td {
-  font-size: 13px;
-}
-table.cinereousTable thead {
-  background: #1C6EA4;
-  background: -moz-linear-gradient(top, #5592bb 0%, #327cad 66%, #1C6EA4 100%);
-  background: -webkit-linear-gradient(top, #5592bb 0%, #327cad 66%, #1C6EA4 100%);
-  background: linear-gradient(to bottom, #5592bb 0%, #327cad 66%, #1C6EA4 100%);
-}
-table.cinereousTable thead th {
-  font-size: 15px;
-  font-weight: bold;
-  color: #FFFFFF;
-  text-align: left;
-}
-table.cinereousTable tfoot td {
-  font-size: 14px;
-} */
 </style>

@@ -46,15 +46,22 @@ created(){
 <style scoped>
 #components{
     display: flex;
+    justify-content: space-evenly;
+    
     
 }
 #user-location{
     width: 65vw;
     height: 100vh;
+    min-width: 0;
+    flex: 400px;
 }
 #pot-and-report{
     width: 35vw;
-    height: 100vh;
+    height: 100%;
+    background-color: #281C15;
+    min-width: 0;
+    flex: auto;
 }
 
 </style>
