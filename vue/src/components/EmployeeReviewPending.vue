@@ -1,7 +1,5 @@
 <template>
   <div id="review-table">
-
-
     <section>
       <h1>Reported Potholes</h1>
       <div class="tbl-header">
@@ -21,23 +19,26 @@
       <div class="tbl-content">
         <table cellpadding="0" cellspacing="0" border="0">
           <tbody v-for="pothole in filterByStatus" v-bind:key="pothole.id">
-            <tr>
-              <td>
-                {{ pothole.address.streetNumber }}
-                {{ pothole.address.streetName }}
-              </td>
-              <td>{{ pothole.address.zipCode }}</td>
-              <!-- <td>{{ pothole.direction }}</td> -->
-              <td>{{ pothole.severity }}</td>
-              <td>{{ pothole.discoveryDate }}</td>
-              <!-- <td>{{ pothole.repair.status }}</td> -->
-            </tr>
-            <tr>
-              <td colspan="7">
-                Description:
-                {{ pothole.description }}
-              </td>
-            </tr>
+            <button v-on:click="retrieveId(pothole.id)">
+              <tr>
+                <td>
+                  {{ pothole.address.streetNumber }}
+                  {{ pothole.address.streetName }}
+                </td>
+                <td>{{ pothole.address.zipCode }}</td>
+                <!-- <td>{{ pothole.direction }}</td> -->
+                <td>{{ pothole.severity }}</td>
+                <td>{{ pothole.discoveryDate }}</td>
+                <!-- <td>{{ pothole.repair.status }}</td> -->
+              </tr>
+
+              <tr>
+                <td colspan="7">
+                  Description:
+                  {{ pothole.description }}
+                </td>
+              </tr>
+            </button>
             <tr>
               <td id="placeholder" colspan="7"></td>
             </tr>
@@ -46,36 +47,39 @@
       </div>
     </section>
   </div>
-
 </template>
 
 
 
 <script>
 export default {
-    props: ["potholes"],
-    computed: {
+  props: ["potholes"],
+
+  computed: {
     filterByStatus() {
       let filteredPotholes = this.potholes;
       // console.log(this.filteredPotholes);
       const results = filteredPotholes.filter((pothole) => {
-        return pothole.repair.status == 'Pending';
+        return pothole.repair.status == "Pending";
       });
       return results;
     },
+    methods: {
+      retrieveId(potholeId) {
+        this.$store.commit("SET_POTHOLE_ID", potholeId);
+      },
+    },
   },
-    
-
-}
+};
 </script>
 
 <style scoped>
-section{
-    background-color: tomato;
-    width: 100%;
-    height:100%;
-    margin:0;
-    padding:0;
+section {
+  background-color: tomato;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
 }
 
 #placeholder {
@@ -91,18 +95,17 @@ h1 {
   margin-bottom: 15px;
 }
 table {
-
-  table-layout:fixed;
+  table-layout: fixed;
   margin: 0;
 }
 .tbl-header {
   background-color: goldenrod;
 }
 .tbl-content {
-    overflow-x: auto;
+  overflow-x: auto;
   margin-top: 0px;
-width: auto;
-height:auto;
+  width: auto;
+  height: auto;
 }
 th {
   padding: 20px 15px;

@@ -20,9 +20,15 @@ if(currentToken != null) {
 export default new Vuex.Store({
   state: {
     token: currentToken || '',
-    user: currentUser || {}
+    user: currentUser || {},
+    pothole: ""
   },
   mutations: {
+    SET_POTHOLE_ID(state, potholeId){
+      state.pothole = potholeId;
+      console.log(state.pothole);
+
+    },
     SET_AUTH_TOKEN(state, token) {
       state.token = token;
       localStorage.setItem('token', token);
