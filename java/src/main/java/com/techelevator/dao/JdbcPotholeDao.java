@@ -5,6 +5,7 @@ import com.techelevator.model.Pothole;
 import com.techelevator.model.Repair;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
+import org.springframework.security.core.parameters.P;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
@@ -55,19 +56,27 @@ public class JdbcPotholeDao implements PotholeDao{
 
     }
 
-    @Override
-    public void deletePothole(Pothole pothole) {
+    public Pothole statusUpdate(Pothole pothole, int potholeId) {
+        Pothole result = pothole;
+        boolean updated = false;
+        
 
     }
 
-    @Override
-    public void deletePothole(int potholeId) {
-        String sql = "SELECT pothole_id FROM pothole WHERE pothole_id = ?";
-        SqlRowSet results = jdbcTemplate.queryForRowSet(sql, potholeId);
 
-        String potholeIdSql = "DELETE FROM pothole WHERE pothole_id = ?;";
-        jdbcTemplate.update(potholeIdSql, potholeId);
-    }
+
+//Might not use this unless Product owner says we want to
+//    @Override
+//    public void deletePothole(int potholeId) {
+//        String sql = "SELECT pothole_id FROM pothole WHERE pothole_id = ?";
+//        SqlRowSet results = jdbcTemplate.queryForRowSet(sql, potholeId);
+//
+//        String repairIdSql = "DELETE FROM repair WHERE pothole_id = ?";
+//        jdbcTemplate.update(repairIdSql, potholeId);
+//
+//        String potholeIdSql = "DELETE FROM pothole WHERE pothole_id = ?";
+//        jdbcTemplate.update(potholeIdSql, potholeId);
+//    }
 
     private Pothole mapRowToPothole(SqlRowSet results) {
         Pothole pothole = new Pothole();

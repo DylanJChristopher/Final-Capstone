@@ -4,6 +4,7 @@ import com.techelevator.dao.PotholeDao;
 import com.techelevator.model.Pothole;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.security.core.parameters.P;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -26,10 +27,14 @@ public class PotholeController {
         potholeDao.addPothole(pothole);
     }
 
-    @ResponseStatus(HttpStatus.NO_CONTENT)
-    @RequestMapping(path = "/pothole/{id}",method =RequestMethod.DELETE )
-    public void deletePothole(@PathVariable int potholeId) {
-        potholeDao.deletePothole(potholeId);
+    @RequestMapping(path = "/pothole/{id}", method = RequestMethod.PUT)
+    public Pothole statusUpdate(@Valid @RequestBody Pothole pothole, @PathVariable int potholeId) {
+        return potholeDao.statusUpdate(pothole, potholeId);
     }
+
+//    @RequestMapping(path = "/pothole/{id}",method =RequestMethod.DELETE )
+//    public void deletePothole(@PathVariable int potholeId) {
+//        potholeDao.deletePothole(potholeId);
+//    }
 
 }
