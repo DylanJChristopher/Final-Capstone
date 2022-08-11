@@ -26,7 +26,8 @@ public class JdbcPotholeDao implements PotholeDao{
         String sql = "SELECT pothole.*, address.*, repair.* " +
                 "FROM pothole " +
                 "JOIN address ON pothole.address_id = address.address_id " +
-                "JOIN repair ON pothole.pothole_id = repair.pothole_id";
+                "JOIN repair ON pothole.pothole_id = repair.pothole_id " +
+                "WHERE status = false";
 
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql);
 
