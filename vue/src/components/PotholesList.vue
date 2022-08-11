@@ -1,3 +1,4 @@
+
 <template>
   <div >
     <section >
@@ -11,7 +12,6 @@
               <th>Nearest Address</th>
               <th>Zip Code</th>
               <th>Direction</th>
-              <th>Status</th>
               <th>Severity</th>
               <th>Discovery Date</th>
             </tr>
@@ -29,18 +29,17 @@
               </td>
               <td>{{ pothole.address.zipCode }}</td>
               <td>{{ pothole.direction }}</td>
-              <td>{{ pothole.repair.status }}</td>
               <td>{{ pothole.severity }}</td>
-              <td>{{ pothole.discoveryDate }}</td>
+              <td>{{pothole.discoveryDate}}</td>
             </tr>
             <tr>
-              <td colspan="7">
+              <td colspan="6">
               Description: 
                {{ pothole.description }}
               </td>
             </tr>
             <tr>
-              <td id = "placeholder" colspan="7">
+              <td id = "placeholder" colspan="6">
 
               </td>
             </tr>
@@ -54,15 +53,21 @@
 
 <script>
 // import potHolesService from '../services/PotholesService';
+// import moment from 'moment'
+// import Vue from 'vue';
 export default {
   props: ["potholes"],
   data() {
-    return {};
+    return {
+    };
   },
   computed: {
     methodSomething() {
       return null;
     },
+    // convertingTimestamp(pothole){
+    //   Vue.filter('formatDate', function(value))
+    // }
   },
 };
 </script>
@@ -106,6 +111,7 @@ th {
   font-family: Arial, Helvetica, sans-serif;
   
 }
+
 td {
   padding: 15px;
   text-align: left;

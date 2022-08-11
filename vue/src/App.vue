@@ -7,7 +7,7 @@
         <div id = "spaceHolder"></div>
         <ul>
   <li><router-link class = "links" v-bind:to="{ name: 'home' }">Home</router-link></li>
-  <li><router-link class = "links" v-bind:to="{ name: 'potholes' }">Pottiest Holes </router-link></li>
+  <li><router-link class = "links" v-bind:to="{ name: 'potholes' }">View Potholes </router-link></li>
   <li><a class = "links" href="contact.asp">Contact</a></li>
   <li><router-link class = "links"
           v-bind:to="{ name: 'logout' }"
