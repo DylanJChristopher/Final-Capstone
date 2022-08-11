@@ -1,51 +1,49 @@
 
 <template>
-  <div >
-    <section >
-      <section >
-      <h1>Reported Potholes</h1>
-      <div class="tbl-header">
-        <table  cellpadding="0" cellspacing="0" border="0">
-          <thead>
-            <tr>
-              <th>Pothole Image</th>
-              <th>Nearest Address</th>
-              <th>Zip Code</th>
-              <th>Direction</th>
-              <th>Severity</th>
-              <th>Discovery Date</th>
-            </tr>
-          </thead>
-        </table>
-      </div>
-      <div class="tbl-content">
-        <table cellpadding="0" cellspacing="0" border="0">
-          <tbody v-for="pothole in potholes" v-bind:key="pothole.id">
-            <tr>
-              <td>Pothole Image</td>
-              <td>
-                {{ pothole.address.streetNumber }}
-                {{ pothole.address.streetName }}
-              </td>
-              <td>{{ pothole.address.zipCode }}</td>
-              <td>{{ pothole.direction }}</td>
-              <td>{{ pothole.severity }}</td>
-              <td>{{pothole.discoveryDate}}</td>
-            </tr>
-            <tr>
-              <td colspan="6">
-              Description: 
-               {{ pothole.description }}
-              </td>
-            </tr>
-            <tr>
-              <td id = "placeholder" colspan="6">
-
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
+  <div>
+    <section>
+      <section>
+        <h1>Reported Potholes</h1>
+        <div class="tbl-header">
+          <table cellpadding="0" cellspacing="0" border="0">
+            <thead>
+              <tr>
+                <th>Pothole Image</th>
+                <th>Nearest Address</th>
+                <th>Zip Code</th>
+                <th>Direction</th>
+                <th>Severity</th>
+                <th>Discovery Date</th>
+              </tr>
+            </thead>
+          </table>
+        </div>
+        <div class="tbl-content">
+          <table cellpadding="0" cellspacing="0" border="0">
+            <tbody v-for="pothole in potholes" v-bind:key="pothole.id">
+              <tr>
+                <td>Pothole Image</td>
+                <td>
+                  {{ pothole.address.streetNumber }}
+                  {{ pothole.address.streetName }}
+                </td>
+                <td>{{ pothole.address.zipCode }}</td>
+                <td>{{ pothole.direction }}</td>
+                <td>{{ pothole.severity }}</td>
+                <td>{{ pothole.discoveryDate }}</td>
+              </tr>
+              <tr>
+                <td colspan="6">
+                  Description:
+                  {{ pothole.description }}
+                </td>
+              </tr>
+              <tr>
+                <td id="placeholder" colspan="6"></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </section>
     </section>
   </div>
@@ -53,10 +51,13 @@
 
 <script>
 // import potHolesService from '../services/PotholesService';
+import moment from 'moment'
+import Vue from 'vue'
 export default {
   props: ["potholes"],
   data() {
     return {
+      
     };
   },
   computed: {
@@ -64,15 +65,25 @@ export default {
       return null;
     },
   },
+  methods: {
+    convertTime(){
+      Vue.filter('formatDate', (potholeDate) => {
+        if (potholeDate) {
+          return moment(String(potholeDate)).format('MM/DD/YYYY hh:mm')
+        }
+      })
+      
+    },
+   
+  },
+  
 };
 </script>
 
 <style scoped>
-
-#placeholder{
-background-color: rgba(255, 255, 255, 0.3);
-padding: 2px;
-
+#placeholder {
+  background-color: rgba(255, 255, 255, 0.3);
+  padding: 2px;
 }
 h1 {
   font-size: 30px;
@@ -88,30 +99,27 @@ table {
 }
 .tbl-header {
   background-color: goldenrod;
-
 }
 .tbl-content {
   height: 100vh;
   /* overflow-x: auto; */
   margin-top: 0px;
-
 }
 th {
   padding: 20px 15px;
   text-align: left;
-  font-weight:bolder;
+  font-weight: bolder;
   font-size: 10px;
   color: rgba(216, 0, 0, 0.795);
   text-transform: uppercase;
   font-family: Arial, Helvetica, sans-serif;
-  
 }
 
 td {
   padding: 15px;
   text-align: left;
   vertical-align: middle;
-  font-weight:bold;
+  font-weight: bold;
   font-size: 12px;
   font-family: Arial, Helvetica, sans-serif;
 
@@ -128,7 +136,6 @@ body {
   font-family: "Roboto", sans-serif;
 }
 section {
-  
 }
 
 /* follow me template */
