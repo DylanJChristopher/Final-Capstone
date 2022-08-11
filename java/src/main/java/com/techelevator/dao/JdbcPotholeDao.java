@@ -53,20 +53,31 @@ public class JdbcPotholeDao implements PotholeDao{
         jdbcTemplate.update(repairSql, pothole.getDiscoveryDate());
 
     }
+    public void statusUpdate(Repair repair, int id) {
+        String sql = "UPDATE repair " +
+                "SET repair_date = ?, status = ? " +
+                "WHERE pothole_id = ?";
+        jdbcTemplate.update(sql, repair.getRepairDate(), repair.getStatus(), id);
 
-    @Override
-    public void deletePothole(Pothole pothole) {
+
+
 
     }
 
-    @Override
-    public void deletePothole(int potholeId) {
-        String sql = "SELECT pothole_id FROM pothole WHERE pothole_id = ?";
-        SqlRowSet results = jdbcTemplate.queryForRowSet(sql, potholeId);
 
-        String potholeIdSql = "DELETE FROM pothole WHERE pothole_id = ?;";
-        jdbcTemplate.update(potholeIdSql, potholeId);
-    }
+
+//Might not use this unless Product owner says we want to
+//    @Override
+//    public void deletePothole(int potholeId) {
+//        String sql = "SELECT pothole_id FROM pothole WHERE pothole_id = ?";
+//        SqlRowSet results = jdbcTemplate.queryForRowSet(sql, potholeId);
+//
+//        String repairIdSql = "DELETE FROM repair WHERE pothole_id = ?";
+//        jdbcTemplate.update(repairIdSql, potholeId);
+//
+//        String potholeIdSql = "DELETE FROM pothole WHERE pothole_id = ?";
+//        jdbcTemplate.update(potholeIdSql, potholeId);
+//    }
 
     private Pothole mapRowToPothole(SqlRowSet results) {
         Pothole pothole = new Pothole();
