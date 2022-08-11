@@ -53,8 +53,6 @@
 
 <script>
 // import potHolesService from '../services/PotholesService';
-// import moment from 'moment'
-// import Vue from 'vue';
 export default {
   props: ["potholes"],
   data() {
@@ -65,9 +63,6 @@ export default {
     methodSomething() {
       return null;
     },
-    // convertingTimestamp(pothole){
-    //   Vue.filter('formatDate', function(value))
-    // }
   },
 };
 </script>
