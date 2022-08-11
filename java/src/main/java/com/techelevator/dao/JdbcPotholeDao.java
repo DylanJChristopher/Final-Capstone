@@ -26,7 +26,7 @@ public class JdbcPotholeDao implements PotholeDao{
                 "FROM pothole " +
                 "JOIN address ON pothole.address_id = address.address_id " +
                 "JOIN repair ON pothole.pothole_id = repair.pothole_id " +
-                "WHERE status = false";
+                "WHERE status LIKE 'Pending'";
 
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql);
 
@@ -49,7 +49,7 @@ public class JdbcPotholeDao implements PotholeDao{
         String addressSql = "INSERT INTO address (street_number, street_name, city, state_abbreviation, zipcode) " +
                 "VALUES ( ?,?,?,?,?)RETURNING address_id ";
         String repairSql = "INSERT INTO repair (pothole_id, status) "+
-                "VALUES ((SELECT pothole_id FROM pothole WHERE discovery_date = ?), false)";
+                "VALUES ((SELECT pothole_id FROM pothole WHERE discovery_date = ?), 'Pending')";
         Integer addressId = jdbcTemplate.queryForObject(addressSql,Integer.class,pothole.getAddress().getStreetNumber(), pothole.getAddress().getStreetName(), pothole.getAddress().getCity(), pothole.getAddress().getState(), pothole.getAddress().getZipCode());
         jdbcTemplate.update(potholeSql,pothole.getDirection(),addressId, pothole.getSeverity(),pothole.getDiscoveryDate(),pothole.getDescription());
         jdbcTemplate.update(repairSql, pothole.getDiscoveryDate());
@@ -115,7 +115,7 @@ public class JdbcPotholeDao implements PotholeDao{
 
         Repair repair = new Repair();
 
-        repair.setStatus(results.getBoolean("status"));
+        repair.setStatus(results.getString("status"));
         if (results.getTimestamp("repair_date") != null) {
             repair.setRepairDate(results.getTimestamp("repair_date").toLocalDateTime());
         }
