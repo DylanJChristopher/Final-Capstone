@@ -1,52 +1,55 @@
 <template>
   <div id="review-table">
-       <section>
-        <h1>Reported Potholes</h1>
-        <div class="tbl-header">
-          <table cellpadding="0" cellspacing="0" border="0">
-            <thead>
-              <tr>
-                <th>Nearest Address</th>
-                <th>Zip Code</th>
-                <th>Direction</th>
-                <th>Severity</th>
-                <th>Discovery Date</th>
-                <th>Status</th>
-                 <th>Repair Date</th>
-              </tr>
-            </thead>
-          </table>
-        </div>
-        <div class="tbl-content">
-          <table cellpadding="0" cellspacing="0" border="0">
-            <tbody v-for="pothole in potholes" v-bind:key="pothole.id">
-              <router-link v-bind:to="{ name: 'register' }"><tr>
-                <td>
-                  {{ pothole.address.streetNumber }}
-                  {{ pothole.address.streetName }}
-                </td>
-                <td>{{ pothole.address.zipCode }}</td>
-                <td>{{ pothole.direction }}</td>
-                <td>{{ pothole.severity }}</td>
-                <td>{{ pothole.discoveryDate }}</td>
-                <td>{{ pothole.repair.status }}</td>
-                <td>{{ pothole.repair.repairDate }}</td>
-              </tr></router-link>
-              <tr>
-                <td colspan="7">
-                  Description:
-                  {{ pothole.description }}
-                </td>
-              </tr>
-              <tr>
-                <td id="placeholder" colspan="7"></td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </section>
-  </div>    
+
+
+    <section>
+      <h1>Reported Potholes</h1>
+      <div class="tbl-header">
+        <table cellpadding="0" cellspacing="0" border="0">
+          <thead>
+            <tr>
+              <th>Nearest Address</th>
+              <th>Zip Code</th>
+              <!-- <th>Direction</th> -->
+              <th>Severity</th>
+              <th>Discovery Date</th>
+              <!-- <th>Status</th> -->
+            </tr>
+          </thead>
+        </table>
+      </div>
+      <div class="tbl-content">
+        <table cellpadding="0" cellspacing="0" border="0">
+          <tbody v-for="pothole in filterByStatus" v-bind:key="pothole.id">
+            <tr>
+              <td>
+                {{ pothole.address.streetNumber }}
+                {{ pothole.address.streetName }}
+              </td>
+              <td>{{ pothole.address.zipCode }}</td>
+              <!-- <td>{{ pothole.direction }}</td> -->
+              <td>{{ pothole.severity }}</td>
+              <td>{{ pothole.discoveryDate }}</td>
+              <!-- <td>{{ pothole.repair.status }}</td> -->
+            </tr>
+            <tr>
+              <td colspan="7">
+                Description:
+                {{ pothole.description }}
+              </td>
+            </tr>
+            <tr>
+              <td id="placeholder" colspan="7"></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </div>
+
 </template>
+
+
 
 <script>
 export default {
