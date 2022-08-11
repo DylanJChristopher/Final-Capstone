@@ -6,12 +6,13 @@
           <table cellpadding="0" cellspacing="0" border="0">
             <thead>
               <tr>
-                <th>Pothole Image</th>
                 <th>Nearest Address</th>
                 <th>Zip Code</th>
                 <th>Direction</th>
                 <th>Severity</th>
                 <th>Discovery Date</th>
+                <th>Status</th>
+                 <th>Repair Date</th>
               </tr>
             </thead>
           </table>
@@ -20,7 +21,6 @@
           <table cellpadding="0" cellspacing="0" border="0">
             <tbody v-for="pothole in potholes" v-bind:key="pothole.id">
               <tr>
-                <td>Pothole Image</td>
                 <td>
                   {{ pothole.address.streetNumber }}
                   {{ pothole.address.streetName }}
@@ -29,15 +29,17 @@
                 <td>{{ pothole.direction }}</td>
                 <td>{{ pothole.severity }}</td>
                 <td>{{ pothole.discoveryDate }}</td>
+                <td>{{ pothole.repair.status }}</td>
+                <td>{{ pothole.repair.repairDate }}</td>
               </tr>
               <tr>
-                <td colspan="6">
+                <td colspan="7">
                   Description:
                   {{ pothole.description }}
                 </td>
               </tr>
               <tr>
-                <td id="placeholder" colspan="6"></td>
+                <td id="placeholder" colspan="7"></td>
               </tr>
             </tbody>
           </table>

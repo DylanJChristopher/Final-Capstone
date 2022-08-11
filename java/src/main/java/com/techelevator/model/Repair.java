@@ -6,7 +6,7 @@ public class Repair {
     private String status;
     private LocalDateTime repairDate;
 
-    public String isStatus() {
+    public String getStatus() {
         return status;
     }
 
