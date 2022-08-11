@@ -2,7 +2,7 @@
   <div id="container">
     <section id="top" >
       <graph id="graph" class="box" />
-      <pothole-card id="card" class="box"/>
+      <pothole-card id="card" class="box" />
     </section>
     <section id="bottom" >
       <employee-review-pending id="review" class="box" v-bind:potholes="potholes" />
