@@ -56,10 +56,12 @@ public class JdbcPotholeDao implements PotholeDao{
 
     }
 
-    public Pothole statusUpdate(Pothole pothole, int potholeId) {
-        Pothole result = pothole;
-        boolean updated = false;
-        
+    public void statusUpdate(Pothole pothole) {
+        String sql = "UPDATE pothole" +
+                "SET status = "
+
+
+
 
     }
 
