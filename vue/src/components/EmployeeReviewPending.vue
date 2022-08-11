@@ -125,6 +125,9 @@ td {
   color: rgb(255, 255, 255);
   border-bottom: solid 1px rgba(255, 255, 255, 0.1);
 }
+::-webkit-scrollbar {
+    width: 6px;
+} 
 
 /* demo styles
 
