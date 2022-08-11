@@ -39,7 +39,7 @@ CREATE TABLE pothole (
 CREATE TABLE repair (
 	repair_id SERIAL,
 	pothole_id int NOT NULL,
-	status boolean NOT NULL,
+	status varchar(20) NOT NULL,
 	repair_date timestamp,
 	CONSTRAINT PK_repair PRIMARY KEY (repair_id),
 	CONSTRAINT FK_pothole FOREIGN KEY (pothole_id) REFERENCES pothole (pothole_id)
