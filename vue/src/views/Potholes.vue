@@ -50,15 +50,17 @@ export default {
 #components {
   display: flex;
   justify-content: space-evenly;
+  width: 100%;
 }
 #user-location {
-  width: 60vw;
-  height: 100vw;
+  width: 50vw;
+  height: 85vh;
   min-width: 0;
   background-color: black;
 }
 #pot-and-report {
-  width: 40vw;
+  width: 50vw;
+  height: 85vh;
   display: flex;
   flex-direction: column;
   background-color: #1d1d1d;
