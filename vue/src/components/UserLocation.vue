@@ -1,19 +1,19 @@
 <template>
   <div>
+    <button
+      v-on:click="
+        addressToString();
+        retrieveAllPotholeLocations();
+        addLocationMarker();
+        addressToString();
+        retrieveAllPotholeLocations();
+        addLocationMarker();
+      "
+    >
+      Refresh
+    </button>
     <div>
-      <label>
-        
-        <button
-          v-on:click="
-          addressToString();
-          retrieveAllPotholeLocations();
-            addLocationMarker();
-            
-          "
-        >
-           Refresh
-        </button>
-      </label>
+      <label> Pothole Map </label>
     </div>
     <gmap-map :zoom="11" :center="center" id="mapElement">
       // @click="center=m.position" was after :key="index"
@@ -27,7 +27,6 @@
 </template>
  
 <script>
-
 import mapService from "../services/MapService.js";
 
 export default {
@@ -60,33 +59,28 @@ export default {
     initMarker(loc) {
       this.existingPlace = loc;
     },
-    retrieveAllPotholeLocations(){
+    retrieveAllPotholeLocations() {
       for (let i = 0; i < this.addressString.length; i++) {
-         mapService.getMapInformation(this.addressString[i]).then((response) => {
-         this.potholeLocations.push(response.data);
+        mapService.getMapInformation(this.addressString[i]).then((response) => {
+          this.potholeLocations.push(response.data);
         });
       }
-
     },
     addLocationMarker() {
       for (let i = 0; i < this.addressString.length; i++) {
-        
-          this.addressMarker = this.potholeLocations[i];
-          this.partialData = this.addressMarker.results;
-          this.partialData2 = this.partialData[0];
-        
+        this.addressMarker = this.potholeLocations[i];
+        this.partialData = this.addressMarker.results;
+        this.partialData2 = this.partialData[0];
 
-         
-          const marker = {
-            lat: this.partialData2.geometry.location.lat,
-            lng: this.partialData2.geometry.location.lng,
-          };
-          this.locationMarkers.push({ position: marker });
-          this.locPlaces.push(this.partialData2);
-          this.center = marker;
-           this.partialData2 = null;
-        }
-      
+        const marker = {
+          lat: this.partialData2.geometry.location.lat,
+          lng: this.partialData2.geometry.location.lng,
+        };
+        this.locationMarkers.push({ position: marker });
+        this.locPlaces.push(this.partialData2);
+        this.center = marker;
+        this.partialData2 = null;
+      }
     },
     locateGeoLocation: function () {
       navigator.geolocation.getCurrentPosition((res) => {
@@ -115,21 +109,17 @@ export default {
       }
     },
   },
-computed: {
- 
-},
-}
+  computed: {},
+};
 </script>
 <style scoped>
-
-#mapElement{
+#mapElement {
   width: 100%;
-   height: 100vw;
-   opacity: 100%;
+  height: 85vh;
+  opacity: 100%;
 }
-button{
-  margin:0;
-  padding:0;
+button {
+  margin: 0;
+  padding: 0;
 }
-
 </style>

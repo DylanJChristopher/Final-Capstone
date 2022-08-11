@@ -59,6 +59,10 @@ body {
   color: #f5851f;
   text-decoration: unset;
 }
+.links:hover{
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
 ul {
   display: flex;
   justify-content: space-evenly;
@@ -74,6 +78,7 @@ ul {
 }
 #router-view {
   grid-area: router-view;
+  height: 85vh;
 }
 
 header {
@@ -84,6 +89,7 @@ header {
   justify-content: space-between;
   background-color: black;
   grid-area: header;
+  height: 10vh;
 }
 footer {
   background-color: black;
@@ -92,7 +98,7 @@ footer {
   position: relative;
   bottom: 0;
   width: 100%;
-  height: 1.5rem;
+  height: 5vh;
 }
 #app {
   display: grid;
