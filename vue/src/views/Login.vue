@@ -1,5 +1,7 @@
 <template>
+
   <div id="login" class="text-center">
+    <section id="container">
     <form class="form-signin" @submit.prevent="login">
       <h1 class="h3 mb-3 font-weight-normal">Please Sign In</h1>
       <div
@@ -34,6 +36,7 @@
       <router-link :to="{ name: 'register' }">Need an account?</router-link>
       <button type="submit">Sign in</button>
     </form>
+    </section>
   </div>
 </template>
 
@@ -77,7 +80,46 @@ export default {
 <style scoped>
 button:hover{
   box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+  
 }
+.form-signin{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 50%;
+  width: 25%;
+  background-color: whitesmoke;
+  opacity: 85%;
+  align-items: center;
+  border-radius: 15%;
 
 
+}
+label, input, button{
+  width: 25%;
+}
+#login{
+  height:85vh;
+   width: 100vw;
+ display: flex;
+ justify-content: center;
+
+ background-color: yellowgreen;
+ align-items: center;
+
+
+}
+#container{
+  height:85vh;
+   width: 100vw;
+ display: flex;
+ justify-content: center;
+background-image:url("../assets/pothole-2.jpg");
+align-items: center;
+  background-repeat:no-repeat;
+  background-size: cover;
+}
+input{
+  height: 7%;
+}
 </style>

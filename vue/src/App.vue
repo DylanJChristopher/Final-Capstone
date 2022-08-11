@@ -10,7 +10,7 @@
             <router-link
               class="links"
               v-bind:to="{ name: 'logout' }"
-              v-if="$store.state.token != ''"
+              v-show="$store.state.token != ''"
               >Logout</router-link
             >
           </li>
@@ -26,7 +26,7 @@
           </li>
           <li><a class="links" href="contact.asp">Contact</a></li>
           <li>
-            <router-link class="links" v-bind:to="{ name: 'login' }"
+            <router-link class="links" v-bind:to="{ name: 'login' }" v-show="$store.state.token == ''"
               >Employee Login</router-link
             >
           </li>
