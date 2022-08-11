@@ -2,6 +2,7 @@ package com.techelevator.controller;
 
 import com.techelevator.dao.PotholeDao;
 import com.techelevator.model.Pothole;
+import com.techelevator.model.Repair;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.core.parameters.P;
@@ -28,8 +29,8 @@ public class PotholeController {
     }
 
     @RequestMapping(path = "/pothole/{id}", method = RequestMethod.PUT)
-    public Pothole statusUpdate(@Valid @RequestBody Pothole pothole, @PathVariable int potholeId) {
-        return potholeDao.statusUpdate(pothole, potholeId);
+    public void potholeUpdate(@Valid @RequestBody Repair repair, @PathVariable int id){
+        potholeDao.statusUpdate(repair, id);
     }
 
 //    @RequestMapping(path = "/pothole/{id}",method =RequestMethod.DELETE )

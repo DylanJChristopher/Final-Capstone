@@ -5,7 +5,6 @@ import com.techelevator.model.Pothole;
 import com.techelevator.model.Repair;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
-import org.springframework.security.core.parameters.P;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
@@ -55,10 +54,11 @@ public class JdbcPotholeDao implements PotholeDao{
         jdbcTemplate.update(repairSql, pothole.getDiscoveryDate());
 
     }
-
-    public void statusUpdate(Pothole pothole) {
-        String sql = "UPDATE pothole" +
-                "SET status = "
+    public void statusUpdate(Repair repair, int id) {
+        String sql = "UPDATE repair " +
+                "SET repair_date = ?, status = ? " +
+                "WHERE pothole_id = ?";
+        jdbcTemplate.update(sql, repair.getRepairDate(), repair.getStatus(), id);
 
 
 
