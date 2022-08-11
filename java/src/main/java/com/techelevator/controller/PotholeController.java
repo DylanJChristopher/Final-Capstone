@@ -25,4 +25,9 @@ public class PotholeController {
         potholeDao.addPothole(pothole);
     }
 
+    @RequestMapping(path = "/pothole",method =RequestMethod.DELETE )
+    public void deletePothole(@Valid @RequestBody Pothole pothole){
+        potholeDao.addPothole(pothole);
+    }
+
 }

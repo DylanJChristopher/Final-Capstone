@@ -6,6 +6,7 @@ import com.techelevator.model.Repair;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
 import org.springframework.stereotype.Component;
+import java.time.format.DateTimeFormatter;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -57,13 +58,19 @@ public class JdbcPotholeDao implements PotholeDao{
 
     }
 
+    @Override
+    public void deletePothole(int potholeId) {
+        String sql = "DELETE FROM pothole WHERE pothole_id = ?;";
+        jdbcTemplate.update(sql, potholeId);
+    }
+
     private Pothole mapRowToPothole(SqlRowSet results) {
         Pothole pothole = new Pothole();
 
         pothole.setPotholeId(results.getInt("pothole_id"));
         pothole.setDirection(results.getString("direction"));
         pothole.setSeverity(results.getInt("severity"));
-        pothole.setDiscoveryDate(results.getTimestamp("discovery_date").toLocalDateTime());
+        pothole.setDiscoveryDate(results.getTimestamp("discovery_date").toLocalDateTime().format(DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss")));
         pothole.setDescription(results.getString("description"));
 
 
@@ -94,7 +101,7 @@ public class JdbcPotholeDao implements PotholeDao{
 
         repair.setStatus(results.getBoolean("status"));
         if (results.getTimestamp("repair_date") != null) {
-            repair.setRepairDate(results.getTimestamp("repair_date").toLocalDateTime());
+            repair.setRepairDate(results.getTimestamp("repair_date").toLocalDateTime().format(DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss")));
         }
         else {
             repair.setRepairDate(null);
