@@ -57,6 +57,12 @@ public class JdbcPotholeDao implements PotholeDao{
 
     }
 
+    @Override
+    public void deletePothole(int potholeId) {
+        String sql = "DELETE FROM pothole WHERE pothole_id = ?;";
+        jdbcTemplate.update(sql, potholeId);
+    }
+
     private Pothole mapRowToPothole(SqlRowSet results) {
         Pothole pothole = new Pothole();
 

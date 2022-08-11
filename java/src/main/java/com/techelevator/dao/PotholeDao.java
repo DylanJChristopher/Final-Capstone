@@ -9,4 +9,5 @@ public interface PotholeDao {
 
     List<Pothole> retrievePotholes();
     void addPothole(Pothole pothole);
+    void deletePothole(int potholeId);
 }
