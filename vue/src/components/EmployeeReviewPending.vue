@@ -54,6 +54,16 @@
 <script>
 export default {
     props: ["potholes"],
+    computed: {
+    filterByStatus() {
+      let filteredPotholes = this.potholes;
+      // console.log(this.filteredPotholes);
+      const results = filteredPotholes.filter((pothole) => {
+        return pothole.repair.status == 'Pending';
+      });
+      return results;
+    },
+  },
     
 
 }
