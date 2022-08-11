@@ -1,6 +1,8 @@
 <template>
     <div>
-      <p>Card Container Larger</p>
+        <div card>
+            
+    </div>
       </div>
 </template>
 

@@ -50,7 +50,7 @@ export default {
 #top{
 background-color: grey;
 display: flex;
-width:100vw;
+width:100%;
 height:45vh;
 }
 
@@ -58,11 +58,24 @@ height:45vh;
 background-color: yellowgreen;
 display: flex;
 width:100%;
-height:40vh;
+height: 40vh;
+
 
 }
 .box{
   width: 50vw;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  
+}
+.review{
+  height: 40vh;
+
+}
+.review{
+  height: 40vh;
+  
 }
 
 

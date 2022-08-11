@@ -20,7 +20,7 @@
         <div class="tbl-content">
           <table cellpadding="0" cellspacing="0" border="0">
             <tbody v-for="pothole in potholes" v-bind:key="pothole.id">
-              <tr>
+              <router-link v-bind:to="{ name: 'register' }"><tr>
                 <td>
                   {{ pothole.address.streetNumber }}
                   {{ pothole.address.streetName }}
@@ -31,7 +31,7 @@
                 <td>{{ pothole.discoveryDate }}</td>
                 <td>{{ pothole.repair.status }}</td>
                 <td>{{ pothole.repair.repairDate }}</td>
-              </tr>
+              </tr></router-link>
               <tr>
                 <td colspan="7">
                   Description:
@@ -50,7 +50,8 @@
 
 <script>
 export default {
-    props: ["potholes"]
+    props: ["potholes"],
+    
 
 }
 </script>
@@ -59,6 +60,9 @@ export default {
 section{
     background-color: tomato;
     width: 100%;
+    height:100%;
+    margin:0;
+    padding:0;
 }
 
 #placeholder {
@@ -74,17 +78,18 @@ h1 {
   margin-bottom: 15px;
 }
 table {
-  
-  table-layout: fixed;
+
+  table-layout:fixed;
+  margin: 0;
 }
 .tbl-header {
   background-color: goldenrod;
-  width: 100%;
 }
 .tbl-content {
-    /* overflow-x: auto; */
+    overflow-x: auto;
   margin-top: 0px;
-width: 100%;
+width: auto;
+height:auto;
 }
 th {
   padding: 20px 15px;
