@@ -6,10 +6,7 @@ import com.techelevator.model.Repair;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
 import org.springframework.stereotype.Component;
-import java.time.format.DateTimeFormatter;
 
-import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -59,9 +56,17 @@ public class JdbcPotholeDao implements PotholeDao{
     }
 
     @Override
+    public void deletePothole(Pothole pothole) {
+
+    }
+
+    @Override
     public void deletePothole(int potholeId) {
-        String sql = "DELETE FROM pothole WHERE pothole_id = ?;";
-        jdbcTemplate.update(sql, potholeId);
+        String sql = "SELECT pothole_id FROM pothole WHERE pothole_id = ?";
+        SqlRowSet results = jdbcTemplate.queryForRowSet(sql, potholeId);
+
+        String potholeIdSql = "DELETE FROM pothole WHERE pothole_id = ?;";
+        jdbcTemplate.update(potholeIdSql, potholeId);
     }
 
     private Pothole mapRowToPothole(SqlRowSet results) {
@@ -70,7 +75,7 @@ public class JdbcPotholeDao implements PotholeDao{
         pothole.setPotholeId(results.getInt("pothole_id"));
         pothole.setDirection(results.getString("direction"));
         pothole.setSeverity(results.getInt("severity"));
-        pothole.setDiscoveryDate(results.getTimestamp("discovery_date").toLocalDateTime().format(DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss")));
+        pothole.setDiscoveryDate(results.getTimestamp("discovery_date").toLocalDateTime());
         pothole.setDescription(results.getString("description"));
 
 
@@ -101,7 +106,7 @@ public class JdbcPotholeDao implements PotholeDao{
 
         repair.setStatus(results.getBoolean("status"));
         if (results.getTimestamp("repair_date") != null) {
-            repair.setRepairDate(results.getTimestamp("repair_date").toLocalDateTime().format(DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss")));
+            repair.setRepairDate(results.getTimestamp("repair_date").toLocalDateTime());
         }
         else {
             repair.setRepairDate(null);

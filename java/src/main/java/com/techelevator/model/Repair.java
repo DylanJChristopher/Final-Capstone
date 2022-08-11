@@ -4,7 +4,7 @@ import java.time.LocalDateTime;
 
 public class Repair {
     private boolean status;
-    private String repairDate;
+    private LocalDateTime repairDate;
 
     public boolean isStatus() {
         return status;
@@ -14,11 +14,11 @@ public class Repair {
         this.status = status;
     }
 
-    public String getRepairDate() {
+    public LocalDateTime getRepairDate() {
         return repairDate;
     }
 
-    public void setRepairDate(String repairDate) {
+    public void setRepairDate(LocalDateTime repairDate) {
         this.repairDate = repairDate;
     }
 }
