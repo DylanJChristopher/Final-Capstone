@@ -6,7 +6,7 @@
     </section>
     <section id="bottom" >
       <employee-review-pending id="review" class="box" v-bind:potholes="potholes" />
-      <repair-in-progress id="inprogress" class="box" />
+      <repair-in-progress id="inprogress" class="box" v-bind:potholes="potholes" />
     </section>
   </div>
 </template>

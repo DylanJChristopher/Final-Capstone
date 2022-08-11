@@ -1,64 +1,71 @@
 <template>
   <div id="review-table">
-       <section>
-        <h1>Reported Potholes</h1>
-        <div class="tbl-header">
-          <table cellpadding="0" cellspacing="0" border="0">
-            <thead>
-              <tr>
-                <th>Nearest Address</th>
-                <th>Zip Code</th>
-                <th>Direction</th>
-                <th>Severity</th>
-                <th>Discovery Date</th>
-                <th>Status</th>
-                 <th>Repair Date</th>
-              </tr>
-            </thead>
-          </table>
-        </div>
-        <div class="tbl-content">
-          <table cellpadding="0" cellspacing="0" border="0">
-            <tbody v-for="pothole in potholes" v-bind:key="pothole.id">
-              <tr>
-                <td>
-                  {{ pothole.address.streetNumber }}
-                  {{ pothole.address.streetName }}
-                </td>
-                <td>{{ pothole.address.zipCode }}</td>
-                <td>{{ pothole.direction }}</td>
-                <td>{{ pothole.severity }}</td>
-                <td>{{ pothole.discoveryDate }}</td>
-                <td>{{ pothole.repair.status }}</td>
-                <td>{{ pothole.repair.repairDate }}</td>
-              </tr>
-              <tr>
-                <td colspan="7">
-                  Description:
-                  {{ pothole.description }}
-                </td>
-              </tr>
-              <tr>
-                <td id="placeholder" colspan="7"></td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </section>
-  </div>    
+    <section>
+      <h1>Reported Potholes</h1>
+      <div class="tbl-header">
+        <table cellpadding="0" cellspacing="0" border="0">
+          <thead>
+            <tr>
+              <th>Nearest Address</th>
+              <th>Zip Code</th>
+              <!-- <th>Direction</th> -->
+              <th>Severity</th>
+              <th>Discovery Date</th>
+              <!-- <th>Status</th> -->
+            </tr>
+          </thead>
+        </table>
+      </div>
+      <div class="tbl-content">
+        <table cellpadding="0" cellspacing="0" border="0">
+          <tbody v-for="pothole in filterByStatus" v-bind:key="pothole.id">
+            <tr>
+              <td>
+                {{ pothole.address.streetNumber }}
+                {{ pothole.address.streetName }}
+              </td>
+              <td>{{ pothole.address.zipCode }}</td>
+              <!-- <td>{{ pothole.direction }}</td> -->
+              <td>{{ pothole.severity }}</td>
+              <td>{{ pothole.discoveryDate }}</td>
+              <!-- <td>{{ pothole.repair.status }}</td> -->
+            </tr>
+            <tr>
+              <td colspan="7">
+                Description:
+                {{ pothole.description }}
+              </td>
+            </tr>
+            <tr>
+              <td id="placeholder" colspan="7"></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </div>
 </template>
 
 <script>
 export default {
-    props: ["potholes"]
-
-}
+  props: ["potholes"],
+  computed: {
+    filterByStatus() {
+      let filteredPotholes = this.potholes;
+      // console.log(this.filteredPotholes);
+      const results = filteredPotholes.filter((pothole) => {
+        return pothole.repair.status == 'Pending';
+      });
+      return results;
+    },
+  },
+};
 </script>
 
 <style scoped>
-section{
-    background-color: tomato;
-    width: 100%;
+section {
+  background-color: tomato;
+  width: 100%;
 }
 
 #placeholder {
@@ -74,7 +81,6 @@ h1 {
   margin-bottom: 15px;
 }
 table {
-  
   table-layout: fixed;
 }
 .tbl-header {
@@ -82,9 +88,9 @@ table {
   width: 100%;
 }
 .tbl-content {
-    /* overflow-x: auto; */
+  /* overflow-x: auto; */
   margin-top: 0px;
-width: 100%;
+  width: 100%;
 }
 th {
   padding: 20px 15px;
