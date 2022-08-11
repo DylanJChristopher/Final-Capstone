@@ -27,7 +27,7 @@
           <li><a class="links" href="contact.asp">Contact</a></li>
           <li>
             <router-link class="links" v-bind:to="{ name: 'login' }" v-show="$store.state.token == ''"
-              >Employee Login</router-link
+              >Login</router-link
             >
           </li>
         </ul>
@@ -73,8 +73,9 @@ ul {
 #logo {
   border-radius: 50%;
   height: auto;
-  width: 5rem;
+  /* width: 5%; */
   padding: 5px;
+  size-adjust: 50%;
 }
 #router-view {
   grid-area: router-view;
@@ -99,6 +100,10 @@ footer {
   bottom: 0;
   width: 100%;
   height: 5vh;
+  font-size: small;
+  display:flex;
+  justify-content: center;
+  align-items: center;
 }
 #app {
   display: grid;
