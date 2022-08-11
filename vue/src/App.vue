@@ -5,15 +5,17 @@
       <img src="./assets/final logo.jpg" id="logo">
       <nav id = "nav">
         <div id = "spaceHolder"></div>
-        <ul>
-  <li><router-link class = "links" v-bind:to="{ name: 'home' }">Home</router-link></li>
-  <li><router-link class = "links" v-bind:to="{ name: 'potholes' }">Pottiest Holes </router-link></li>
-  <li><a class = "links" href="contact.asp">Contact</a></li>
-  <li><router-link class = "links"
+        <ul>  
+          <li><router-link class = "links"
           v-bind:to="{ name: 'logout' }"
           v-if="$store.state.token != ''"
           >Logout</router-link
         ></li>
+  <li><router-link class = "links" v-bind:to="{ name: 'home' }">Home</router-link></li>
+  <li><router-link class = "links" v-bind:to="{ name: 'potholes' }">Potholes </router-link></li>
+  <li><a class = "links" href="contact.asp">Contact</a></li>
+  <li><router-link class="links" v-bind:to="{ name: 'login' }">Employee Login</router-link></li>
+
         </ul>
       </nav>
     </header>
