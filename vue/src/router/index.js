@@ -6,6 +6,7 @@ import Logout from '../views/Logout.vue'
 import Register from '../views/Register.vue'
 import store from '../store/index'
 import Potholes from '../views/Potholes.vue'
+import EmployeePage from '../views/EmployeePage'
 
 
 
@@ -63,7 +64,15 @@ const router = new Router({
       meta: {
         requiresAuth: false
       }
-    }
+    },
+    {
+      path: '/employee',
+      name: 'employee',
+      component: EmployeePage,
+      meta: {
+        requiresAuth: false
+      }
+    },
    
 
 

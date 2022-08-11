@@ -1,13 +1,12 @@
 <template>
   <div>
     <button
-      v-on:click="
+      v-on:click.prevent="
         addressToString();
         retrieveAllPotholeLocations();
         addLocationMarker();
-        addressToString();
-        retrieveAllPotholeLocations();
         addLocationMarker();
+
       "
     >
       Refresh
@@ -43,7 +42,7 @@ export default {
       existingPlace: null,
 
       addressMarker: null,
-      partialData: [],
+      partialData: null,
       partialData2: null,
       addressString: [],
       potholeLocations: [],
@@ -60,6 +59,7 @@ export default {
       this.existingPlace = loc;
     },
     retrieveAllPotholeLocations() {
+      console.log("elise");
       for (let i = 0; i < this.addressString.length; i++) {
         mapService.getMapInformation(this.addressString[i]).then((response) => {
           this.potholeLocations.push(response.data);
@@ -67,6 +67,7 @@ export default {
       }
     },
     addLocationMarker() {
+      console.log("yageen");
       for (let i = 0; i < this.addressString.length; i++) {
         this.addressMarker = this.potholeLocations[i];
         this.partialData = this.addressMarker.results;
@@ -79,7 +80,7 @@ export default {
         this.locationMarkers.push({ position: marker });
         this.locPlaces.push(this.partialData2);
         this.center = marker;
-        this.partialData2 = null;
+        // this.partialData2 = null;
       }
     },
     locateGeoLocation: function () {
@@ -91,6 +92,7 @@ export default {
       });
     },
     addressToString() {
+      console.log("blake");
       for (let i = 0; i < this.potholes.length; i++) {
         let streetName = this.potholes[i].address.streetName;
         if (streetName.includes(" ")) {

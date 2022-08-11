@@ -6,12 +6,9 @@
       <nav id="nav">
         <div id="spaceHolder"></div>
         <ul>
-          <li>
-            <router-link
-              class="links"
-              v-bind:to="{ name: 'logout' }"
-              v-show="$store.state.token != ''"
-              >Logout</router-link
+                   <li>
+            <router-link class="links" v-bind:to="{ name: 'login' }" v-show="$store.state.token == ''"
+              >Login</router-link
             >
           </li>
           <li>
@@ -25,9 +22,13 @@
             </router-link>
           </li>
           <li><a class="links" href="contact.asp">Contact</a></li>
-          <li>
-            <router-link class="links" v-bind:to="{ name: 'login' }" v-show="$store.state.token == ''"
-              >Login</router-link
+
+           <li>
+            <router-link
+              class="links"
+              v-bind:to="{ name: 'logout' }"
+              v-show="$store.state.token != ''"
+              >Logout</router-link
             >
           </li>
         </ul>
