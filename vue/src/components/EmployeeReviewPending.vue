@@ -56,6 +56,7 @@ export default {
 <style scoped>
 section{
     background-color: tomato;
+    width: 100%;
 }
 
 #placeholder {
@@ -71,16 +72,17 @@ h1 {
   margin-bottom: 15px;
 }
 table {
-  width: 100%;
+  
   table-layout: fixed;
 }
 .tbl-header {
   background-color: goldenrod;
+  width: 100%;
 }
 .tbl-content {
-  height: 100vh;
-  /* overflow-x: auto; */
+    /* overflow-x: auto; */
   margin-top: 0px;
+width: 100%;
 }
 th {
   padding: 20px 15px;
@@ -101,7 +103,7 @@ td {
   font-family: Arial, Helvetica, sans-serif;
 
   color: rgb(255, 255, 255);
-  /* border-bottom: solid 1px rgba(255, 255, 255, 0.1); */
+  border-bottom: solid 1px rgba(255, 255, 255, 0.1);
 }
 
 /* demo styles

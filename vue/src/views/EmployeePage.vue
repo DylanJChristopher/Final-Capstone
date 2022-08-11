@@ -1,12 +1,12 @@
 <template>
   <div id="container">
-    <section id="top-section">
-      <graph />
-      <pothole-card />
+    <section id="top" >
+      <graph id="graph" class="box" />
+      <pothole-card id="card" class="box"/>
     </section>
-    <section id="bottom-section">
-      <employee-review-pending v-bind:potholes="potholes" />
-      <repair-in-progress />
+    <section id="bottom" >
+      <employee-review-pending id="review" class="box" v-bind:potholes="potholes" />
+      <repair-in-progress id="inprogress" class="box" />
     </section>
   </div>
 </template>
@@ -40,14 +40,33 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 #container{
     display:flex;
     flex-direction: column;
-    justify-content: space-around;
+    height: 85vh;
+
 }
-#top-section, #bottom-section{
+#top{
+background-color: grey;
+display: flex;
+width:100vw;
+height:45vh;
+}
+
+#bottom{
 background-color: yellowgreen;
+display: flex;
+width:100%;
+height:40vh;
+
 }
+.box{
+  width: 50vw;
+}
+
+
+
+
 
 </style>
