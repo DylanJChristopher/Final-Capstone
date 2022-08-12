@@ -1,6 +1,10 @@
 <template>
-  <div>
-    <div id="container" v-for="pothole in filterById" v-bind:key="pothole.potholeId">
+  <div id="container">
+    <div
+      id="innerContainer"
+      v-for="pothole in filterById"
+      v-bind:key="pothole.potholeId"
+    >
       <div>Discovery Time: {{ pothole.discoveryDate }}</div>
       <div>Severity: {{ pothole.severity }}</div>
       <div>
@@ -10,7 +14,11 @@
       </div>
       <div>Direction: {{ pothole.direction }}</div>
       <div>Description {{ pothole.description }}</div>
-      <form v-on:submit.prevent>
+    </div>
+
+
+
+      <form v-on:submit.prevent id="updateForm">
         <p>Update Pothole Status:</p>
         <label for="status" class="form-label">Status: </label>
         <select
@@ -39,17 +47,20 @@
           </form>
         </div>
 
-        <button v-on:click="updateRepair(pothole)" type="button" class="btn btn-submit">
+        <button
+          v-on:click="updateRepair(pothole)"
+          type="button"
+          class="btn btn-submit"
+        >
           Update Status
         </button>
       </form>
-    </div>
+   
   </div>
 </template>
 
 <script>
-
-import PotholeService from "../services/PotholesService.js"
+import PotholeService from "../services/PotholesService.js";
 
 export default {
   props: ["potholes"],
@@ -85,28 +96,66 @@ export default {
     },
   },
   methods: {
-    updateRepair(){
+    updateRepair() {
       console.log(this.$store.state.pothole, "string");
-      PotholeService.updatePotholeRepair(this.updatedPothole, this.$store.state.pothole).then(response =>{
-        if(response.status == 200){
-          console.log("it worked!")
+      PotholeService.updatePotholeRepair(
+        this.updatedPothole,
+        this.$store.state.pothole
+      ).then((response) => {
+        if (response.status == 200) {
+          console.log("it worked!");
           window.location.reload();
         }
-      })
-    }
-
-  }
-
+      });
+    },
+  },
 };
 </script>
 
 <style scoped>
-#container {
+#innerContainer {
+  height: 85%;
+  width: 90%;
   display: flex;
-  /* flex-direction: column; */
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  /* background-image: url("../assets/National-Pothole-Day.jpg"); */
-  background-size: contain;
+
+  flex-direction: column;
+  height: 90%;
+  width: 50%;
+  background-color: rgb(226, 120, 21);
+  opacity: 85%;
+
+  border-radius: 15%;
+  align-items: center;
+} 
+.col-12 {
+  margin: 7px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+#updateForm {
+  display: flex;
+  flex-direction: column;
+
+
+  height: 90%;
+  width: 45%;
+  background-color: rgb(226, 120, 21);
+  opacity: 85%;
+  align-items:center;
+  justify-content: center;
+  border-radius: 15%;
+}
+#container {
+  height: 85%;
+  width: 90%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background-image: url("../assets/Potholes_Reported_By_Public.png");
+    background-size:contain;
+
 }
 </style>
