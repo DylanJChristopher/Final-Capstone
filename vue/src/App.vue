@@ -2,7 +2,7 @@
 <template>
   <div id="app">
     <header>
-      <img src="./assets/final logo.jpg" id="logo" />
+      <img src="./assets/last logo.jpg" id="logo" />
       <nav id="nav">
         <div id="spaceHolder"></div>
         <ul>
