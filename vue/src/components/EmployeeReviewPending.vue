@@ -11,13 +11,14 @@
               <th>Zip Code</th>
               <th>Severity</th>
               <th>Discovery Date</th>
+              <th>More</th>
             </tr>
           </thead>
         </table>
       </div>
       <div class="tbl-content">
         <table cellpadding="0" cellspacing="0" border="0">
-          <tbody v-for="pothole in filterByStatus" v-bind:key="pothole.id">
+          <tbody v-for="pothole in filterByStatus" v-bind:key="pothole.potholeId">
             <tr>
               <td>
                 {{ pothole.address.streetNumber }}
@@ -26,12 +27,13 @@
               <td>{{ pothole.address.zipCode }}</td>
               <td>{{ pothole.severity }}</td>
               <td>{{ pothole.discoveryDate }}</td>
+              <td><button v-on:click="retrieveId(pothole.potholeId)">More Details</button></td>
             </tr>
             <tr>
-              <td colspan="4">{{ pothole.description }}</td>
+              <td colspan="5">{{ pothole.description }}</td>
             </tr>
             <tr>
-              <td id="placeholder" colspan="4"></td>
+              <td id="placeholder" colspan="5"></td>
             </tr>
           </tbody>
         </table>
@@ -53,7 +55,7 @@ export default {
       return results;
     }
   },
-      methods: {
+    methods: {
       retrieveId(potholeId) {
         this.$store.commit("SET_POTHOLE_ID", potholeId);
       },

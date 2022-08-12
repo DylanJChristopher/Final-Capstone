@@ -21,12 +21,11 @@ export default new Vuex.Store({
   state: {
     token: currentToken || '',
     user: currentUser || {},
-    pothole: ""
+    pothole: ''
   },
   mutations: {
     SET_POTHOLE_ID(state, potholeId){
       state.pothole = potholeId;
-      console.log(state.pothole);
 
     },
     SET_AUTH_TOKEN(state, token) {
