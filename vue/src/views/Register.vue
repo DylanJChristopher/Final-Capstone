@@ -90,4 +90,8 @@ export default {
 };
 </script>
 
-<style></style>
+<style scoped>
+form{
+ background-image: linear-gradient(rgb(215, 187, 241), whitesmoke);
+}
+</style>

@@ -42,11 +42,14 @@ export default {
 
 
 #pothole-list{
-    flex-grow: 1;
-    background-image: url("../assets/how-potholes-form.jpg");
+    width: 40vw;
+    /* background-image: url("../assets/how-potholes-form.jpg");
     background-repeat: no-repeat;
-    background-size: cover;
-    height: 85vh;
+    background-size: cover; */
+    height: 70vh;
+    border: outset 1px grey;
+    border-radius: 5%;
+    box-shadow: 20px 20px 10px grey;
 }
 #components {
   display: flex;
@@ -58,14 +61,16 @@ export default {
   width: 50vw;
   height: 85vh;
   min-width: 0;
-  background-color: black;
+  /* background-color: black; */
 }
 #pot-and-report {
   width: 50vw;
   height: 85vh;
   display: flex;
   flex-direction: column;
-  background-color: #1d1d1d;
+  justify-content: center;
+  align-items: center;
+  /* background-color: #1d1d1d; */
   min-width: 0;
   color:azure;
 }
