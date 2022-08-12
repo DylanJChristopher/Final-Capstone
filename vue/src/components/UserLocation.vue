@@ -139,8 +139,8 @@ export default {
 <style scoped>
 #mapElement {
   width: 100%;
-  height: 85vh;
-  opacity: 100%;
+  height: 100%;
+  
 }
 button {
   margin: 0;

@@ -1,10 +1,11 @@
 package com.techelevator.model;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 public class Repair {
     private String status;
-    private LocalDateTime repairDate;
+    private LocalDate repairDate;
 
     public String getStatus() {
         return status;
@@ -14,11 +15,11 @@ public class Repair {
         this.status = status;
     }
 
-    public LocalDateTime getRepairDate() {
+    public LocalDate getRepairDate() {
         return repairDate;
     }
 
-    public void setRepairDate(LocalDateTime repairDate) {
+    public void setRepairDate(LocalDate repairDate) {
         this.repairDate = repairDate;
     }
 }
