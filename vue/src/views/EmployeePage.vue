@@ -1,8 +1,8 @@
 <template>
   <div id="container">
     <section id="top" >
-      <graph id="graph" class="box" />
-      <pothole-card id="card" class="box" />
+      <graph id="graph" class="box" v-bind:potholes="potholes"/>
+      <pothole-card id="card" class="box" v-bind:potholes="potholes"/>
     </section>
     <section id="bottom" >
       <employee-review-pending id="review" class="box" v-bind:potholes="potholes" />
@@ -45,20 +45,22 @@ export default {
     display:flex;
     flex-direction: column;
     height: 85vh;
+    
+    
 
 }
 #top{
-background-color: grey;
+
 display: flex;
 width:100%;
-height:45vh;
+height:25vh;
 }
 
 #bottom{
-background-color: yellowgreen;
+background-color: transparent;
 display: flex;
 width:100%;
-height: 40vh;
+height: 60vh;
 
 
 }
@@ -69,12 +71,13 @@ height: 40vh;
   align-items: center;
   
 }
-.review{
-  height: 40vh;
-
+#review{
+  height: 60vh;
+background-image:url("../assets/how-potholes-form.jpg");
 }
-.review{
-  height: 40vh;
+#inprogress{
+  height: 60vh;
+  background-image:url("../assets/Potholerepair.jpg");
   
 }
 

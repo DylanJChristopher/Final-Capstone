@@ -10,13 +10,13 @@ INSERT INTO address (street_number,street_name,city,state_abbreviation,zipcode) 
 
 Insert INTO pothole (address_id,direction,severity,discovery_date,description) VALUES ('1','East','3','2000-01-02 11:04:05','This pothole has been here for 22 years, its become somewhat of a landmark. My son is now 22 and we ran over this pothole on the way to his birth.');
 Insert INTO pothole (address_id,direction,severity,discovery_date,description) VALUES ('2','West','7','2021-05-08 9:08:21','I got pulled over for drunk driving when I was just trying to avoid this pothole, and I wasnt drunk I just had a buzz');
-Insert INTO pothole (address_id,direction,severity,discovery_date,description) VALUES ('3','South','2','2018-07-03 5:07:40','');
+Insert INTO pothole (address_id,direction,severity,discovery_date,description) VALUES ('3','South','2','2018-07-03 5:07:40','Hello');
 Insert INTO pothole (address_id,direction,severity,discovery_date,description) VALUES ('4','North','9','2022-03-04 1:06:25','This customers comment was censored for explicit content');
 
 INSERT INTO repair (pothole_id,status,repair_date) VALUES ('1','Pending','2045-03-06 10:03:04');
-INSERT INTO repair (pothole_id,status,repair_date) VALUES ('2','Repair Scheduled','2022-05-07 9:02:04');
+INSERT INTO repair (pothole_id,status,repair_date) VALUES ('2','Pending','2022-05-07 9:02:04');
 INSERT INTO repair (pothole_id,status,repair_date) VALUES ('3','Pending','2019-02-01 8:02:01');
-INSERT INTO repair (pothole_id,status,repair_date) VALUES ('3','Reject','2019-02-01 8:02:01');
+INSERT INTO repair (pothole_id,status,repair_date) VALUES ('3','Pending','2019-02-01 8:02:01');
 INSERT INTO repair (pothole_id,status,repair_date) VALUES ('4','Fixed',null);
 
 COMMIT TRANSACTION;

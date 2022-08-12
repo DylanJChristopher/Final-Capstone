@@ -60,9 +60,10 @@ body {
 .links {
   color: #f5851f;
   text-decoration: unset;
+  
 }
 .links:hover{
-  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+  color:whitesmoke;
 }
 
 ul {

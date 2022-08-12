@@ -1,7 +1,7 @@
 <template>
   <div>
-      <p>Graph Container</p>
-      </div>
+
+  </div>
 </template>
 
 <script>
@@ -12,10 +12,11 @@ export default {
 
 <style scoped>
 div{
-    display: flex;
+    display:flex;
     justify-content: center;
     align-items: center;
+    background-image: url("../assets/Potholes_Reported_By_Public.png");
+    background-size:contain;
+    
 }
-
-
 </style>

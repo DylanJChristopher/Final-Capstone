@@ -91,9 +91,9 @@ button:hover{
   width: 25%;
   background-color: whitesmoke;
   opacity: 85%;
-  align-items: center;
+ 
   border-radius: 15%;
-
+ align-items: center;
 
 }
 label, input, button{
