@@ -10,6 +10,21 @@
       </div>
       <div>Direction: {{ pothole.direction }}</div>
       <div>Description {{ pothole.description }}</div>
+      <form>
+        <label for="status" class="form-label">Status: </label>
+        <select
+          class="form-select"
+          aria-label="Default select example"
+          required
+          v-model="pothole.repair.severity"
+        >
+          <option selected></option>
+          <option value="Pending">Pending</option>
+          <option value="Repair Scheduled">Repair Scheduled</option>
+          <option value="Reject">Reject</option>
+          <option value="Fixed">Fixed</option>
+        </select>
+      </form>
     </div>
   </div>
 </template>
@@ -17,6 +32,27 @@
 <script>
 export default {
   props: ["potholes"],
+  data() {
+    return {
+      pothole: {
+        address: {
+          streetName: "",
+          streetNumber: "",
+          city: "",
+          state: "",
+          zipCode: "",
+        },
+        repair: {
+          status: "",
+          repairDate: "",
+        },
+        direction: "",
+        severity: "",
+        discoveryDate: "",
+        description: "",
+      },
+    };
+  },
   computed: {
     filterById() {
       let results = [];

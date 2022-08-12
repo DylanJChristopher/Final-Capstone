@@ -16,7 +16,7 @@ Insert INTO pothole (address_id,direction,severity,discovery_date,description) V
 INSERT INTO repair (pothole_id,status,repair_date) VALUES ('1','Pending','2045-03-06 10:03:04');
 INSERT INTO repair (pothole_id,status,repair_date) VALUES ('2','Pending','2022-05-07 9:02:04');
 INSERT INTO repair (pothole_id,status,repair_date) VALUES ('3','Pending','2019-02-01 8:02:01');
-INSERT INTO repair (pothole_id,status,repair_date) VALUES ('3','Pending','2019-02-01 8:02:01');
-INSERT INTO repair (pothole_id,status,repair_date) VALUES ('4','Fixed',null);
+INSERT INTO repair (pothole_id,status,repair_date) VALUES ('4','Fixed','2019-02-01 8:02:01');
+
 
 COMMIT TRANSACTION;

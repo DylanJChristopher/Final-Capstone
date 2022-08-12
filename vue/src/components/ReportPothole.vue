@@ -137,7 +137,7 @@ export default {
           zipCode: "",
         },
         repair: {
-          status: false,
+          status: "Pending",
           repairDate: "",
         },
         direction: "",
