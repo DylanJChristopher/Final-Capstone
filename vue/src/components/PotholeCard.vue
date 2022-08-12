@@ -85,12 +85,12 @@ export default {
     },
   },
   methods: {
-    updateRepair(pothole){
+    updateRepair(){
       console.log(this.$store.state.pothole, "string");
       PotholeService.updatePotholeRepair(this.updatedPothole, this.$store.state.pothole).then(response =>{
         if(response.status == 200){
           console.log("it worked!")
-          pothole.repair.status="Repair Scheduled"
+          window.location.reload();
         }
       })
     }

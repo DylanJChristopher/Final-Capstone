@@ -11,6 +11,7 @@
               <th>Zip Code</th>
               <th>Severity</th>
               <th>Discovery Date</th>
+              <th>More Details</th>
             </tr>
           </thead>
         </table>
@@ -26,12 +27,13 @@
               <td>{{ pothole.address.zipCode }}</td>
               <td>{{ pothole.severity }}</td>
               <td>{{ pothole.discoveryDate }}</td>
+              <td><button v-on:click="retrieveId(pothole.potholeId)">More Details</button></td>
             </tr>
             <tr>
               <td colspan="4">{{ pothole.description }}</td>
             </tr>
             <tr>
-              <td id="placeholder" colspan="4"></td>
+              <td id="placeholder" colspan="5"></td>
             </tr>
           </tbody>
         </table>
