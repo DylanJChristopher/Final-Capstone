@@ -1,8 +1,8 @@
 <template>
   <div class="home">
   <div id="banner">
-    <h1>Welcome to TIPS</h1>
-    <h3>Team India Pothole Solutions</h3>
+    <h1> T.I.P.S. ensures the roads are safe!</h1>
+    <h3>Submit a TIP of a pothole to repair today!</h3>
   
 </div>
   </div>
@@ -26,25 +26,28 @@ export default {
   
   }
   h1{
-    border-top: solid black 3px;
-    border-bottom: solid black 3px;
-      background-color: whitesmoke;
-  opacity: 85%;
- 
-  border-radius: 25%;
+     text-align: center;
+     color: white
     
+  }
+  h3{
+    text-align: center;
+    color: white;
   }
   #banner{
     display: flex;
-          background-color: whitesmoke;
+          background-color:darkgrey;
   opacity: 85%;
+-webkit-box-shadow: 1px 3px 8px 11px rgba(43,49,57,0.85); 
+box-shadow: 1px 3px 8px 11px rgba(43,49,57,0.85);
  
-  border-radius: 25%;
+  border-radius: 7%;
   width:25%;
   flex-direction: column;
-    justify-content: center;
-  align-items:center;
+  
+  
   }
+   
 
 
 </style>
