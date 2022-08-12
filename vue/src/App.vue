@@ -2,7 +2,7 @@
 <template>
   <div id="app">
     <header>
-      <img src="./assets/final logo.jpg" id="logo" />
+      <img src="./assets/last logo.jpg" id="logo" />
       <nav id="nav">
         <div id="spaceHolder"></div>
         <ul>
@@ -14,7 +14,7 @@
           </li>
           <li>
             <router-link class="links" v-bind:to="{ name: 'potholes' } " v-show="$store.state.token == ''"
-              >Reported Potholes
+              >Listed Potholes
             </router-link>
             <router-link class="links" v-bind:to="{ name: 'employee' } " v-show="$store.state.token != ''"
               >Manage Potholes
