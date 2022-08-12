@@ -58,14 +58,14 @@ export default {
   width: 50vw;
   height: 85vh;
   min-width: 0;
-  background-color: black;
+  /* background-color: black; */
 }
 #pot-and-report {
   width: 50vw;
   height: 85vh;
   display: flex;
   flex-direction: column;
-  background-color: #1d1d1d;
+  /* background-color: #1d1d1d; */
   min-width: 0;
   color:azure;
 }

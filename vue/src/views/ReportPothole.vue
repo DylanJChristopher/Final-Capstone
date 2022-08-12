@@ -45,7 +45,7 @@ button:hover{
   background-color: whitesmoke;
   opacity: 85%;
  
-  border-radius: 15%;
+  border-radius: 5%;
  align-items: center;
 
 }
@@ -62,6 +62,7 @@ label, input, button{
 align-items: center;
   /* background-repeat:no-repeat;
   background-size: cover; */
+  
 }
 input{
   height: 7%;

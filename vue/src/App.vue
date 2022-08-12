@@ -91,13 +91,14 @@ ul {
 
 header {
   display: flex;
-  height: auto;
   width: 100%;
   margin: 0;
   justify-content: space-between;
   background-color: black;
   grid-area: header;
   height: 10vh;
+  margin-top: 5vh;
+  position: relative;
 }
 footer {
   background-color: black;
@@ -126,9 +127,11 @@ footer {
   height: auto;
   margin: 0%;
   padding: 0%;
+  background-image: linear-gradient(rgb(211, 194, 216), whitesmoke);
 }
 button {
   font-family: Arial, Helvetica, sans-serif;
   font-weight: bold;
 }
+
 </style>

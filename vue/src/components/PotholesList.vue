@@ -73,8 +73,8 @@ export default {
 }
 section {
   height:100%;
-background-color: rgba(255, 255, 255, 0.486);
-opacity: 100%;
+/* background-color: rgba(255, 255, 255, 0.486); */
+
 }
 div {
   /* display: flex;
@@ -97,7 +97,7 @@ table {
   table-layout: fixed;
 }
 .tbl-header {
-  background-color: rgba(255, 255, 255, 0.3);
+  /* background-color: rgba(255, 255, 255, 0.3); */
     border: rgba(255, 255, 255, 0.3);
   
 }
