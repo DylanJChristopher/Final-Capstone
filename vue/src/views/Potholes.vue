@@ -3,7 +3,7 @@
     <div id="components">
       
       <div id="pot-and-report">
-        <potholes-list v-bind:potholes="potholes" id="pothole-list" />
+        <potholes-list v-bind:pSotholes="potholes" id="pothole-list" />
         <!-- <report-pothole id="report-pothole" /> -->
       </div>
       <user-location v-bind:potholes="potholes" id="user-location" />
@@ -13,9 +13,9 @@
 
 <script>
 import UserLocation from "../components/UserLocation.vue";
-// import ReportPothole from "../components/ReportPothole.vue";
+//  import ReportPothole from "../components/ReportPothole.vue";
 import PotholesList from "../components/PotholesList.vue";
-// import MapService from "../services/MapService.js";
+//  import MapService from "../services/MapService.js";
 import potHolesService from "../services/PotholesService.js";
 
 export default {
@@ -26,7 +26,7 @@ export default {
   },
   components: {
     PotholesList,
-    // ReportPothole,
+    //  ReportPothole,
     UserLocation,
   },
 
