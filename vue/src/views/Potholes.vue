@@ -4,7 +4,7 @@
       
       <div id="pot-and-report">
         <potholes-list v-bind:potholes="potholes" id="pothole-list" />
-        <report-pothole id="report-pothole" />
+        <!-- <report-pothole id="report-pothole" /> -->
       </div>
       <user-location v-bind:potholes="potholes" id="user-location" />
     </div>
@@ -13,7 +13,7 @@
 
 <script>
 import UserLocation from "../components/UserLocation.vue";
-import ReportPothole from "../components/ReportPothole.vue";
+// import ReportPothole from "../components/ReportPothole.vue";
 import PotholesList from "../components/PotholesList.vue";
 // import MapService from "../services/MapService.js";
 import potHolesService from "../services/PotholesService.js";
@@ -26,7 +26,7 @@ export default {
   },
   components: {
     PotholesList,
-    ReportPothole,
+    // ReportPothole,
     UserLocation,
   },
 
@@ -40,20 +40,19 @@ export default {
 
 <style scoped>
 
-#report-pothole {
-  background-color: #1d1d1d;
-  flex-grow: 2;
-}
+
 #pothole-list{
     flex-grow: 1;
     background-image: url("../assets/how-potholes-form.jpg");
     background-repeat: no-repeat;
     background-size: cover;
+    height: 85vh;
 }
 #components {
   display: flex;
   justify-content: space-evenly;
   width: 100%;
+  height: 85vh;
 }
 #user-location {
   width: 50vw;

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <button
+    <!-- <button
       v-on:click.prevent="
         addressToString();
         retrieveAllPotholeLocations();
@@ -10,10 +10,10 @@
       "
     >
       Refresh
-    </button>
-    <div>
+    </button> -->
+    <!-- <div>
       <label> Pothole Map </label>
-    </div>
+    </div> -->
     <gmap-map :zoom="11" :center="center" id="mapElement">
       // @click="center=m.position" was after :key="index"
       <gmap-marker

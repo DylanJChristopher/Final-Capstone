@@ -20,7 +20,7 @@
               >Manage Potholes
             </router-link>
           </li>
-          <li><a class="links" href="contact.asp">Contact</a></li>
+          <li><router-link class="links" v-bind:to="{name: 'report' }">Report Pothole</router-link></li>
 
            <li>
             <router-link

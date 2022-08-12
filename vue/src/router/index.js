@@ -7,6 +7,7 @@ import Register from '../views/Register.vue'
 import store from '../store/index'
 import Potholes from '../views/Potholes.vue'
 import EmployeePage from '../views/EmployeePage'
+import ReportPothole from '../views/ReportPothole.vue'
 
 
 
@@ -69,6 +70,14 @@ const router = new Router({
       path: '/employee',
       name: 'employee',
       component: EmployeePage,
+      meta: {
+        requiresAuth: false
+      }
+    },
+    {
+      path: '/report',
+      name: 'report',
+      component: ReportPothole,
       meta: {
         requiresAuth: false
       }
