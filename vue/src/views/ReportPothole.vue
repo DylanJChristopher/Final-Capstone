@@ -58,10 +58,10 @@ label, input, button{
    width: 100vw;
  display: flex;
  justify-content: center;
-background-image:url("../assets/pothole-2.jpg");
+/* background-image:url("../assets/pothole-2.jpg"); */
 align-items: center;
-  background-repeat:no-repeat;
-  background-size: cover;
+  /* background-repeat:no-repeat;
+  background-size: cover; */
 }
 input{
   height: 7%;
