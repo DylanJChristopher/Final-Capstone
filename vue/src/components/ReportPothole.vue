@@ -1,7 +1,8 @@
 <template>
   <div>
-    <form v-show="showForm == true" class="row g-3" v-on:submit.prevent >
-      <div class="col-md-6">
+    <!-- v-show="showForm == true" Goes in form element -->
+    <form class="row g-3" v-on:submit.prevent>
+      <div class="col-12">
         <label for="Direction" class="form-label">Direction: </label>
         <input
           type="Direction"
@@ -11,23 +12,29 @@
           v-model="pothole.direction"
         />
       </div>
-      <label for="severity" class="form-label">Severity: </label>
-      <select class="form-select" aria-label="Default select example" required
-      v-model="pothole.severity">
-        <option selected></option>
-        <option value="1">1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-        <option value="4">4</option>
-        <option value="5">5</option>
-        <option value="6">6</option>
-        <option value="7">7</option>
-        <option value="8">8</option>
-        <option value="9">9</option>
-        <option value="10">10</option>
-      </select>
       <div class="col-12">
-        <label for="street number" class="form-label">Street Number</label>
+        <label for="severity" class="form-label">Severity: </label>
+        <select
+          class="form-select"
+          aria-label="Default select example"
+          required
+          v-model="pothole.severity"
+        >
+          <option selected></option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+          <option value="9">9</option>
+          <option value="10">10</option>
+        </select>
+      </div>
+      <div class="col-12">
+        <label for="street number" class="form-label">Street Number: </label>
         <input
           type="text"
           class="form-control"
@@ -38,7 +45,7 @@
         />
       </div>
       <div class="col-12">
-        <label for="street name" class="form-label">Street Name</label>
+        <label for="street name" class="form-label">Street Name: </label>
         <input
           type="text"
           class="form-control"
@@ -48,8 +55,8 @@
           v-model="pothole.address.streetName"
         />
       </div>
-      <div class="col-md-6">
-        <label for="inputCity" class="form-label">City</label>
+      <div class="col-12">
+        <label for="inputCity" class="form-label">City: </label>
         <input
           type="text"
           class="form-control"
@@ -58,8 +65,8 @@
           v-model="pothole.address.city"
         />
       </div>
-      <div class="col-md-4">
-        <label for="inputState" class="form-label">State</label>
+      <div class="col-12">
+        <label for="inputState" class="form-label">State: </label>
         <select
           id="inputState"
           class="form-select"
@@ -70,8 +77,8 @@
           <option>OH</option>
         </select>
       </div>
-      <div class="col-md-2">
-        <label for="inputZip" class="form-label">Zip</label>
+      <div class="col-12">
+        <label for="inputZip" class="form-label">Zip Code: </label>
         <input
           type="text"
           class="form-control"
@@ -80,16 +87,24 @@
           v-model="pothole.address.zipCode"
         />
       </div>
-      <div class="form-floating">
+      <div class="col-12">
         <label for="floatingTextarea2">Comments: </label>
-        <textarea
+        <input
+          type="text"
+          class="form-control"
+          id="floatingTextarea2"
+          required
+          v-model="pothole.description"
+          placeholder="Leave a comment here"
+        />
+        <!-- <textarea
           class="form-control"
           placeholder="Leave a comment here"
           id="floatingTextarea2"
-          style="height: 100px"
+          style="height: 15px"
           maxlength="300"
           v-model="pothole.description"
-        ></textarea>
+        ></textarea> -->
       </div>
       <div class="col-12">
         <div>
@@ -104,20 +119,16 @@
             />
           </form>
         </div>
-         <button v-on:click="submitPothole" 
-        
-        type="button"
-        class="btn btn-submit"
-      >
-        Submit TIP
-      </button>
-      
+        <div class="col-12">
+        <button v-on:click="submitPothole" type="button" class="btn btn-submit">
+          Submit TIP
+        </button>
+        </div>
       </div>
-     
     </form>
-    <button v-on:click="formSet()" v-show="showButton == true">
+    <!-- <button v-on:click="formSet()" v-show="showButton == true">
       Submit a Tip
-    </button>
+    </button> -->
   </div>
 </template>
 
@@ -157,23 +168,20 @@ export default {
       this.showButton = true;
     },
     submitPothole() {
-        console.log("yageen");
-        this.formReset()
+      console.log("yageen");
+      this.formReset();
       PotholeService.reportPothole(this.pothole).then((response) => {
-          if(response.status == 200){
-              console.log('elise');
-          }
+        if (response.status == 200) {
+          console.log("elise");
+        }
       });
-          
-      
-    
-          
-      
     },
   },
 };
 </script>
 
 <style>
-
+.col-12{
+  margin: 7px;
+}
 </style>
