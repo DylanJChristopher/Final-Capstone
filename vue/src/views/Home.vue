@@ -15,7 +15,10 @@ export default {
 </script>
 <style scoped>
 .home{
- background-image:url("../assets/pothole-2.jpg");
+ /* background-image:url("../assets/pothole-2.jpg"); */
+
+ opacity:100%;
+
 
   background-repeat:no-repeat;
   background-size: cover;

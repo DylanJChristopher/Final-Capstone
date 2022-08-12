@@ -73,18 +73,18 @@ height: 60vh;
 }
 #review{
   height: 60vh;
-background-image:url("../assets/how-potholes-form.jpg");
+/* background-image:url("../assets/how-potholes-form.jpg"); */
 }
 #inprogress{
   height: 60vh;
-  background-image:url("../assets/Potholerepair.jpg");
+  /* background-image:url("../assets/Potholerepair.jpg"); */
   
 }
-#card{
+/* #card{
   
-  background-image: url("../assets/pothole-5.jpg");
-  background-size:contain;
-}
+  /* background-image: url("../assets/pothole-5.jpg"); */
+  /* background-size:contain; */
+/* } */ 
 
 
 
