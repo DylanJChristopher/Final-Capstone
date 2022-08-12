@@ -42,11 +42,14 @@ export default {
 
 
 #pothole-list{
-    flex-grow: 1;
+    width: 40vw;
     /* background-image: url("../assets/how-potholes-form.jpg");
     background-repeat: no-repeat;
     background-size: cover; */
-    height: 85vh;
+    height: 70vh;
+    border: outset 1px grey;
+    border-radius: 5%;
+    box-shadow: 20px 20px 10px grey;
 }
 #components {
   display: flex;
@@ -65,6 +68,8 @@ export default {
   height: 85vh;
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
   /* background-color: #1d1d1d; */
   min-width: 0;
   color:azure;

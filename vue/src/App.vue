@@ -37,10 +37,19 @@
     </header>
 
     <router-view id="router-view" />
-
-    <footer>&#169; Copyright of TIPS</footer>
+    <the-foot-of-page id="footer"></the-foot-of-page>
+    
   </div>
 </template>
+<script>
+import TheFootOfPage from "./views/TheFootOfPage.vue"
+export default {
+  components:{
+      TheFootOfPage,
+  }
+}
+</script>
+
 <style >
 body {
   margin: 0%;
@@ -100,10 +109,10 @@ header {
   margin-top: 5vh;
   position: relative;
 }
-footer {
-  background-color: black;
-  grid-area: footer;
+#footer {
+  background-color: white;
   color: #8396af;
+  grid-area: footer;
   position: relative;
   bottom: 0;
   width: 100%;
