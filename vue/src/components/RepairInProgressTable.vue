@@ -10,7 +10,7 @@
               <th>Nearest Address</th>
               <th>Zip Code</th>
               <th>Severity</th>
-              <th>Discovery Date</th>
+              <th>Repair Date</th>
               <th>More Details</th>
             </tr>
           </thead>
@@ -26,7 +26,7 @@
               </td>
               <td>{{ pothole.address.zipCode }}</td>
               <td>{{ pothole.severity }}</td>
-              <td>{{ pothole.discoveryDate }}</td>
+              <td>{{ pothole.repair.repairDate }}</td>
               <td><button v-on:click="retrieveId(pothole.potholeId)">More Details</button></td>
             </tr>
             <tr>

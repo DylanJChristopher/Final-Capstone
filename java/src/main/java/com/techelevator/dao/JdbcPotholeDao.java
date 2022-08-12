@@ -116,7 +116,7 @@ public class JdbcPotholeDao implements PotholeDao{
 
         repair.setStatus(results.getString("status"));
         if (results.getTimestamp("repair_date") != null) {
-            repair.setRepairDate(results.getTimestamp("repair_date").toLocalDateTime());
+            repair.setRepairDate(results.getTimestamp("repair_date").toLocalDateTime().toLocalDate());
         }
         else {
             repair.setRepairDate(null);
