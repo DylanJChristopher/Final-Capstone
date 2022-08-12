@@ -5,7 +5,6 @@
         addressToString();
         retrieveAllPotholeLocations();
         addLocationMarker();
-        addLocationMarker();
 
       "
     >
@@ -27,10 +26,11 @@
  
 <script>
 import mapService from "../services/MapService.js";
+import potholesService from "../services/PotholesService.js";
 
 export default {
   name: "user-location",
-  props: ["potholes"],
+  // props: ["potholes"],
   data() {
     return {
       center: {
@@ -44,29 +44,43 @@ export default {
       addressMarker: null,
       partialData: null,
       partialData2: null,
+
       addressString: [],
+
+      potholes1: [],
+      potholes33:[],
+
       potholeLocations: [],
       //1275+Kinnear+Rd,+Columbus,+OH
     };
   },
 
-  mounted() {
-    this.locateGeoLocation();
-  },
-
   methods: {
+    addressToString(potholes1) {
+      console.log("blake");
+      let streetName = "";
+      for (let i = 0; i < potholes1.length; i++) {
+        streetName = potholes1[i].address.streetName;
+        console.log(streetName);
+        if (streetName.includes(" ")) {
+          streetName = streetName.replace(" ", "+");
+        }
+        this.addressString[i] =
+          potholes1[i].address.streetNumber +
+          "+" +
+          streetName +
+          ",+" +
+          potholes1[i].address.city +
+          ",+" +
+          potholes1[i].address.state;
+
+        //1275+Kinnear+Rd,+Columbus,+OH
+      }
+    },
     initMarker(loc) {
       this.existingPlace = loc;
     },
-    retrieveAllPotholeLocations() {
-      console.log("elise");
-      for (let i = 0; i < this.addressString.length; i++) {
-        mapService.getMapInformation(this.addressString[i]).then((response) => {
-          this.potholeLocations.push(response.data);
-        });
-      }
-    },
-    addLocationMarker() {
+        addLocationMarker() {
       console.log("yageen");
       for (let i = 0; i < this.addressString.length; i++) {
         this.addressMarker = this.potholeLocations[i];
@@ -83,6 +97,16 @@ export default {
         // this.partialData2 = null;
       }
     },
+    retrieveAllPotholeLocations() {
+      console.log("elise");
+      for (let i = 0; i < this.addressString.length; i++) {
+        mapService.getMapInformation(this.addressString[i]).then((response) => {
+          this.potholeLocations.push(response.data);
+          this.addLocationMarker();
+        });
+      }
+    },
+
     locateGeoLocation: function () {
       navigator.geolocation.getCurrentPosition((res) => {
         this.center = {
@@ -91,25 +115,23 @@ export default {
         };
       });
     },
-    addressToString() {
-      console.log("blake");
-      for (let i = 0; i < this.potholes.length; i++) {
-        let streetName = this.potholes[i].address.streetName;
-        if (streetName.includes(" ")) {
-          streetName = streetName.replace(" ", "+");
-        }
-        this.addressString[i] =
-          this.potholes[i].address.streetNumber +
-          "+" +
-          streetName +
-          ",+" +
-          this.potholes[i].address.city +
-          ",+" +
-          this.potholes[i].address.state;
+  },
+  mounted() {
+    this.locateGeoLocation();
+    
+  },
 
-        //1275+Kinnear+Rd,+Columbus,+OH
-      }
-    },
+  created(){
+    potholesService.retrievePotholes().then((response) => {
+      this.potholes1 = response.data;
+      this.addressToString(this.potholes1);
+      this.retrieveAllPotholeLocations();
+      
+      //this.potholeLocations.push(response.data);
+    });
+    
+    
+   
   },
   computed: {},
 };

@@ -14,7 +14,7 @@
           </li>
           <li>
             <router-link class="links" v-bind:to="{ name: 'potholes' } " v-show="$store.state.token == ''"
-              >Reported Potholes
+              >Listed Potholes
             </router-link>
             <router-link class="links" v-bind:to="{ name: 'employee' } " v-show="$store.state.token != ''"
               >Manage Potholes
