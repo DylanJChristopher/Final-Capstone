@@ -2,7 +2,7 @@
   <div id="container">
     <section id="top" >
       <graph id="graph" class="box" v-bind:potholes="potholes"/>
-      <pothole-card id="card" class="box" v-bind:potholes="potholes"/>
+      <pothole-card id="card" class="box" v-bind:potholes="potholes" />
     </section>
     <section id="bottom" >
       <employee-review-pending id="review" class="box" v-bind:potholes="potholes" />
@@ -79,6 +79,11 @@ background-image:url("../assets/how-potholes-form.jpg");
   height: 60vh;
   background-image:url("../assets/Potholerepair.jpg");
   
+}
+#card{
+  
+  background-image: url("../assets/pothole-5.jpg");
+  background-size:contain;
 }
 
 

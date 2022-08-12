@@ -60,10 +60,12 @@ body {
 .links {
   color: #f5851f;
   text-decoration: unset;
+  font-size: 23px;
   
 }
 .links:hover{
   color:whitesmoke;
+  
 }
 
 ul {
