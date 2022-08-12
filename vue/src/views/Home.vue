@@ -1,8 +1,8 @@
 <template>
   <div class="home">
-  <div id="banner">
+  <div id="banner" >
     <h1> T.I.P.S. ensures the roads are safe!</h1>
-    <h3>Submit a TIP of a pothole to repair today!</h3>
+    <h2>Submit a TIP of a pothole today!</h2>
   
 </div>
   </div>
@@ -33,23 +33,31 @@ export default {
      color: white
     
   }
-  h3{
+  h2{
     text-align: center;
-    color: white;
+    color: black
   }
   #banner{
     display: flex;
-          background-color:darkgrey;
+          background-color:green;
   opacity: 85%;
 -webkit-box-shadow: 1px 3px 8px 11px rgba(43,49,57,0.85); 
 box-shadow: 1px 3px 8px 11px rgba(43,49,57,0.85);
- 
-  border-radius: 7%;
-  width:25%;
+  /* border-radius: 7%; */
+  /* width:25%; */
   flex-direction: column;
+   height: 200px;
+  width: 200px;
+  border: 10px solid var(--shield-border-color);
+  border-radius: 50% 50% 50% 50% / 15% 15% 90% 90%;
+
+  
+
+  
   
   
   }
+  
    
 
 
