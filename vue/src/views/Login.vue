@@ -92,7 +92,7 @@ button:hover{
   background-color: whitesmoke;
   opacity: 85%;
  
-  border-radius: 15%;
+  border-radius: 6%;
  align-items: center;
 
 }

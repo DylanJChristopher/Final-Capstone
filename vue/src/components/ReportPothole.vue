@@ -3,7 +3,7 @@
     <!-- v-show="showForm == true" Goes in form element -->
     <form class="row g-3" v-on:submit.prevent>
       <div class="col-12">
-        <label for="Direction" class="form-label">Direction: </label>
+        <label for="Direction" class="form-label">Direction of Travel: </label>
         <input
           type="Direction"
           class="form-control"
@@ -13,7 +13,7 @@
         />
       </div>
       <div class="col-12">
-        <label for="severity" class="form-label">Severity: </label>
+        <label for="severity" class="form-label">Pothole Severity: </label>
         <select
           class="form-select"
           aria-label="Default select example"
@@ -21,16 +21,16 @@
           v-model="pothole.severity"
         >
           <option selected></option>
-          <option value="1">1</option>
-          <option value="2">2</option>
-          <option value="3">3</option>
-          <option value="4">4</option>
-          <option value="5">5</option>
-          <option value="6">6</option>
-          <option value="7">7</option>
-          <option value="8">8</option>
-          <option value="9">9</option>
-          <option value="10">10</option>
+          <option value="1">1: just a crack</option>
+          <option value="2">2: noticeable</option>
+          <option value="3">3: bit of a nuisance</option>
+          <option value="4">4: annoying</option>
+          <option value="5">5: big pothole</option>
+          <option value="6">6: swerve to avoid</option>
+          <option value="7">7: a crater</option>
+          <option value="8">8: like staring into an abyss</option>
+          <option value="9">9: I see it from space</option>
+          <option value="10">10: Mariana Trench</option>
         </select>
       </div>
       <div class="col-12">
