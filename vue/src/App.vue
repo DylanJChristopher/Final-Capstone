@@ -68,7 +68,7 @@ body {
   flex-direction: column;
 }
 .links {
-  color: #a1a7af;
+  color: rgb(209, 191, 158);
   text-decoration: unset;
   font-size: 23px;
   
