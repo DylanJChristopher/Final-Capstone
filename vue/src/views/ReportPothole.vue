@@ -59,7 +59,7 @@ label, input, button{
  display: flex;
  justify-content: center;
 /* background-image:url("../assets/pothole-2.jpg"); */
-align-items: center;
+align-items: flex-end;
   /* background-repeat:no-repeat;
   background-size: cover; */
   
