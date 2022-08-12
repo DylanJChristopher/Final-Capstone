@@ -11,6 +11,7 @@
       <div>Direction: {{ pothole.direction }}</div>
       <div>Description {{ pothole.description }}</div>
       <form>
+        <p>Update Pothole Status:</p>
         <label for="status" class="form-label">Status: </label>
         <select
           class="form-select"
@@ -24,12 +25,30 @@
           <option value="Reject">Reject</option>
           <option value="Fixed">Fixed</option>
         </select>
+
+        <div class="col-12">
+          <form action="/action_page.php">
+            <label for="repair date">Repair Date (Date and Time): </label>
+            <input
+              type="datetime-local"
+              id="repair date"
+              name="repair date"
+              required
+              v-model="pothole.repair.repairDate"
+            />
+          </form>
+        </div>
+
+        <button type="button" class="btn btn-submit">
+          Update Status
+        </button>
       </form>
     </div>
   </div>
 </template>
 
 <script>
+
 export default {
   props: ["potholes"],
   data() {
@@ -63,6 +82,7 @@ export default {
       return results;
     },
   },
+
 };
 </script>
 
