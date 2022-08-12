@@ -48,23 +48,25 @@ body {
   font-family: Arial, Helvetica, sans-serif;
   font-weight: bold;
 }
-#spaceHolder {
+/* #spaceHolder {
   flex-grow: 2;
-}
+} */
 #nav {
   flex-grow: 2;
+  justify-content: center;
   align-content: flex-end;
   display: flex;
   flex-direction: column;
 }
 .links {
-  color: #f5851f;
+  color: #8396af;
   text-decoration: unset;
   font-size: 23px;
   
 }
 .links:hover{
   color:whitesmoke;
+  /* box-shadow: 10px 10px 5px grey; */
   
 }
 
@@ -100,7 +102,7 @@ header {
 footer {
   background-color: black;
   grid-area: footer;
-  color: #f5851f;
+  color: #8396af;
   position: relative;
   bottom: 0;
   width: 100%;
