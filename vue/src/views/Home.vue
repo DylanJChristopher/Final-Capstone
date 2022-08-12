@@ -34,7 +34,7 @@ export default {
     
   }
 .myButton {
-color: rgb(255, 255, 255); font-size: 13px; line-height: 13px; padding: 8px; border-radius: 28px; font-family: Georgia, serif; font-weight: normal; text-decoration: none; font-style: normal; font-variant: normal; text-transform: none; background-image: linear-gradient(135deg, rgb(28, 110, 164) 0%, rgb(35, 136, 203) 50%, rgb(20, 78, 117) 100%); box-shadow: rgba(43, 49, 57, 0.85) 1px 3px 8px 11px; border: 2px solid rgb(28, 110, 164); display: inline-block;}
+color: rgb(255, 255, 255); font-size: 20px; line-height: 13px; padding: 8px; border-radius: 28px; font-family: Georgia, serif; font-weight: normal; text-decoration: none; font-style: normal; font-variant: normal; text-transform: none; background-image: linear-gradient(135deg, rgb(28, 110, 164) 0%, rgb(35, 136, 203) 50%, rgb(20, 78, 117) 100%); box-shadow: rgba(43, 49, 57, 0.85) 1px 3px 8px 11px; border: 2px solid rgb(28, 110, 164); display: inline-block;}
 .myButton:hover {
 background: #3a435a; }
 .myButton:active {
