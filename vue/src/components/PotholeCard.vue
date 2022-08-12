@@ -49,6 +49,8 @@
 
 <script>
 
+import PotholeService from "../services/PotholesService.js"
+
 export default {
   props: ["potholes"],
   data() {
@@ -82,6 +84,15 @@ export default {
       return results;
     },
   },
+  methods: {
+    updateRepair(){
+      PotholeService.updatePotholeRepair(this.pothole).then(response =>{
+        if(response.status == 200){
+          console.log("it worked!")
+        }
+      })
+    }
+  }
 
 };
 </script>
