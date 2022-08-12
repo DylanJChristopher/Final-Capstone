@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "fusioncharts": "^3.19.0",
+    "vue-fusioncharts": "^3.2.0"
+  }
+}

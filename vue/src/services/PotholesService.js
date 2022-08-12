@@ -10,8 +10,8 @@ export default{
         console.log('blake')
         return axios.post('/pothole', pothole)
     },
-    updatePotholeRepair(pothole){
-        return axios.put('/pothole/{id}',pothole.potholeId)
+    updatePotholeRepair(pothole, potholeId){
+        return axios.put(`/pothole/${potholeId}`, pothole.repair)
     }
 
 
