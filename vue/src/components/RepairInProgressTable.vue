@@ -48,7 +48,7 @@ export default {
       let filteredPotholes = this.potholes;
       // console.log(this.filteredPotholes);
       const results = filteredPotholes.filter((pothole) => {
-        return pothole.repair.status == "Fixed";
+        return pothole.repair.status == "Repair Scheduled";
       });
       return results;
     }
