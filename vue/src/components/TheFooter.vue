@@ -13,7 +13,7 @@
         </div>
 
 
-        <p>&#169; Copyright of TIPS</p>
+        <p> Copyright &#169; 2022 TIPS</p>
 
     </div>
 
