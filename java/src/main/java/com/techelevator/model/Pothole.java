@@ -2,6 +2,7 @@ package com.techelevator.model;
 
 import org.apache.tomcat.jni.Local;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 public class Pothole {
@@ -11,7 +12,7 @@ public class Pothole {
     private Repair repair;
     private String direction;
     private int severity;
-    private LocalDateTime discoveryDate;
+    private LocalDate discoveryDate;
     private String description;
 
     public int getPotholeId() {
@@ -46,11 +47,11 @@ public class Pothole {
         this.severity = severity;
     }
 
-    public LocalDateTime getDiscoveryDate() {
+    public LocalDate getDiscoveryDate() {
         return discoveryDate;
     }
 
-    public void setDiscoveryDate(LocalDateTime discoveryDate) {
+    public void setDiscoveryDate(LocalDate discoveryDate) {
         this.discoveryDate = discoveryDate;
     }
 

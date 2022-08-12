@@ -10,8 +10,8 @@
             <tr>
               <th>Nearest Address</th>
               <th>Zip Code</th>
-              <th>Direction</th>
-              <th>Severity</th>
+              <th>Direction of Travel</th>
+              <th>Pothole Severity</th>
               <th>Discovery Date</th>
             </tr>
           </thead>
