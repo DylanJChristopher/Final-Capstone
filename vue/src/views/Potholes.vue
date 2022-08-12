@@ -46,6 +46,9 @@ export default {
 }
 #pothole-list{
     flex-grow: 1;
+    background-image: url("../assets/how-potholes-form.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 #components {
   display: flex;

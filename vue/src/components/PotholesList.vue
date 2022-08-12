@@ -2,164 +2,150 @@
 <template>
   <div>
     <section>
-      <section>
-        <h1>Reported Potholes</h1>
-        <div class="tbl-header">
-          <table cellpadding="0" cellspacing="0" border="0">
-            <thead>
-              <tr>
-                <th>Pothole Image</th>
-                <th>Nearest Address</th>
-                <th>Zip Code</th>
-                <th>Direction</th>
-                <th>Severity</th>
-                <th>Discovery Date</th>
-              </tr>
-            </thead>
-          </table>
-        </div>
-        <div class="tbl-content">
-          <table cellpadding="0" cellspacing="0" border="0">
-            <tbody v-for="pothole in potholes" v-bind:key="pothole.id">
-              <tr>
-                <td>Pothole Image</td>
-                <td>
-                  {{ pothole.address.streetNumber }}
-                  {{ pothole.address.streetName }}
-                </td>
-                <td>{{ pothole.address.zipCode }}</td>
-                <td>{{ pothole.direction }}</td>
-                <td>{{ pothole.severity }}</td>
-                <td>{{ pothole.discoveryDate }}</td>
-              </tr>
-              <tr>
-                <td colspan="6">
-                  Description:
-                  {{ pothole.description }}
-                </td>
-              </tr>
-              <tr>
-                <td id="placeholder" colspan="6"></td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </section>
+      <!--for demo wrap-->
+      <h1>Reported Potholes</h1>
+      <div class="tbl-header">
+        <table cellpadding="0" cellspacing="0" border="0">
+          <thead>
+            <tr>
+              <th>Nearest Address</th>
+              <th>Zip Code</th>
+              <th>Direction</th>
+              <th>Severity</th>
+              <th>Discovery Date</th>
+            </tr>
+          </thead>
+        </table>
+      </div>
+      <div class="tbl-content">
+        <table cellpadding="0" cellspacing="0" border="0">
+          <tbody v-for="pothole in filterByStatus" v-bind:key="pothole.id">
+            <tr>
+              <td>
+                {{ pothole.address.streetNumber }}
+                {{ pothole.address.streetName }} {{ pothole.address.city }}, OH
+              </td>
+              <td>{{ pothole.address.zipCode }}</td>
+              <td>{{pothole.direction}}</td>
+              <td>{{ pothole.severity }}</td>
+              <td>{{ pothole.discoveryDate }}</td>
+            </tr>
+            <tr>
+              <td colspan="5">{{ pothole.description }}</td>
+            </tr>
+            <tr>
+              <td id="placeholder" colspan="5"></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </section>
   </div>
 </template>
 
 <script>
-// import potHolesService from '../services/PotholesService';
-import moment from 'moment'
-import Vue from 'vue'
 export default {
   props: ["potholes"],
-  data() {
-    return {
-      
-    };
-  },
   computed: {
-    methodSomething() {
-      return null;
-    },
+    filterByStatus() {
+      let filteredPotholes = this.potholes;
+      // console.log(this.filteredPotholes);
+      const results = filteredPotholes.filter((pothole) => {
+        return pothole.repair.status == "Pending";
+      });
+      return results;
+    }
   },
-  methods: {
-    convertTime(){
-      Vue.filter('formatDate', (potholeDate) => {
-        if (potholeDate) {
-          return moment(String(potholeDate)).format('MM/DD/YYYY hh:mm')
-        }
-      })
-      
+      methods: {
+      retrieveId(potholeId) {
+        this.$store.commit("SET_POTHOLE_ID", potholeId);
+      },
     },
-   
-  },
   
+
 };
 </script>
 
 <style scoped>
 #placeholder {
-  background-color: rgba(255, 255, 255, 0.3);
+  background-color: rgba(139, 27, 27, 0.63);
   padding: 2px;
 }
+section {
+  height:100%;
+background-color: rgba(255, 255, 255, 0.486);
+opacity: 100%;
+}
+div {
+  /* display: flex;
+    justify-content: center;
+    align-items: center; */
+}
 h1 {
-  font-size: 30px;
-  color: #fff;
+  font-size: 20px;
+  color: black;
   text-transform: uppercase;
-  font-weight: 300;
+  font-weight: bolder;
   text-align: center;
-  margin-bottom: 15px;
+  height: 5%;
+  font-family: Arial, Helvetica, sans-serif;
+  
+  
 }
 table {
   width: 100%;
   table-layout: fixed;
 }
 .tbl-header {
-  background-color: goldenrod;
+  background-color: rgba(255, 255, 255, 0.3);
+    border: rgba(255, 255, 255, 0.3);
+  
 }
 .tbl-content {
-  height: 100vh;
-  /* overflow-x: auto; */
+  height: 70%;
+  overflow-x: auto;
   margin-top: 0px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  
 }
 th {
   padding: 20px 15px;
   text-align: left;
   font-weight: bolder;
-  font-size: 10px;
-  color: rgba(216, 0, 0, 0.795);
+  font-size: 12px;
+  color: black;
   text-transform: uppercase;
   font-family: Arial, Helvetica, sans-serif;
 }
-
 td {
   padding: 15px;
   text-align: left;
   vertical-align: middle;
   font-weight: bold;
   font-size: 12px;
+  color: black;
+  border-bottom: solid 1px rgba(255, 255, 255, 0.1);
   font-family: Arial, Helvetica, sans-serif;
-
-  color: rgb(255, 255, 255);
-  /* border-bottom: solid 1px rgba(255, 255, 255, 0.1); */
+}
+/* width */
+::-webkit-scrollbar {
+  width: 15px;
+  height: 5px;
 }
 
-/* demo styles */
-
-@import url(https://fonts.googleapis.com/css?family=Roboto:400,500,300,700);
-body {
-  background: -webkit-linear-gradient(left, #25c481, #25b7c4);
-  background: linear-gradient(to right, #25c481, #25b7c4);
-  font-family: "Roboto", sans-serif;
-}
-section {
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey;
+  border-radius: 10px;
+  
 }
 
-/* follow me template */
-.made-with-love {
-  margin-top: 40px;
-  padding: 10px;
-  clear: left;
-  text-align: center;
-  font-size: 10px;
-  font-family: arial;
-  color: #fff;
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: rgba(139, 27, 27, 0.63);
+  border-radius: 10px;
+  box-shadow: inset 0 0 5px rgb(0, 0, 0);
+  
 }
-.made-with-love i {
-  font-style: normal;
-  color: #f50057;
-  font-size: 14px;
-  position: relative;
-  top: 2px;
-}
-.made-with-love a {
-  color: #fff;
-  text-decoration: none;
-}
-.made-with-love a:hover {
-  text-decoration: underline;
-}
+
 </style>
