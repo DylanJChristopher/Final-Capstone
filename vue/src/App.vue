@@ -59,7 +59,7 @@ body {
   flex-direction: column;
 }
 .links {
-  color: #8396af;
+  color: #a1a7af;
   text-decoration: unset;
   font-size: 23px;
   
@@ -103,7 +103,7 @@ header {
 footer {
   background-color: black;
   grid-area: footer;
-  color: #8396af;
+  color: #a1a7af;
   position: relative;
   bottom: 0;
   width: 100%;
