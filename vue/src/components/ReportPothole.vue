@@ -120,7 +120,7 @@
           </form>
         </div>
         <div class="col-12">
-        <button v-on:click="submitPothole" type="button" class="btn btn-submit">
+        <button v-on:click="submitPothole()" type="button" class="btn btn-submit">
           Submit TIP
         </button>
         </div>
@@ -159,20 +159,12 @@ export default {
     };
   },
   methods: {
-    formSet() {
-      this.showForm = true;
-      this.showButton = false;
-    },
-    formReset() {
-      this.showForm = false;
-      this.showButton = true;
-    },
     submitPothole() {
       console.log("yageen");
-      this.formReset();
       PotholeService.reportPothole(this.pothole).then((response) => {
         if (response.status == 200) {
           console.log("elise");
+          this.$router.push({name: 'potholes'});
         }
       });
     },
@@ -183,5 +175,6 @@ export default {
 <style>
 .col-12{
   margin: 7px;
+  font-family: Arial, Helvetica, sans-serif;
 }
 </style>
