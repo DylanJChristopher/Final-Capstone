@@ -176,7 +176,7 @@ h1 {
 }
 #banner {
   display: flex;
-  background-color: green;
+  background-color: #049264;
   opacity: 85%;
   -webkit-box-shadow: 1px 3px 8px 11px rgba(43, 49, 57, 0.85);
   box-shadow: 1px 3px 8px 11px rgba(43, 49, 57, 0.85);
