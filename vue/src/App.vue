@@ -105,7 +105,7 @@ ul {
 }
 #router-view {
   grid-area: router-view;
-  height: 85vh;
+  height: 100%;
   margin: 0px 0px 60px 0px;
 }
 

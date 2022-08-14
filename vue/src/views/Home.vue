@@ -91,6 +91,7 @@ export default {
 }
 .card-img-top{
   width: 20vw;
+  height: 20vh;
 }
 
 
