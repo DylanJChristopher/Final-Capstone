@@ -81,7 +81,7 @@ section {
     height: 70vh;
     border: outset 1px grey;
     border-radius: 5%;
-    box-shadow: 20px 20px 10px grey;
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
 }
 div {
   /* display: flex;
