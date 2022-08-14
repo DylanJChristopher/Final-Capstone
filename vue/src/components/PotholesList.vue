@@ -6,7 +6,7 @@
       <h1>Reported Potholes</h1>
       <div class="tbl-header">
         <table cellpadding="0" cellspacing="0" border="0">
-          <thead>
+          <thead class="clickable" @click="setZoom(10), setLat(39.983334), setLng(-82.98333)">
             <tr>
               <th>Nearest Address</th>
               <th>Zip Code</th>
@@ -20,7 +20,11 @@
       <div class="tbl-content">
         <table cellpadding="0" cellspacing="0" border="0">
           <tbody v-for="pothole in filterByStatus" v-bind:key="pothole.id">
-            <tr @click="setLat( 36.983334), setLng(-86.98333)" class="clickable">
+            <tr @click="sendCenterLocations(pothole.potholeId)"
+            
+              
+              class="clickable"
+            >
               <td>
                 {{ pothole.address.streetNumber }}
                 {{ pothole.address.streetName }} {{ pothole.address.city }}, OH
@@ -47,10 +51,10 @@
 import MapService from "../services/MapService.js";
 export default {
   props: ["potholes"],
-  data() {
-    return {
-      holder: "",
-    };
+  data(){
+return{
+  holder: "",
+}
   },
   computed: {
     filterByStatus() {
@@ -61,12 +65,9 @@ export default {
       });
       return results;
     },
-    currentCoordinate() {
+    currentCoordinate(){
       return this.$store.state.center.lat;
-    },
-    currentCoordinate2() {
-      return this.$store.state.center.lng;
-    },
+    }
   },
   methods: {
     addressToString(pothole) {
@@ -91,27 +92,30 @@ export default {
       this.$store.commit("SET_POTHOLE_ID", potholeId);
     },
     sendCenterLocations(id) {
+            
       let chosenPothole = this.potholes.filter((pothole) => {
         return pothole.potholeId == id;
       });
-      let url = this.addressToString(chosenPothole);
+      console.log(chosenPothole[0].potholeId);
+      let url = this.addressToString(chosenPothole[0]);
       MapService.getMapInformation(url).then((response) => {
-        let lat1 = 37.983334;
-        // response.data.results[0].geometry.location.lat;
-        let lng1 = -82.98333;
-        // response.data.results[0].geometry.location.lng;
-        this.$store.commit("SET_CENTER", lat1, lng1);
-        this.holder = response.data;
-      });
+          let lat1 = response.data.results[0].geometry.location.lat;
+          let lng1 = response.data.results[0].geometry.location.lng;
+          this.$store.commit("SET_LAT", lat1);
+          this.$store.commit("SET_LNG", lng1);
+          this.$store.commit("SET_ZOOM", 15);
+          this.holder = response.data;
+        });
+      
     },
-    setLat(lat) {
-      this.$store.commit("SET_LAT", lat);
-      console.log(this.currentCoordinate);
+    setLat(lat){
+      this.$store.commit("SET_LAT", lat);  
     },
-    setLng(lng){
+      setLng(lng){
       this.$store.commit("SET_LNG", lng);
-      console.log(this.currentCoordinate2 + " CHECKING lng");
-
+    },
+    setZoom(zoom){
+      this.$store.commit("SET_ZOOM", zoom);
     }
   },
 };
