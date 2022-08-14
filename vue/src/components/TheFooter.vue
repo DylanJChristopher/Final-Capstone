@@ -10,8 +10,8 @@
       <div id="together">
         <div id="newsletter">
           <label for="Email">Newsletter: </label>
-          <input type="email" />
-          <button>Sign up</button>
+          <input type="email" placeholder="Email" v-model="value" />
+          <button v-on:click="clearForm">Sign up</button>
         </div>
 
         <div id="socialMedia">
@@ -36,12 +36,27 @@
       
     </div>
 
+   <span class="line"></span>
+
     <p id="copyright">Copyright &#169; 2022 TIPS</p>
   </div>
 </template>
 
 <script>
-export default {};
+export default {
+  data(){
+    return{
+      value: ""
+
+    }
+  },
+  methods:{
+    clearForm(){
+      this.value=""
+
+    }
+  }
+};
 </script>
 
 <style scoped>
@@ -62,6 +77,10 @@ a {
 #copyright {
   color: black;
   text-align: center;
+}
+.line{
+  border-bottom: 2px solid black;
+  display: block;
 }
 #container {
   background-color: white;
