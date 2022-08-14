@@ -3,7 +3,7 @@
     <div id="components">
       
       <div id="pot-and-report">
-        <potholes-list v-bind:pSotholes="potholes" id="pothole-list" />
+        <potholes-list v-bind:potholes="potholes" id="pothole-list" />
         <!-- <report-pothole id="report-pothole" /> -->
       </div>
       <user-location v-bind:potholes="potholes" id="user-location" />
