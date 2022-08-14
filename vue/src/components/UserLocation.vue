@@ -77,6 +77,7 @@ export default {
         //1275+Kinnear+Rd,+Columbus,+OH
       }
     },
+    
     initMarker(loc) {
       this.existingPlace = loc;
     },
