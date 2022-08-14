@@ -6,29 +6,42 @@
       <nav id="nav">
         <div id="spaceHolder"></div>
         <ul>
-
           <li>
             <router-link class="links" v-bind:to="{ name: 'home' }"
               >Home</router-link
             >
           </li>
           <li>
-            <router-link class="links" v-bind:to="{ name: 'potholes' } " v-show="$store.state.token == ''"
+            <router-link
+              class="links"
+              v-bind:to="{ name: 'potholes' }"
+              v-show="$store.state.token == ''"
               >Listed Potholes
             </router-link>
-            <router-link class="links" v-bind:to="{ name: 'employee' } " v-show="$store.state.token != ''"
+            <router-link
+              class="links"
+              v-bind:to="{ name: 'employee' }"
+              v-show="$store.state.token != ''"
               >Manage Potholes
             </router-link>
           </li>
-          <li><router-link class="links" v-bind:to="{name: 'report' }">Report Pothole</router-link></li>
+          <li>
+            <router-link class="links" v-bind:to="{ name: 'report' }"
+              >Report Pothole</router-link
+            >
+          </li>
 
-           <li>
+          <li>
             <router-link
               class="links"
               v-bind:to="{ name: 'logout' }"
               v-show="$store.state.token != ''"
               >Logout</router-link
-            >             <router-link class="links" v-bind:to="{ name: 'login' }" v-show="$store.state.token == ''"
+            >
+            <router-link
+              class="links"
+              v-bind:to="{ name: 'login' }"
+              v-show="$store.state.token == ''"
               >Login</router-link
             >
           </li>
@@ -38,16 +51,15 @@
 
     <router-view id="router-view" />
     <the-foot-of-page id="footer"></the-foot-of-page>
-    
   </div>
 </template>
 <script>
-import TheFootOfPage from "./views/TheFootOfPage.vue"
+import TheFootOfPage from "./views/TheFootOfPage.vue";
 export default {
-  components:{
-      TheFootOfPage,
-  }
-}
+  components: {
+    TheFootOfPage,
+  },
+};
 </script>
 
 <style >
@@ -71,12 +83,10 @@ body {
   color: rgb(209, 191, 158);
   text-decoration: unset;
   font-size: 23px;
-  
 }
-.links:hover{
-  color:whitesmoke;
+.links:hover {
+  color: whitesmoke;
   /* box-shadow: 10px 10px 5px grey; */
-  
 }
 
 ul {
@@ -96,6 +106,7 @@ ul {
 #router-view {
   grid-area: router-view;
   height: 85vh;
+  margin: 0px 0px 60px 0px;
 }
 
 header {
@@ -109,18 +120,17 @@ header {
   margin-top: 5vh;
   position: relative;
 }
-footer {
-  background-color: black;
+#footer {
+  background-color: rgba(139, 27, 27, 0.63);
   grid-area: footer;
-  color: #a1a7af;
-  position: relative;
+  padding: 20PX;
+  margin: 20px 0px 0px 0px;
+  /* position: relative;
   bottom: 0;
   width: 100%;
-  height: 5vh;
-  font-size: small;
-  display:flex;
-  justify-content: center;
-  align-items: center;
+  height: 10vh; */
+  /* flex-grow: 0;
+  flex-shrink: 0; */
 }
 #app {
   display: grid;
@@ -142,5 +152,4 @@ button {
   font-family: Arial, Helvetica, sans-serif;
   font-weight: bold;
 }
-
 </style>
