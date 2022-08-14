@@ -134,15 +134,7 @@ export default {
     
    
   },
-  computed: {    filterByStatus() {
-      let filteredPotholes = this.potholes1;
-      // console.log(this.filteredPotholes);
-      const results = filteredPotholes.filter((pothole) => {
-        return pothole.repair.status == "Pending";
-      });
-      return results;
-    }
-  }},
+  computed: {},
 };
 </script>
 <style scoped>
