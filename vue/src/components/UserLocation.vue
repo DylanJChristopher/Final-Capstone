@@ -13,14 +13,16 @@
     <!-- <div>
       <label> Pothole Map </label>
     </div> -->
-    <gmap-map :zoom="10" :center="center" id="mapElement">
-      // @click="center=m.position" was after :key="index"
+    <gmap-map :zoom="9" :center="center" id="mapElement">
+      <!--  was after :key="index" -->
       <gmap-marker
         :key="index"
+        @click="center = m.position"
         v-for="(m, index) in locationMarkers"
         :position="m.position"
       ></gmap-marker>
     </gmap-map>
+    <button @click="centerWhenClicked">HWLPPPPP</button>
   </div>
 </template>
  
@@ -30,12 +32,12 @@ import potholesService from "../services/PotholesService.js";
 
 export default {
   name: "user-location",
-  // props: ["potholes"],
+  props: ["potholes"],
   data() {
     return {
       center: {
-        lat: 39.0155,
-        lng: -82.9932,
+        lat: 39.983334,
+        lng: -82.98333,
       },
       locationMarkers: [],
       locPlaces: [],
@@ -49,14 +51,26 @@ export default {
       filteredPotholes: [],
 
       potholes1: [],
-      potholes33:[],
+      potholes33: [],
 
       potholeLocations: [],
       //1275+Kinnear+Rd,+Columbus,+OH
     };
   },
+  computed: {
+    currentTHings() {
+      return this.$store.state.center.lat;
+    },
+  },
 
   methods: {
+    centerWhenClicked() {
+      console.log(this.currentTHings);
+       this.center = {
+        lat: parseFloat(this.$store.state.center.lat),
+        lng: parseFloat(this.$store.state.center.lng)
+       }
+    },
     addressToString(potholes1) {
       console.log("blake");
       let streetName = "";
@@ -78,12 +92,11 @@ export default {
         //1275+Kinnear+Rd,+Columbus,+OH
       }
     },
-    
+
     initMarker(loc) {
       this.existingPlace = loc;
     },
-        addLocationMarker() {
-      console.log("yageen");
+    addLocationMarker() {
       for (let i = 0; i < this.addressString.length; i++) {
         this.addressMarker = this.potholeLocations[i];
         this.partialData = this.addressMarker.results;
@@ -95,7 +108,7 @@ export default {
         };
         this.locationMarkers.push({ position: marker });
         this.locPlaces.push(this.partialData2);
-        this.center = marker;
+        // this.center = marker;
         // this.partialData2 = null;
       }
     },
@@ -110,20 +123,17 @@ export default {
     },
 
     locateGeoLocation: function () {
-      navigator.geolocation.getCurrentPosition((res) => {
-        this.center = {
-          lat: res.coords.latitude,
-          lng: res.coords.longitude,
-        };
-      });
+      this.center = {
+        lat: this.$store.state.center.lat,
+        lng: this.$store.state.center.lng,
+      };
     },
   },
   mounted() {
     this.locateGeoLocation();
-    
   },
 
-  created(){
+  created() {
     potholesService.retrievePotholes().then((response) => {
       this.potholes1 = response.data;
       this.filteredPotholes = this.potholes1;
@@ -132,14 +142,9 @@ export default {
       });
       this.addressToString(this.filteredPotholes);
       this.retrieveAllPotholeLocations();
-      
+
       //this.potholeLocations.push(response.data);
     });
-    
-    
-   
-  },
-  computed: {    
   },
 };
 </script>
@@ -147,8 +152,6 @@ export default {
 #mapElement {
   width: 100%;
   height: 100%;
-  
-  
 }
 button {
   margin: 0;

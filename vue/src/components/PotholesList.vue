@@ -20,17 +20,21 @@
       <div class="tbl-content">
         <table cellpadding="0" cellspacing="0" border="0">
           <tbody v-for="pothole in filterByStatus" v-bind:key="pothole.id">
-            <tr>
+            <tr
+            @click="setLat(36.983334, -82.983330)"
+              
+              class="clickable"
+            >
               <td>
                 {{ pothole.address.streetNumber }}
                 {{ pothole.address.streetName }} {{ pothole.address.city }}, OH
               </td>
               <td>{{ pothole.address.zipCode }}</td>
-              <td>{{pothole.direction}}</td>
+              <td>{{ pothole.direction }}</td>
               <td>{{ pothole.severity }}</td>
               <td>{{ pothole.discoveryDate }}</td>
             </tr>
-            <tr>
+            <tr id="description">
               <td colspan="5">{{ pothole.description }}</td>
             </tr>
             <tr>
@@ -44,8 +48,14 @@
 </template>
 
 <script>
+import MapService from "../services/MapService.js";
 export default {
   props: ["potholes"],
+  data(){
+return{
+  holder: "",
+}
+  },
   computed: {
     filterByStatus() {
       let filteredPotholes = this.potholes;
@@ -54,32 +64,75 @@ export default {
         return pothole.repair.status == "Pending";
       });
       return results;
+    },
+    currentCoordinate(){
+      return this.$store.state.center.lat;
     }
   },
-      methods: {
-      retrieveId(potholeId) {
-        this.$store.commit("SET_POTHOLE_ID", potholeId);
-      },
-    },
-  
+  methods: {
+    addressToString(pothole) {
+      let streetName = pothole.address.streetName;
 
+      if (streetName.includes(" ")) {
+        streetName = streetName.replace(" ", "+");
+      }
+      let url =
+        pothole.address.streetNumber +
+        "+" +
+        streetName +
+        ",+" +
+        pothole.address.city +
+        ",+" +
+        pothole.address.state;
+      return url;
+
+      //1275+Kinnear+Rd,+Columbus,+OH
+    },
+    retrieveId(potholeId) {
+      this.$store.commit("SET_POTHOLE_ID", potholeId);
+    },
+    sendCenterLocations(id) {
+      let chosenPothole = this.potholes.filter((pothole) => {
+        return pothole.potholeId == id;
+      });
+      let url = this.addressToString(chosenPothole);
+      MapService.getMapInformation(url).then((response) => {
+          let lat1 = 37.983334;
+          // response.data.results[0].geometry.location.lat;
+          let lng1 = -82.983330;
+          // response.data.results[0].geometry.location.lng;
+          this.$store.commit("SET_CENTER", lat1, lng1);
+          this.holder = response.data;
+        });
+      
+    },
+    setLat(lat, lng){
+      this.$store.commit("SET_CENTER", lat, lng);
+      console.log(this.currentCoordinate);
+      
+    }
+  },
 };
 </script>
 
 <style scoped>
+.clickable:hover + #description {
+  background-color: rgba(139, 27, 27, 0.63);
+  opacity: 70%;
+  cursor: pointer;
+}
+.clickable:hover {
+  background-color: rgba(139, 27, 27, 0.63);
+  opacity: 70%;
+  cursor: pointer;
+}
 #placeholder {
   background-color: rgba(139, 27, 27, 0.63);
   padding: 2px;
 }
 section {
-  height:100%;
-/* background-color: rgba(255, 255, 255, 0.486); */
-
-}
-div {
-  /* display: flex;
-    justify-content: center;
-    align-items: center; */
+  height: 100%;
+  /* background-color: rgba(255, 255, 255, 0.486); */
 }
 h1 {
   font-size: 20px;
@@ -89,8 +142,6 @@ h1 {
   text-align: center;
   height: 5%;
   font-family: Arial, Helvetica, sans-serif;
-  
-  
 }
 table {
   width: 100%;
@@ -98,15 +149,13 @@ table {
 }
 .tbl-header {
   /* background-color: rgba(255, 255, 255, 0.3); */
-    border: rgba(255, 255, 255, 0.3);
-  
+  border: rgba(255, 255, 255, 0.3);
 }
 .tbl-content {
   height: 70%;
   overflow-x: auto;
   margin-top: 0px;
   border: 1px solid rgba(255, 255, 255, 0.3);
-  
 }
 th {
   padding: 20px 15px;
@@ -137,7 +186,6 @@ td {
 ::-webkit-scrollbar-track {
   box-shadow: inset 0 0 5px grey;
   border-radius: 10px;
-  
 }
 
 /* Handle */
@@ -145,7 +193,5 @@ td {
   background: rgba(139, 27, 27, 0.63);
   border-radius: 10px;
   box-shadow: inset 0 0 5px rgb(0, 0, 0);
-  
 }
-
 </style>

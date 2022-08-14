@@ -85,7 +85,7 @@ public class JdbcPotholeDao implements PotholeDao{
         pothole.setPotholeId(results.getInt("pothole_id"));
         pothole.setDirection(results.getString("direction"));
         pothole.setSeverity(results.getInt("severity"));
-        pothole.setDiscoveryDate(results.getTimestamp("discovery_date").toLocalDateTime().toLocalDate());
+        pothole.setDiscoveryDate(results.getTimestamp("discovery_date").toLocalDateTime());
         pothole.setDescription(results.getString("description"));
 
 
@@ -116,7 +116,7 @@ public class JdbcPotholeDao implements PotholeDao{
 
         repair.setStatus(results.getString("status"));
         if (results.getTimestamp("repair_date") != null) {
-            repair.setRepairDate(results.getTimestamp("repair_date").toLocalDateTime().toLocalDate());
+            repair.setRepairDate(results.getTimestamp("repair_date").toLocalDateTime());
         }
         else {
             repair.setRepairDate(null);
