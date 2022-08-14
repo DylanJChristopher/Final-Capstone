@@ -11,7 +11,7 @@
               <th>Zip Code</th>
               <th>Severity</th>
               <th>Repair Date</th>
-              <th>More Details</th>
+              <!-- <th>More Details</th> -->
             </tr>
           </thead>
         </table>
@@ -19,21 +19,21 @@
       <div class="tbl-content">
         <table cellpadding="0" cellspacing="0" border="0">
           <tbody v-for="pothole in filterByStatus" v-bind:key="pothole.id">
-            <tr>
+            <tr  v-on:click="retrieveId(pothole.potholeId)" class="clickable">
               <td>
                 {{ pothole.address.streetNumber }}
                 {{ pothole.address.streetName }} {{ pothole.address.city }}, OH
               </td>
               <td>{{ pothole.address.zipCode }}</td>
               <td>{{ pothole.severity }}</td>
-              <td>{{ pothole.repair.repairDate }}</td>
-              <td><button v-on:click="retrieveId(pothole.potholeId)">More Details</button></td>
+              <td>{{ pothole.repair.repairDate.toLocaleString('default', { month: 'short'})}}</td>
+              <!-- <td><button v-on:click="retrieveId(pothole.potholeId)">More Details</button></td> -->
             </tr>
-            <tr>
+            <tr  v-on:click="retrieveId(pothole.potholeId)">
               <td colspan="4">{{ pothole.description }}</td>
             </tr>
             <tr>
-              <td id="placeholder" colspan="5"></td>
+              <td id="placeholder" colspan="4"></td>
             </tr>
           </tbody>
         </table>
@@ -66,6 +66,9 @@ export default {
 </script>
 
 <style scoped>
+/* .clickable:hover{
+  box-shadow: 10px 10px lightgray;
+} */
 #placeholder {
   background-color: rgba(139, 27, 27, 0.63);
   padding: 2px;
