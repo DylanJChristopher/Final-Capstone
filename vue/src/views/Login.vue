@@ -94,6 +94,7 @@ button:hover{
  
   border-radius: 6%;
  align-items: center;
+ box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
 
 }
 label, input, button{
@@ -111,7 +112,7 @@ label, input, button{
 
 }
 #container{
-  height:85vh;
+  height:75vh;
    width: 100vw;
  display: flex;
  justify-content: center;

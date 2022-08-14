@@ -40,7 +40,7 @@ button:hover{
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  height: 70%;
+  height: 60%;
   width: 40%;
   background-color: whitesmoke;
   opacity: 85%;
@@ -48,6 +48,7 @@ button:hover{
   border-radius: 6%;
 
  align-items: center;
+ box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
 
 }
 label, input, button{
@@ -56,11 +57,11 @@ label, input, button{
 
 #container{
   height:85vh;
-   width: 100vw;
+   width: 100%;
  display: flex;
  justify-content: center;
 /* background-image:url("../assets/pothole-2.jpg"); */
-align-items: flex-end;
+align-items: center;
   /* background-repeat:no-repeat;
   background-size: cover; */
   
