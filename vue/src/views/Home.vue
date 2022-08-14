@@ -12,30 +12,30 @@
 
  
 <div id="homepart2">
-      <h2>Other Things like about or whatever</h2>
+      <h2>Here at TIPS we work with the community. Because we are a part of the community.</h2>
       <section id="home-cards">
-      <div class="card" style="width: 40rem;">
-        <img src="../assets/about-us.jpg" class="card-img-top" alt="Wallace Residence">
+      <div class="card" style="width: 40rem;" id="left-card">
+        <img src="../assets/about-us.jpg" class="card-img-top" alt="About TIPS">
         <div class="card-body">
           <h5 class="card-title">About TIPS</h5>
-          <p class="card-text">Learn all about the brilliant minds behind TIPS</p>
+          <p class="card-text">Learn all about the brilliant minds behind TIPS and how you can be a part of our team!</p>
           <a href="#" class="btn btn-primary card-button">Learn More</a>
         </div>
       </div>
 
-      <div class="card" style="width: 40rem;">
-        <img src="../assets/faq.jpg" class="card-img-top" alt="McDonald Residence">
+      <div class="card" id = "middle-card" style="width: 40rem;">
+        <img src="../assets/faq.jpg" class="card-img-top" alt="Frequently Asked Questions">
         <div class="card-body">
-          <h5 class="card-title">FAQ</h5>
-          <p class="card-text">Answers to our common questiosn</p>
+          <h5 class="card-title">F.A.Q.</h5>
+          <p class="card-text">Answers to our common questions. What is TIPS? What do we do? How can you help?</p>
           <a href="#" class="btn btn-primary card-button">Learn More</a>
         </div>
       </div>
 
-      <div class="card" style="width: 40rem;">
-        <img src="../assets/pothole-5.jpg" class="card-img-top" alt="Kent Residence">
+      <div class="card" style="width: 40rem;" id="right-card">
+        <img src="../assets/pothole-5.jpg" class="card-img-top" alt="What are potholes">
         <div class="card-body">
-          <h5 class="card-title">Potholes? What are they and how do they form!</h5>
+          <h5 class="card-title">What are potholes? How do they form?</h5>
           <p class="card-text">Many things go into forming a pothole. Here we ask leading Road Technologist how these keep coming back.</p>
           <a href="#" class="btn btn-primary card-button">Learn More</a>
         </div>
@@ -77,6 +77,7 @@ export default {
 #home-cards{
     display: flex;
     justify-content: space-evenly;
+    
 }
 .card-title{
     font-size: 3em;
@@ -90,9 +91,34 @@ export default {
     background-color: var(--green);
 }
 .card-img-top{
-  width: 20vw;
-  height: 20vh;
+  width: 25vw;
+  height: 25vh;
+  margin-left: 2rem;
+  margin-right: 2rem;
+  -webkit-box-shadow: 1px 3px 8px 11px rgba(43,49,57,0.85); 
+box-shadow: 1px 3px 8px 11px rgba(43,49,57,0.85);
+
+
+border-radius: 20%;
 }
+#left-card{
+  padding-right: 2rem;
+  padding-left: 2rem;
+  
+}
+#middle-card{
+  padding-right: 2rem;
+  padding-left: 2rem;
+  border-right: black solid 2px;
+  border-left: black solid 2px;
+  
+}
+#right-card{
+  padding-right: 2rem;
+  padding-left: 2rem;
+}
+
+
 
 
 
