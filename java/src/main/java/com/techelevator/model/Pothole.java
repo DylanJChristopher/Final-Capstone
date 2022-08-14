@@ -12,7 +12,7 @@ public class Pothole {
     private Repair repair;
     private String direction;
     private int severity;
-    private LocalDate discoveryDate;
+    private LocalDateTime discoveryDate;
     private String description;
 
     public int getPotholeId() {
@@ -47,11 +47,11 @@ public class Pothole {
         this.severity = severity;
     }
 
-    public LocalDate getDiscoveryDate() {
+    public LocalDateTime getDiscoveryDate() {
         return discoveryDate;
     }
 
-    public void setDiscoveryDate(LocalDate discoveryDate) {
+    public void setDiscoveryDate(LocalDateTime discoveryDate) {
         this.discoveryDate = discoveryDate;
     }
 

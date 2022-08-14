@@ -22,14 +22,14 @@
           v-model="pothole.severity"
         >
           <option selected></option>
-          <option value="1">1: just a crack</option>
-          <option value="2">2: noticeable</option>
-          <option value="3">3: bit of a nuisance</option>
-          <option value="4">4: annoying</option>
-          <option value="5">5: big pothole</option>
-          <option value="6">6: swerve to avoid</option>
-          <option value="7">7: a crater</option>
-          <option value="8">8: like staring into an abyss</option>
+          <option value="1">1: Just a crack</option>
+          <option value="2">2: Noticeable</option>
+          <option value="3">3: Bit of a nuisance</option>
+          <option value="4">4: Annoying</option>
+          <option value="5">5: Big pothole</option>
+          <option value="6">6: Swerve to avoid</option>
+          <option value="7">7: A crater</option>
+          <option value="8">8: Like staring into an abyss</option>
           <option value="9">9: I see it from space</option>
           <option value="10">10: Mariana Trench</option>
         </select>
