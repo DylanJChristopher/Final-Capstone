@@ -3,7 +3,7 @@
     <div id="components">
       
       <div id="pot-and-report">
-        <potholes-list v-bind:potholes="potholes" id="pothole-list" />
+        <potholes-list v-bind:pSotholes="potholes" id="pothole-list" />
         <!-- <report-pothole id="report-pothole" /> -->
       </div>
       <user-location v-bind:potholes="potholes" id="user-location" />
@@ -13,9 +13,9 @@
 
 <script>
 import UserLocation from "../components/UserLocation.vue";
-// import ReportPothole from "../components/ReportPothole.vue";
+//  import ReportPothole from "../components/ReportPothole.vue";
 import PotholesList from "../components/PotholesList.vue";
-// import MapService from "../services/MapService.js";
+//  import MapService from "../services/MapService.js";
 import potHolesService from "../services/PotholesService.js";
 
 export default {
@@ -26,7 +26,7 @@ export default {
   },
   components: {
     PotholesList,
-    // ReportPothole,
+    //  ReportPothole,
     UserLocation,
   },
 
@@ -47,20 +47,25 @@ export default {
     background-repeat: no-repeat;
     background-size: cover; */
     height: 70vh;
-    border: outset 1px grey;
+    border: outset 1px rgb(216, 213, 213);
     border-radius: 5%;
     box-shadow: 20px 20px 10px grey;
+    background-color: rgba(255, 255, 255, 0.603);
 }
 #components {
   display: flex;
   justify-content: space-evenly;
   width: 100%;
   height: 85vh;
+  align-items: center;
 }
 #user-location {
-  width: 50vw;
-  height: 85vh;
+  width: 45vw;
+  height: 70vh;
   min-width: 0;
+  border: outset 1px rgb(216, 213, 213);
+  
+    box-shadow: 20px 20px 10px grey;
   /* background-color: black; */
 }
 #pot-and-report {

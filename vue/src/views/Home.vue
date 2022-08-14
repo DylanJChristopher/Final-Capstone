@@ -2,7 +2,7 @@
   <div class="home">
   <div id="banner" >
     <h1> T.I.P.S. ensures the roads are safe!</h1>
-    <h2>Submit a TIP of a pothole today!</h2>
+    <h2><button class = "myButton">Submit a TIP of a pothole today!</button></h2>
   
 </div>
   </div>
@@ -33,18 +33,18 @@ export default {
      color: white
     
   }
-  h2{
-    text-align: center;
-    color: black
-  }
+.myButton {
+color: rgb(255, 255, 255); font-size: 20px; line-height: 13px; padding: 8px; border-radius: 28px; font-family: Georgia, serif; font-weight: normal; text-decoration: none; font-style: normal; font-variant: normal; text-transform: none; background-image: linear-gradient(135deg, rgb(28, 110, 164) 0%, rgb(35, 136, 203) 50%, rgb(20, 78, 117) 100%); box-shadow: rgba(43, 49, 57, 0.85) 1px 3px 8px 11px; border: 2px solid rgb(28, 110, 164); display: inline-block;}
+.myButton:hover {
+background: #3a435a; }
+.myButton:active {
+background: #1e2a44; }
   #banner{
     display: flex;
           background-color:green;
   opacity: 85%;
 -webkit-box-shadow: 1px 3px 8px 11px rgba(43,49,57,0.85); 
 box-shadow: 1px 3px 8px 11px rgba(43,49,57,0.85);
-  /* border-radius: 7%; */
-  /* width:25%; */
   flex-direction: column;
    height: 200px;
   width: 200px;
