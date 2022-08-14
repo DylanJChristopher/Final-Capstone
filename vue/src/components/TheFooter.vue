@@ -18,11 +18,11 @@
           <img class="icons" src="../assets/Linkedin.png" alt="Linkedin Logo" />
           <img class="icons" src="../assets/twitter.png" alt="Twitter Logo" />
           <img class="icons" src="../assets/FB.png" alt="FaceBook Logo" />
-          <img
+         <a href="https://www.instagram.com/reel/ChKUvnZrGR9/?igshid=YmMyMTA2M2Y="><img
             id="instagram"
             src="../assets/Instagram.png"
             alt="Instagram Logo"
-          />
+          /></a> 
           <img class="icons" src="../assets/YT.png" alt="YouTube Logo" />
         </div>
       </div>
