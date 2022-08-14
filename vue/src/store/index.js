@@ -21,9 +21,14 @@ export default new Vuex.Store({
   state: {
     token: currentToken || '',
     user: currentUser || {},
-    pothole: ''
+    pothole: '',
+    position: {
+      lat: '',
+      lng: ''
+    }
   },
   mutations: {
+    
     SET_POTHOLE_ID(state, potholeId){
       state.pothole = potholeId;
 

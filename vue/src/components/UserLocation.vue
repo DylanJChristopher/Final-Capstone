@@ -14,9 +14,9 @@
       <label> Pothole Map </label>
     </div> -->
     <gmap-map :zoom="10" :center="center" id="mapElement">
-      // @click="center=m.position" was after :key="index"
+      <!--  was after :key="index" -->
       <gmap-marker
-        :key="index"
+        :key="index" @click="center=m.position"
         v-for="(m, index) in locationMarkers"
         :position="m.position"
       ></gmap-marker>
@@ -30,7 +30,7 @@ import potholesService from "../services/PotholesService.js";
 
 export default {
   name: "user-location",
-  // props: ["potholes"],
+  props: ["potholes"],
   data() {
     return {
       center: {

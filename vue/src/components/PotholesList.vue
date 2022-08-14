@@ -76,11 +76,6 @@ section {
 /* background-color: rgba(255, 255, 255, 0.486); */
 
 }
-div {
-  /* display: flex;
-    justify-content: center;
-    align-items: center; */
-}
 h1 {
   font-size: 20px;
   color: black;
@@ -89,8 +84,6 @@ h1 {
   text-align: center;
   height: 5%;
   font-family: Arial, Helvetica, sans-serif;
-  
-  
 }
 table {
   width: 100%;
