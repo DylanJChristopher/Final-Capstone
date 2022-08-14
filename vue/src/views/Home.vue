@@ -7,16 +7,18 @@
             <h1>T.I.P.S. ensures the roads are safe!</h1>
           </div>
           <h2>
-            <button class="myButton">Submit a TIP of a pothole today!</button>
+            <button class="myButton">
+              <a id = "report-link" href="http://localhost:8080/report"
+                >Submit a TIP of a pothole today!</a
+              >
+            </button>
           </h2>
         </div>
       </div>
     </div>
 
     <div id="homepart2">
-      <h2>
-        "TIPS is dedicated to making the community a better place."
-      </h2>
+      <h2>"Paving the way to the Future. One Pothole at a time."</h2>
       <section id="home-cards">
         <div class="card" style="width: 40rem" id="left-card">
           <img
@@ -57,9 +59,10 @@
             alt="What are potholes"
           />
           <div class="card-body">
-            <h5 class="card-title">What are potholes? </h5>
+            <h5 class="card-title">What are potholes?</h5>
             <p class="card-text">
-              Learn from leading Road Technologist about Potholes and how they form.
+              Learn from leading Road Technologist about Potholes and how they
+              form.
             </p>
             <a href="#" class="btn btn-primary card-button">Learn More</a>
           </div>
@@ -79,7 +82,7 @@ export default {
   font-size: 7em;
   font-weight: bold;
   text-align: center;
-  color: var(--indigo);
+  color: #2e5266;
 }
 #home-cards {
   display: flex;
@@ -87,9 +90,11 @@ export default {
 }
 .card-title {
   font-size: 3em;
+  color: #2e5266;
 }
 .card-text {
   font-size: 2em;
+  color: #2e5266;
 }
 .card-button {
   font-size: 2em;
@@ -189,9 +194,23 @@ h1 {
   overflow: hidden;
 }
 
-.shield-button{
-  display:flex;
+.shield-button {
+  display: flex;
   flex-direction: column;
   justify-content: center;
+}
+
+.btn {
+}
+.btn-primary {
+  color: blue;
+}
+.card-button:hover {
+  color: black;
+}
+
+#report-link{
+  color: white;
+  text-decoration: none;
 }
 </style>
