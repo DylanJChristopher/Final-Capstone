@@ -80,7 +80,7 @@ body {
   flex-direction: column;
 }
 .links {
-  color: #a1a7af;
+  color: rgb(209, 191, 158);
   text-decoration: unset;
   font-size: 23px;
 }
@@ -124,7 +124,8 @@ header {
   background-color: rgba(139, 27, 27, 0.63);
   grid-area: footer;
   padding: 20PX;
-  margin: 20px 0px 0px 0px;
+  
+  /* margin: 20px 0px 0px 0px; */
   /* position: relative;
   bottom: 0;
   width: 100%;

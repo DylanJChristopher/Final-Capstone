@@ -48,8 +48,8 @@ export default {
     background-size: cover; */
     height: 70vh;
     border: outset 1px rgb(216, 213, 213);
-    border-radius: 5%;
-    box-shadow: 20px 20px 10px grey;
+    border-radius: 3%;
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
     background-color: rgba(255, 255, 255, 0.603);
 }
 #components {
@@ -65,7 +65,7 @@ export default {
   min-width: 0;
   border: outset 1px rgb(216, 213, 213);
   
-    box-shadow: 20px 20px 10px grey;
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
   /* background-color: black; */
 }
 #pot-and-report {
