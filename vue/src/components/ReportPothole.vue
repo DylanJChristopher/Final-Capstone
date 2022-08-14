@@ -2,6 +2,7 @@
   <div>
     <!-- v-show="showForm == true" Goes in form element -->
     <form class="row g-3" v-on:submit.prevent>
+      <h1 class="h3 mb-3 font-weight-normal">Report a Pothole</h1>
       <div class="col-12">
         <label for="Direction" class="form-label">Direction of Travel: </label>
         <input
@@ -176,5 +177,9 @@ export default {
 .col-12{
   margin: 7px;
   font-family: Arial, Helvetica, sans-serif;
+}
+h1{
+  text-align: center;
+  height: 7vh;
 }
 </style>

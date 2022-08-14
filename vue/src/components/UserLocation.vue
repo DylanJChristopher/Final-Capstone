@@ -77,6 +77,7 @@ export default {
         //1275+Kinnear+Rd,+Columbus,+OH
       }
     },
+    
     initMarker(loc) {
       this.existingPlace = loc;
     },
@@ -133,7 +134,15 @@ export default {
     
    
   },
-  computed: {},
+  computed: {    filterByStatus() {
+      let filteredPotholes = this.potholes1;
+      // console.log(this.filteredPotholes);
+      const results = filteredPotholes.filter((pothole) => {
+        return pothole.repair.status == "Pending";
+      });
+      return results;
+    }
+  }},
 };
 </script>
 <style scoped>
