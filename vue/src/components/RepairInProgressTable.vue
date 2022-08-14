@@ -19,7 +19,14 @@
         <table cellpadding="0" cellspacing="0" border="0">
           <tbody v-for="pothole in filterByStatus" v-bind:key="pothole.id">
             <tr colspan="4">
-              <button id="print" @click="printWindow()">Print</button>
+              <router-link v-bind:to="{ name: 'print' }">
+                <img
+                  id="print"
+                  v-on:click="retrieveId(pothole.potholeId)"
+                  src="../assets/print.png"
+                  alt="Print Icon"
+                />
+              </router-link>
             </tr>
             <tr v-on:click="retrieveId(pothole.potholeId)" class="clickable">
               <td>
@@ -67,36 +74,6 @@ export default {
     retrieveId(potholeId) {
       this.$store.commit("SET_POTHOLE_ID", potholeId);
     },
-
-    printWindow: function () {
-      let printContent = document.querySelector(".pagePrint").innerHTML;
-      let stylesHtml = "";
-      for (const node of [
-        ...document.querySelectorAll('link[rel="stylesheet"], style'),
-      ]) {
-        stylesHtml += node.outerHTML;
-      }
-      const WinPrint = window.open(
-        "",
-        "",
-        "left=0,top=0,width=800,height=900,toolbar=0,scrollbars=0,status=0"
-      );
-      WinPrint.document.write(`<!DOCTYPE html>
-<html>
-  <head>
-    ${stylesHtml}
-  </head>
-  <body>
-    ${printContent}
-  </body>
-</html>`);
-
-      WinPrint.document.close();
-      WinPrint.focus();
-      WinPrint.print();
-      WinPrint.close();
-
-    },
   },
 };
 </script>
@@ -108,7 +85,12 @@ export default {
   cursor: pointer;
 }
 #print {
-  margin: 10px;
+  margin: 10px 0px 0px 5px; 
+  width: 20px;
+  height: auto;
+}
+#print:hover {
+  cursor: pointer;
 }
 .clickable:hover {
   background-color: rgba(139, 27, 27, 0.63);
