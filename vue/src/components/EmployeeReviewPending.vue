@@ -11,7 +11,6 @@
               <th>Zip Code</th>
               <th>Severity</th>
               <th>Discovery Date</th>
-              <th>More</th>
             </tr>
           </thead>
         </table>
@@ -19,7 +18,7 @@
       <div class="tbl-content">
         <table cellpadding="0" cellspacing="0" border="0">
           <tbody v-for="pothole in filterByStatus" v-bind:key="pothole.potholeId">
-            <tr>
+            <tr v-on:click="retrieveId(pothole.potholeId)" class="clickable">
               <td>
                 {{ pothole.address.streetNumber }}
                 {{ pothole.address.streetName }} {{ pothole.address.city }}, OH
@@ -27,13 +26,13 @@
               <td>{{ pothole.address.zipCode }}</td>
               <td>{{ pothole.severity }}</td>
               <td>{{ pothole.discoveryDate }}</td>
-              <td><button v-on:click="retrieveId(pothole.potholeId)">More Details</button></td>
+              <!-- <td><button v-on:click="retrieveId(pothole.potholeId)">More Details</button></td> -->
+            </tr>
+            <tr id="description" v-on:click="retrieveId(pothole.potholeId)">
+              <td colspan="4">{{ pothole.description }}</td>
             </tr>
             <tr>
-              <td colspan="5">{{ pothole.description }}</td>
-            </tr>
-            <tr>
-              <td id="placeholder" colspan="5"></td>
+              <td id="placeholder" colspan="4"></td>
             </tr>
           </tbody>
         </table>
@@ -66,6 +65,16 @@ export default {
 </script>
 
 <style scoped>
+.clickable:hover + #description{
+  background-color: rgba(139, 27, 27, 0.63);
+  opacity: 70%;
+  cursor: pointer
+}
+.clickable:hover{
+  background-color: rgba(139, 27, 27, 0.63);
+  opacity: 70%;
+  cursor: pointer
+}
 #placeholder {
   background-color: rgba(139, 27, 27, 0.63);
   padding: 2px;

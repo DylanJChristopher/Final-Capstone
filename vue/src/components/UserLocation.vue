@@ -13,7 +13,7 @@
     <!-- <div>
       <label> Pothole Map </label>
     </div> -->
-    <gmap-map :zoom="11" :center="center" id="mapElement">
+    <gmap-map :zoom="10" :center="center" id="mapElement">
       // @click="center=m.position" was after :key="index"
       <gmap-marker
         :key="index"
@@ -46,6 +46,7 @@ export default {
       partialData2: null,
 
       addressString: [],
+      filteredPotholes: [],
 
       potholes1: [],
       potholes33:[],
@@ -125,7 +126,11 @@ export default {
   created(){
     potholesService.retrievePotholes().then((response) => {
       this.potholes1 = response.data;
-      this.addressToString(this.potholes1);
+      this.filteredPotholes = this.potholes1;
+      this.filteredPotholes = this.potholes1.filter((pothole) => {
+        return pothole.repair.status == "Pending";
+      });
+      this.addressToString(this.filteredPotholes);
       this.retrieveAllPotholeLocations();
       
       //this.potholeLocations.push(response.data);
@@ -134,7 +139,8 @@ export default {
     
    
   },
-  computed: {},
+  computed: {    
+  },
 };
 </script>
 <style scoped>
