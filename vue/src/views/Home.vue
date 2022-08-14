@@ -1,10 +1,64 @@
 <template>
+<div>
+  <div id = "container">
   <div class="home">
   <div id="banner" >
     <h1> T.I.P.S. ensures the roads are safe!</h1>
-    <h2><button class = "myButton">Submit a TIP of a pothole today!</button></h2>
+    <h2><button  class = "myButton">Submit a TIP of a pothole today!</button></h2>
   
 </div>
+  </div>
+</div>
+
+ 
+<div id="homepart2">
+      <h2>Other Things like about or whatever</h2>
+      <section id="home-cards">
+      <div class="card" style="width: 40rem;">
+        <img src="../assets/about-us.jpg" class="card-img-top" alt="Wallace Residence">
+        <div class="card-body">
+          <h5 class="card-title">About TIPS</h5>
+          <p class="card-text">Learn all about the brilliant minds behind TIPS</p>
+          <a href="#" class="btn btn-primary card-button">Learn More</a>
+        </div>
+      </div>
+
+      <div class="card" style="width: 40rem;">
+        <img src="../assets/faq.jpg" class="card-img-top" alt="McDonald Residence">
+        <div class="card-body">
+          <h5 class="card-title">FAQ</h5>
+          <p class="card-text">Answers to our common questiosn</p>
+          <a href="#" class="btn btn-primary card-button">Learn More</a>
+        </div>
+      </div>
+
+      <div class="card" style="width: 40rem;">
+        <img src="../assets/pothole-5.jpg" class="card-img-top" alt="Kent Residence">
+        <div class="card-body">
+          <h5 class="card-title">Potholes? What are they and how do they form!</h5>
+          <p class="card-text">Many things go into forming a pothole. Here we ask leading Road Technologist how these keep coming back.</p>
+          <a href="#" class="btn btn-primary card-button">Learn More</a>
+        </div>
+      </div>
+    </section>
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   </div>
 </template>
 
@@ -14,6 +68,67 @@ export default {
 };
 </script>
 <style scoped>
+#homepart2 h2{
+    font-size: 7em;
+    font-weight: bold;
+    text-align: center;
+    color: var(--indigo);
+}
+#home-cards{
+    display: flex;
+    justify-content: space-evenly;
+}
+.card-title{
+    font-size: 3em;
+
+}
+.card-text{
+    font-size: 2em;
+}
+.card-button{
+    font-size: 2em;
+    background-color: var(--green);
+}
+.card-img-top{
+  width: 20vw;
+  height: 20vh;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#container{
+  background-image:url("../assets/pothole-2.jpg");
+  background-repeat:no-repeat;
+  background-size: cover;
+
+}
 .home{
  /* background-image:url("../assets/pothole-2.jpg"); */
 
@@ -26,6 +141,7 @@ export default {
   display:flex;
   justify-content: center;
   align-items:center;
+  
   
   }
   h1{
@@ -56,6 +172,12 @@ box-shadow: 1px 3px 8px 11px rgba(43,49,57,0.85);
   
   
   
+  }
+  #fullscreenimg{
+    width: 100%;
+    opacity: 60%;
+    max-height: 2000px;
+    overflow: hidden;
   }
   
    
