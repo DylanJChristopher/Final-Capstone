@@ -36,8 +36,6 @@ p{
   height: 5vh;
   font-size: small;
   display:flex;
-  justify-content: space-between;
-  align-items: center;
 }
 #logo{
     display: flex;
@@ -51,5 +49,8 @@ img {
 #instagram{
     height: 30px;
     width: 35px;
+}
+div{
+    cursor: pointer;
 }
 </style>

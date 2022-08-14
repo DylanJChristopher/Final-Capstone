@@ -109,18 +109,13 @@ header {
   margin-top: 5vh;
   position: relative;
 }
-footer {
-  background-color: black;
+#footer {
+  background-color: white;
   grid-area: footer;
-  color: #a1a7af;
   position: relative;
   bottom: 0;
   width: 100%;
   height: 5vh;
-  font-size: small;
-  display:flex;
-  justify-content: center;
-  align-items: center;
 }
 #app {
   display: grid;
