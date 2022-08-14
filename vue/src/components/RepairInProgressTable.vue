@@ -29,7 +29,7 @@
               <td>{{ pothole.repair.repairDate.toLocaleString('default', { month: 'short'})}}</td>
               <!-- <td><button v-on:click="retrieveId(pothole.potholeId)">More Details</button></td> -->
             </tr>
-            <tr  v-on:click="retrieveId(pothole.potholeId)">
+            <tr class="clickable" v-on:click="retrieveId(pothole.potholeId)">
               <td colspan="4">{{ pothole.description }}</td>
             </tr>
             <tr>
@@ -66,9 +66,11 @@ export default {
 </script>
 
 <style scoped>
-/* .clickable:hover{
-  box-shadow: 10px 10px lightgray;
-} */
+.clickable:hover{
+  background-color: rgba(139, 27, 27, 0.63);
+  opacity: 70%;
+  cursor: pointer
+}
 #placeholder {
   background-color: rgba(139, 27, 27, 0.63);
   padding: 2px;
