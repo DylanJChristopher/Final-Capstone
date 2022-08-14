@@ -1,12 +1,21 @@
 <template>
   <div id="container">
-    <section id="top" >
-      <graph id="graph" class="box" v-bind:potholes="potholes"/>
+    <section id="top">
+      <graph id="graph" class="box" v-bind:potholes="potholes" />
+
       <pothole-card id="card" class="box" v-bind:potholes="potholes" />
     </section>
-    <section id="bottom" >
-      <employee-review-pending id="review" class="box" v-bind:potholes="potholes" />
-      <repair-in-progress id="inprogress" class="box" v-bind:potholes="potholes" />
+    <section id="bottom">
+      <employee-review-pending
+        id="review"
+        class="box"
+        v-bind:potholes="potholes"
+      />
+      <repair-in-progress
+        id="inprogress"
+        class="box"
+        v-bind:potholes="potholes"
+      />
     </section>
   </div>
 </template>
@@ -41,53 +50,49 @@ export default {
 </script>
 
 <style scoped>
-#container{
-    display:flex;
-    flex-direction: column;
-    height: 170vh;
-    
-    
-
+#container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas:
+    "top top"
+    "bottom bottom";
 }
-#top{
-
-display: flex;
-width:100%;
-height:25vh;
+#top {
+  grid-area: top;
+  display: flex;
+  width: 100%;
+  height: 25vh;
+  margin: 100px 0px 100px 0px;
 }
 
-#bottom{
-background-color: transparent;
-display: flex;
-width:100%;
-height: 60vh;
-
-
+#bottom {
+  display: flex;
+  grid-area: bottom;
+  background-color: transparent;
+  width: 100%;
+  height: 60vh;
+  margin: 200px 0px 100px 0px;
 }
-.box{
+#card {
+  margin: 200px 0px 100px 0px;
+}
+.box {
   width: 50vw;
-  display:flex;
+  display: flex;
   justify-content: center;
   align-items: center;
-  
 }
-#review{
+#review {
   height: 60vh;
-/* background-image:url("../assets/how-potholes-form.jpg"); */
+  /* background-image:url("../assets/how-potholes-form.jpg"); */
 }
-#inprogress{
+#inprogress {
   height: 60vh;
   /* background-image:url("../assets/Potholerepair.jpg"); */
-  
 }
 /* #card{
   
   /* background-image: url("../assets/pothole-5.jpg"); */
-  /* background-size:contain; */
-/* } */ 
-
-
-
-
-
+/* background-size:contain; */
+/* } */
 </style>
