@@ -70,7 +70,7 @@ nav{
 }
 a {
   padding: 2px;
-  color: rgb(209, 191, 158);
+  color: black;
   text-decoration: underline;
   font-size: 23px;
 }
