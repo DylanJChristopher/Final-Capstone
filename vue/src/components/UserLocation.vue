@@ -59,17 +59,19 @@ export default {
   },
   computed: {
     currentTHings() {
-      return this.$store.state.center.lat;
+      return this.$store.state.center.lng;
     },
   },
 
   methods: {
     centerWhenClicked() {
       console.log(this.currentTHings);
-       this.center = {
+      this.center = {
         lat: parseFloat(this.$store.state.center.lat),
-        lng: parseFloat(this.$store.state.center.lng)
-       }
+
+        lng: parseFloat(this.$store.state.center.lng),
+      };
+      console.log("elise");
     },
     addressToString(potholes1) {
       console.log("blake");

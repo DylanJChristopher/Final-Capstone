@@ -20,11 +20,7 @@
       <div class="tbl-content">
         <table cellpadding="0" cellspacing="0" border="0">
           <tbody v-for="pothole in filterByStatus" v-bind:key="pothole.id">
-            <tr
-            @click="setLat(36.983334, -82.983330)"
-              
-              class="clickable"
-            >
+            <tr @click="setLat( 36.983334), setLng(-86.98333)" class="clickable">
               <td>
                 {{ pothole.address.streetNumber }}
                 {{ pothole.address.streetName }} {{ pothole.address.city }}, OH
@@ -51,10 +47,10 @@
 import MapService from "../services/MapService.js";
 export default {
   props: ["potholes"],
-  data(){
-return{
-  holder: "",
-}
+  data() {
+    return {
+      holder: "",
+    };
   },
   computed: {
     filterByStatus() {
@@ -65,9 +61,12 @@ return{
       });
       return results;
     },
-    currentCoordinate(){
+    currentCoordinate() {
       return this.$store.state.center.lat;
-    }
+    },
+    currentCoordinate2() {
+      return this.$store.state.center.lng;
+    },
   },
   methods: {
     addressToString(pothole) {
@@ -97,19 +96,22 @@ return{
       });
       let url = this.addressToString(chosenPothole);
       MapService.getMapInformation(url).then((response) => {
-          let lat1 = 37.983334;
-          // response.data.results[0].geometry.location.lat;
-          let lng1 = -82.983330;
-          // response.data.results[0].geometry.location.lng;
-          this.$store.commit("SET_CENTER", lat1, lng1);
-          this.holder = response.data;
-        });
-      
+        let lat1 = 37.983334;
+        // response.data.results[0].geometry.location.lat;
+        let lng1 = -82.98333;
+        // response.data.results[0].geometry.location.lng;
+        this.$store.commit("SET_CENTER", lat1, lng1);
+        this.holder = response.data;
+      });
     },
-    setLat(lat, lng){
-      this.$store.commit("SET_CENTER", lat, lng);
+    setLat(lat) {
+      this.$store.commit("SET_LAT", lat);
       console.log(this.currentCoordinate);
-      
+    },
+    setLng(lng){
+      this.$store.commit("SET_LNG", lng);
+      console.log(this.currentCoordinate2 + " CHECKING lng");
+
     }
   },
 };
