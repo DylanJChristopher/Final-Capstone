@@ -8,6 +8,7 @@ import store from '../store/index'
 import Potholes from '../views/Potholes.vue'
 import EmployeePage from '../views/EmployeePage'
 import ReportPothole from '../views/ReportPothole.vue'
+import PrintPage from "../views/PrintPage.vue"
 
 
 
@@ -78,6 +79,14 @@ const router = new Router({
       path: '/report',
       name: 'report',
       component: ReportPothole,
+      meta: {
+        requiresAuth: false
+      }
+    },
+    {
+      path: '/print',
+      name: 'print',
+      component: PrintPage,
       meta: {
         requiresAuth: false
       }

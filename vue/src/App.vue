@@ -121,11 +121,12 @@ header {
   position: relative;
 }
 #footer {
-  background-color: #049264;
+  background-color: #b2d3bd;
   /* background-color: rgba(139, 27, 27, 0.63); */
   grid-area: footer;
-  padding: 20PX;
+  padding: 20px;
   
+
   /* margin: 20px 0px 0px 0px; */
   /* position: relative;
   bottom: 0;

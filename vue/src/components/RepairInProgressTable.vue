@@ -1,6 +1,6 @@
 <template>
   <div>
-    <section>
+    <section class="pagePrint">
       <!--for demo wrap-->
       <h1>Potholes Scheduled for Repair</h1>
       <div class="tbl-header">
@@ -11,7 +11,6 @@
               <th>Zip Code</th>
               <th>Severity</th>
               <th>Repair Date</th>
-              <!-- <th>More Details</th> -->
             </tr>
           </thead>
         </table>
@@ -19,14 +18,30 @@
       <div class="tbl-content">
         <table cellpadding="0" cellspacing="0" border="0">
           <tbody v-for="pothole in filterByStatus" v-bind:key="pothole.id">
-            <tr  v-on:click="retrieveId(pothole.potholeId)" class="clickable">
+            <tr colspan="4">
+              <router-link v-bind:to="{ name: 'print' }">
+                <img
+                  id="print"
+                  v-on:click="retrieveId(pothole.potholeId)"
+                  src="../assets/print.png"
+                  alt="Print Icon"
+                />
+              </router-link>
+            </tr>
+            <tr v-on:click="retrieveId(pothole.potholeId)" class="clickable">
               <td>
                 {{ pothole.address.streetNumber }}
                 {{ pothole.address.streetName }} {{ pothole.address.city }}, OH
               </td>
               <td>{{ pothole.address.zipCode }}</td>
               <td>{{ pothole.severity }}</td>
-              <td>{{ pothole.repair.repairDate.toLocaleString('default', { month: 'short'})}}</td>
+              <td>
+                {{
+                  pothole.repair.repairDate.toLocaleString("default", {
+                    month: "short",
+                  })
+                }}
+              </td>
               <!-- <td><button v-on:click="retrieveId(pothole.potholeId)">More Details</button></td> -->
             </tr>
             <tr id="description" v-on:click="retrieveId(pothole.potholeId)">
@@ -53,28 +68,34 @@ export default {
         return pothole.repair.status == "Repair Scheduled";
       });
       return results;
-    }
-  },
-      methods: {
-      retrieveId(potholeId) {
-        this.$store.commit("SET_POTHOLE_ID", potholeId);
-      },
     },
-  
-
+  },
+  methods: {
+    retrieveId(potholeId) {
+      this.$store.commit("SET_POTHOLE_ID", potholeId);
+    },
+  },
 };
 </script>
 
 <style scoped>
-.clickable:hover + #description{
+.clickable:hover + #description {
   background-color: rgba(139, 27, 27, 0.63);
   opacity: 70%;
-  cursor: pointer
+  cursor: pointer;
 }
-.clickable:hover{
+#print {
+  margin: 10px 0px 0px 5px; 
+  width: 20px;
+  height: auto;
+}
+#print:hover {
+  cursor: pointer;
+}
+.clickable:hover {
   background-color: rgba(139, 27, 27, 0.63);
   opacity: 70%;
-  cursor: pointer
+  cursor: pointer;
 }
 
 #placeholder {
@@ -82,14 +103,15 @@ export default {
   padding: 2px;
 }
 section {
-    width: 40vw;
-    /* background-image: url("../assets/how-potholes-form.jpg");
+  width: 40vw;
+  /* background-image: url("../assets/how-potholes-form.jpg");
     background-repeat: no-repeat;
     background-size: cover; */
-    height: 70vh;
-    border: outset 1px grey;
-    border-radius: 5%;
-    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+  height: 70vh;
+  border: outset 1px grey;
+  border-radius: 5%;
+  box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24),
+    0 17px 50px 0 rgba(0, 0, 0, 0.19);
 }
 div {
   /* display: flex;
@@ -104,8 +126,6 @@ h1 {
   text-align: center;
   height: 5%;
   font-family: Arial, Helvetica, sans-serif;
-  
-  
 }
 table {
   width: 100%;
@@ -113,15 +133,13 @@ table {
 }
 .tbl-header {
   background-color: rgba(255, 255, 255, 0.3);
-    border: rgba(255, 255, 255, 0.3);
-  
+  border: rgba(255, 255, 255, 0.3);
 }
 .tbl-content {
   height: 70%;
   overflow-x: auto;
   margin-top: 0px;
   border: 1px solid rgba(255, 255, 255, 0.3);
-  
 }
 th {
   padding: 20px 15px;
@@ -152,7 +170,6 @@ td {
 ::-webkit-scrollbar-track {
   box-shadow: inset 0 0 5px grey;
   border-radius: 10px;
-  
 }
 
 /* Handle */
@@ -160,9 +177,7 @@ td {
   background: rgba(139, 27, 27, 0.63);
   border-radius: 10px;
   box-shadow: inset 0 0 5px rgb(0, 0, 0);
-  
 }
-
 </style>
 
 

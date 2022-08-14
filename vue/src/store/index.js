@@ -22,15 +22,22 @@ export default new Vuex.Store({
     token: currentToken || '',
     user: currentUser || {},
     pothole: '',
+    zoomValue: 10,
     center: {
       lat: 39.983334,
       lng: -82.983330,
     }
   },
   mutations: {
-    SET_CENTER(state, lat1, lng1){
-      state.center.lat= lat1;
-      state.center.lng= lng1;
+    SET_ZOOM(state, zoom){
+      state.zoomValue = zoom;
+    },
+    SET_LAT(state, lat1){
+      state.center.lat = lat1;
+
+    },
+    SET_LNG(state, lng1){
+      state.center.lng= lng1
     },
     SET_POTHOLE_ID(state, potholeId){
       state.pothole = potholeId;

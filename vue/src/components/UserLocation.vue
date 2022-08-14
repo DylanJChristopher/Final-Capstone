@@ -13,8 +13,7 @@
     <!-- <div>
       <label> Pothole Map </label>
     </div> -->
-    <gmap-map :zoom="9" :center="center" id="mapElement">
-      <!--  was after :key="index" -->
+    <gmap-map :zoom="zoomValue" :center="centerComputed" id="mapElement">
       <gmap-marker
         :key="index"
         @click="center = m.position"
@@ -22,7 +21,7 @@
         :position="m.position"
       ></gmap-marker>
     </gmap-map>
-    <button @click="centerWhenClicked">HWLPPPPP</button>
+    
   </div>
 </template>
  
@@ -52,25 +51,29 @@ export default {
 
       potholes1: [],
       potholes33: [],
+      
 
       potholeLocations: [],
       //1275+Kinnear+Rd,+Columbus,+OH
     };
   },
   computed: {
-    currentTHings() {
-      return this.$store.state.center.lat;
+
+    centerComputed(){
+        return {
+        lat: parseFloat(this.$store.state.center.lat),
+
+        lng: parseFloat(this.$store.state.center.lng),
+      };
     },
+    zoomValue(){
+      let key = this.$store.state.zoomValue;
+      return key;
+    }
   },
 
   methods: {
-    centerWhenClicked() {
-      console.log(this.currentTHings);
-       this.center = {
-        lat: parseFloat(this.$store.state.center.lat),
-        lng: parseFloat(this.$store.state.center.lng)
-       }
-    },
+    
     addressToString(potholes1) {
       console.log("blake");
       let streetName = "";
@@ -113,7 +116,7 @@ export default {
       }
     },
     retrieveAllPotholeLocations() {
-      console.log("elise");
+
       for (let i = 0; i < this.addressString.length; i++) {
         mapService.getMapInformation(this.addressString[i]).then((response) => {
           this.potholeLocations.push(response.data);
