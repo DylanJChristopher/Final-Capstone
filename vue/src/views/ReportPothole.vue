@@ -11,6 +11,7 @@
 
 import ReportPothole from "../components/ReportPothole.vue";
 
+
 export default {
   name: "Report",
   components: {

@@ -1,7 +1,7 @@
 <template>
   <div>
     <!-- v-show="showForm == true" Goes in form element -->
-    <form class="row g-3" v-on:submit.prevent>
+    <form class="row g-3" v-on:submit.prevent="upload">
       <h1 class="h3 mb-3 font-weight-normal">Report a Pothole</h1>
       <div class="col-12">
         <label for="Direction" class="form-label">Direction of Travel: </label>
@@ -120,6 +120,7 @@
             />
           </form>
         </div>
+      
         <div class="col-12">
         <button v-on:click="submitPothole()" type="button" class="btn btn-submit">
           Submit TIP
@@ -130,12 +131,30 @@
     <!-- <button v-on:click="formSet()" v-show="showButton == true">
       Submit a Tip
     </button> -->
+<div>
+<cl-upload />
+
+</div>
+
+
+
   </div>
 </template>
 
 <script>
+
 import PotholeService from "../services/PotholesService";
+import CloudiaryUpload from "../components/CloudiaryComponent.vue"
+
 export default {
+
+  components:{
+
+    "cl-upload" : CloudiaryUpload,
+
+  },
+  
+  
   data() {
     return {
       showForm: false,
@@ -169,11 +188,15 @@ export default {
         }
       });
     },
+  
+    
   },
 };
+
+
 </script>
 
-<style>
+<style scoped>
 .col-12{
   margin: 7px;
   font-family: Arial, Helvetica, sans-serif;
@@ -182,4 +205,21 @@ h1{
   text-align: center;
   height: 7vh;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 </style>
