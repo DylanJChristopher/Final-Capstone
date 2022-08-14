@@ -35,6 +35,21 @@
             <a href="#" class="btn btn-primary card-button">Learn More</a>
           </div>
         </div>
+          <div class="card" style="width: 40rem" id="right-card">
+          <img
+            src="../assets/pothole-5.jpg"
+            class="card-img-top"
+            alt="What are potholes"
+          />
+          <div class="card-body">
+            <h5 class="card-title">What are potholes?</h5>
+            <p class="card-text">
+              Learn from leading Road Technologist about Potholes and how they
+              form.
+            </p>
+            <a href="#" class="btn btn-primary card-button">Learn More</a>
+          </div>
+        </div>
 
         <div class="card" id="middle-card" style="width: 40rem">
           <img
@@ -52,21 +67,7 @@
           </div>
         </div>
 
-        <div class="card" style="width: 40rem" id="right-card">
-          <img
-            src="../assets/pothole-5.jpg"
-            class="card-img-top"
-            alt="What are potholes"
-          />
-          <div class="card-body">
-            <h5 class="card-title">What are potholes?</h5>
-            <p class="card-text">
-              Learn from leading Road Technologist about Potholes and how they
-              form.
-            </p>
-            <a href="#" class="btn btn-primary card-button">Learn More</a>
-          </div>
-        </div>
+      
       </section>
     </div>
   </div>
@@ -113,16 +114,19 @@ export default {
 #left-card {
   padding-right: 2rem;
   padding-left: 2rem;
+  border-right: black solid 2px;
 }
 #middle-card {
   padding-right: 2rem;
   padding-left: 2rem;
-  border-right: black solid 2px;
+  
   border-left: black solid 2px;
 }
 #right-card {
   padding-right: 2rem;
   padding-left: 2rem;
+  border-left: black solid 2px;
+  border-right: black solid 2px;
 }
 
 #container {
