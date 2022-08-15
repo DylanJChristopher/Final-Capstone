@@ -37,7 +37,7 @@ components: {
 data() {
     return {
     file : null,
-     filesSelected : 0,
+     filesSelected : null,
      formData : null,
      fileContents: [],
      progress: null,
@@ -58,17 +58,22 @@ methods:{
     
 
     prepareFormData(){
+        console.log("did it make it?")
         this.formData = new FormData();
-        this.formData.append("upload_preset","test123");
+        this.formData.append("upload_preset","vue-upload");
         this.formData.append("file",this.fileContents);
     },
     upload: function() {
-         this.reader = new FileReader();
-        this.reader.removeEventListener("load", function(){
-            this.fileContents = this.reader.result;
+        const reader = new FileReader();
+         console.log("before removeEventListener")
+        reader.addEventListener("load", function(){
             console.log("elise is yelling at me");
+            this.fileContents = reader.result;
+            
             this.prepareFormData();
-        let cloudinaryUploadURL = 'https://api.cloudinary.com/v1_1/team-india/upload';
+           
+        let cloudinaryUploadURL = 'https://cors-anywhere.herokuapp.com/https://api.cloudinary.com/v1_1/team-india/upload';
+        console.log(" before requestObj")
         let requestObj ={
             url: cloudinaryUploadURL,
             method: "POST",
@@ -104,7 +109,7 @@ methods:{
         }.bind(this),false);
 
         if(this.file && this.file.name){
-            this.reader.readAsDataURL(this.file);
+            reader.readAsDataURL(this.file);
         }
 
 
