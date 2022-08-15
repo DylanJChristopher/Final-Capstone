@@ -1,7 +1,7 @@
 <template>
   <div id="container">
     <section id="top">
-      <graph id="graph" class="box" v-bind:potholes="potholes" />
+      <graph id="graph" class="box"/>
 
       <pothole-card id="card" class="box" v-bind:potholes="potholes" />
     </section>

@@ -1,4 +1,5 @@
 <template>
+
   <div>
       <Bar
     :chart-options="chartOptions"
@@ -15,12 +16,26 @@
 </template>
 
 <script>
+import PotholesService from '../services/PotholesService.js'
 import { Bar } from 'vue-chartjs/legacy'
 import { Chart as ChartJS, Title, Tooltip, Legend, BarElement, CategoryScale, LinearScale } from 'chart.js'
+
 
 ChartJS.register(Title, Tooltip, Legend, BarElement, CategoryScale, LinearScale)
 
 export default {
+  created(){
+    PotholesService.retrievePotholes().then((response) => {
+    this.potholes = response.data
+    let result = this.chartData.datasets[0]
+      let result2 = result.data
+      result2.push(this.filterByStatusPending)
+      result2.push(this.filterByStatusRepair)
+      result2.push(this.filterByStatusFixed)
+      result2.push(this.filterByStatusReject)
+
+    });
+  },
   name: 'BarChart',
   components: { Bar },
   props: {
@@ -53,15 +68,53 @@ export default {
       default: () => {}
     }
   },
+  computed: {
+
+    filterByStatusPending() {
+      let filteredPotholes = this.potholes;
+      const results = filteredPotholes.filter((pothole) => {
+        
+        return pothole.repair.status == "Pending";
+      });
+      return results.length;
+    },
+    filterByStatusRepair() {
+      let filteredPotholes = this.potholes;
+      const results = filteredPotholes.filter((pothole) => {
+        
+        return pothole.repair.status == "Repair Scheduled";
+      });
+      return results.length;
+    },
+    filterByStatusFixed() {
+      let filteredPotholes = this.potholes;
+      const results = filteredPotholes.filter((pothole) => {
+        
+        return pothole.repair.status == "Fixed";
+      });
+      return results.length;
+    },
+    filterByStatusReject() {
+      let filteredPotholes = this.potholes;
+      const results = filteredPotholes.filter((pothole) => {
+        
+        return pothole.repair.status == "Reject";
+      });
+      return results.length;
+    },
+    
+  },
   data() {
     return {
+      potholes: [],
       chartData: {
-        labels: [ 'Pending', 'Scheduled for Repair', 'Fixed', 'Rejected' ],
-        datasets: [ { data: [40, 20, 12] } ]
+        labels: [ 'Pending', 'Repair Scheduled', 'Fixed', 'Rejected' ],
+        datasets: [ { data: [] } ]
       },
       chartOptions: {
         responsive: true
-      }
+      },
+     
     }
   }
 }
