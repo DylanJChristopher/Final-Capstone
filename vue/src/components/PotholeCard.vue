@@ -7,7 +7,7 @@
         v-bind:key="pothole.potholeId"
       >
         <div class="detail">
-          <div>Discovery Date: {{ pothole.discoveryDate }}</div>
+          <div>Discovery Date: {{ dateFormat(pothole.discoveryDate) }}</div>
           <div>Severity: {{ pothole.severity }} / 10</div>
           <div>
             {{ pothole.address.streetNumber }}
@@ -65,18 +65,18 @@
         v-bind:key="pothole.potholeId"
       > -->
       <div class="detail">
-      <div>Discovery Date: {{ filterByStatus.discoveryDate }}</div>
-      <div>Severity: {{ filterByStatus.severity }} / 10</div>
-      <div>
-        {{ filterByStatus.address.streetNumber }}
-        {{ filterByStatus.address.streetName }}
-        {{ filterByStatus.address.city }}, OH
-        {{ filterByStatus.address.zipCode }}
-      </div>
-      <div>Direction: {{ filterByStatus.direction }}</div>
-      <div class="description">
-        Description {{ filterByStatus.description }}
-      </div>
+        <div>Discovery Date: {{ dateFormat(filterByStatus.discoveryDate) }}</div>
+        <div>Severity: {{ filterByStatus.severity }} / 10</div>
+        <div>
+          {{ filterByStatus.address.streetNumber }}
+          {{ filterByStatus.address.streetName }}
+          {{ filterByStatus.address.city }}, OH
+          {{ filterByStatus.address.zipCode }}
+        </div>
+        <div>Direction: {{ filterByStatus.direction }}</div>
+        <div class="description">
+          Description {{ filterByStatus.description }}
+        </div>
       </div>
 
       <form v-on:submit.prevent class="updateForm">
@@ -178,6 +178,11 @@ export default {
         }
       });
     },
+    dateFormat(potholeDate) {
+      let date = new Date(potholeDate);
+      console.log(date.getMonth);
+      return date.toLocaleString();
+    },
 
     updateFirstPothole() {
       PotholeService.updatePotholeRepair(
@@ -225,7 +230,7 @@ export default {
   border-radius: 10px;
   width: 400px;
   height: 300px;*/
-} 
+}
 #container {
   margin: 400px;
 }

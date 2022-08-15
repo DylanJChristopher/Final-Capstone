@@ -17,7 +17,10 @@
       </div>
       <div class="tbl-content">
         <table cellpadding="0" cellspacing="0" border="0">
-          <tbody v-for="pothole in filterByStatus" v-bind:key="pothole.potholeId">
+          <tbody
+            v-for="pothole in filterByStatus"
+            v-bind:key="pothole.potholeId"
+          >
             <tr v-on:click="retrieveId(pothole.potholeId)" class="clickable">
               <td>
                 {{ pothole.address.streetNumber }}
@@ -25,7 +28,7 @@
               </td>
               <td>{{ pothole.address.zipCode }}</td>
               <td>{{ pothole.severity }} / 10</td>
-              <td>{{ pothole.discoveryDate }}</td>
+              <td>{{ dateFormat(pothole.discoveryDate) }}</td>
               <!-- <td><button v-on:click="retrieveId(pothole.potholeId)">More Details</button></td> -->
             </tr>
             <tr id="description" v-on:click="retrieveId(pothole.potholeId)">
@@ -44,6 +47,7 @@
 <script>
 export default {
   props: ["potholes"],
+
   computed: {
     filterByStatus() {
       let filteredPotholes = this.potholes;
@@ -52,42 +56,45 @@ export default {
         return pothole.repair.status == "Pending";
       });
       return results;
-    }
-  },
-    methods: {
-      retrieveId(potholeId) {
-        this.$store.commit("SET_POTHOLE_ID", potholeId);
-      },
     },
-  
-
+  },
+  methods: {
+    retrieveId(potholeId) {
+      this.$store.commit("SET_POTHOLE_ID", potholeId);
+    },
+    dateFormat(potholeDate) {
+      let date = new Date(potholeDate);
+      return date.toLocaleString();
+    },
+  },
 };
 </script>
 
 <style scoped>
-.clickable:hover + #description{
+.clickable:hover + #description {
   background-color: rgba(139, 27, 27, 0.63);
   opacity: 70%;
-  cursor: pointer
+  cursor: pointer;
 }
-.clickable:hover{
+.clickable:hover {
   background-color: rgba(139, 27, 27, 0.63);
   opacity: 70%;
-  cursor: pointer
+  cursor: pointer;
 }
 #placeholder {
   background-color: rgba(139, 27, 27, 0.63);
   padding: 2px;
 }
 section {
-    width: 40vw;
-    /* background-image: url("../assets/how-potholes-form.jpg");
+  width: 40vw;
+  /* background-image: url("../assets/how-potholes-form.jpg");
     background-repeat: no-repeat;
     background-size: cover; */
-    height: 70vh;
-    border: outset 1px grey;
-    border-radius: 5%;
-    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+  height: 70vh;
+  border: outset 1px grey;
+  border-radius: 5%;
+  box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24),
+    0 17px 50px 0 rgba(0, 0, 0, 0.19);
 }
 div {
   /* display: flex;
@@ -102,8 +109,6 @@ h1 {
   text-align: center;
   height: 5%;
   font-family: Arial, Helvetica, sans-serif;
-  
-  
 }
 table {
   width: 100%;
@@ -111,15 +116,13 @@ table {
 }
 .tbl-header {
   background-color: rgba(255, 255, 255, 0.3);
-    border: rgba(255, 255, 255, 0.3);
-  
+  border: rgba(255, 255, 255, 0.3);
 }
 .tbl-content {
   height: 70%;
   overflow-x: auto;
   margin-top: 0px;
   border: 1px solid rgba(255, 255, 255, 0.3);
-  
 }
 th {
   padding: 20px 15px;
@@ -150,7 +153,6 @@ td {
 ::-webkit-scrollbar-track {
   box-shadow: inset 0 0 5px grey;
   border-radius: 10px;
-  
 }
 
 /* Handle */
@@ -158,7 +160,5 @@ td {
   background: rgba(139, 27, 27, 0.63);
   border-radius: 10px;
   box-shadow: inset 0 0 5px rgb(0, 0, 0);
-  
 }
-
 </style>

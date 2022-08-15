@@ -38,11 +38,7 @@
               <td>{{ pothole.address.zipCode }}</td>
               <td>{{ pothole.severity }} / 10</td>
               <td>
-                {{
-                  pothole.repair.repairDate.toLocaleString("default", {
-                    month: "short",
-                  })
-                }}
+                {{ dateFormat(pothole.repair.repairDate) }}
               </td>
               <!-- <td><button v-on:click="retrieveId(pothole.potholeId)">More Details</button></td> -->
             </tr>
@@ -76,6 +72,10 @@ export default {
     retrieveId(potholeId) {
       this.$store.commit("SET_POTHOLE_ID", potholeId);
     },
+    dateFormat(potholeDate) {
+      let date = new Date(potholeDate);
+      return date.toLocaleString();
+    },
   },
 };
 </script>
@@ -87,7 +87,7 @@ export default {
   cursor: pointer;
 }
 #print {
-  margin: 10px 0px 0px 5px; 
+  margin: 10px 0px 0px 5px;
   width: 20px;
   height: auto;
 }

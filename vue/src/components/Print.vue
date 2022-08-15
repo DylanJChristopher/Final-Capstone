@@ -3,15 +3,13 @@
     <div v-for="pothole in filterById" v-bind:key="pothole.potholeId">
       <div class="detail" v-on:click="filterById">
         <div>Date Assigned: ____________________________</div>
-        <div>
-          Pothole ID: {{ pothole.potholeId }}
-        </div>
+        <div>Pothole ID: {{ pothole.potholeId }}</div>
         <div>
           {{ pothole.address.streetNumber }}
           {{ pothole.address.streetName }} {{ pothole.address.city }}, OH
           {{ pothole.address.zipCode }}
         </div>
-        <div>Discovery Date: {{ pothole.discoveryDate }}</div>
+        <div>Discovery Date: {{ dateFormat(pothole.discoveryDate) }}</div>
         <div>Severity: {{ pothole.severity }} / 10</div>
 
         <div>Status: {{ pothole.repair.status }}</div>
@@ -43,6 +41,13 @@ export default {
     printWindow: function () {
       window.print();
     },
+    dateFormat(potholeDate) {
+      let date = new Date(potholeDate);
+      // let finalDate =
+      //   date.getDate + "/" + date.getMonth + 1 + "/" + date.getFullYear;
+      console.log(date.getMonth);
+      return date.toLocaleString();
+    },
   },
   computed: {
     filterById() {
@@ -64,7 +69,7 @@ export default {
   border: 2px black solid;
 }
 div {
-  margin: 30px 10px 10px 10px ;
+  margin: 30px 10px 10px 10px;
 }
 .detail {
   margin: 50px, 0px, 100px, 0px;
@@ -73,7 +78,7 @@ div {
   border-bottom: 2px solid black;
   display: block;
 }
-button{
-    margin: 10px 0px 100px 10px;
+button {
+  margin: 10px 0px 100px 10px;
 }
 </style>
