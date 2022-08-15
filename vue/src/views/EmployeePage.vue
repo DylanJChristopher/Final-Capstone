@@ -74,7 +74,7 @@ export default {
   margin: 200px 0px 100px 0px;
 }
 #card {
-  margin: 200px 0px 100px 0px;
+  margin: 200px 0px 200px 0px;
 }
 .box {
   width: 50vw;

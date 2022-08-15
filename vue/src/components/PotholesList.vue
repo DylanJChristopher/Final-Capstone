@@ -6,7 +6,10 @@
       <h1>Reported Potholes</h1>
       <div class="tbl-header">
         <table cellpadding="0" cellspacing="0" border="0">
-          <thead class="clickable" @click="setZoom(10), setLat(39.983334), setLng(-82.98333)">
+          <thead
+            class="clickable"
+            @click="setZoom(10), setLat(39.983334), setLng(-82.98333)"
+          >
             <tr>
               <th>Nearest Address</th>
               <th>Zip Code</th>
@@ -20,9 +23,8 @@
       <div class="tbl-content">
         <table cellpadding="0" cellspacing="0" border="0">
           <tbody v-for="pothole in filterByStatus" v-bind:key="pothole.id">
-            <tr @click="sendCenterLocations(pothole.potholeId)"
-            
-              
+            <tr
+              @click="sendCenterLocations(pothole.potholeId)"
               class="clickable"
             >
               <td>
@@ -31,8 +33,8 @@
               </td>
               <td>{{ pothole.address.zipCode }}</td>
               <td>{{ pothole.direction }}</td>
-              <td>{{ pothole.severity }}</td>
-              <td>{{ pothole.discoveryDate }}</td>
+              <td>{{ pothole.severity }} / 10</td>
+              <td>{{ dateFormat(pothole.discoveryDate) }}</td>
             </tr>
             <tr id="description">
               <td colspan="5">{{ pothole.description }}</td>
@@ -51,10 +53,10 @@
 import MapService from "../services/MapService.js";
 export default {
   props: ["potholes"],
-  data(){
-return{
-  holder: "",
-}
+  data() {
+    return {
+      holder: "",
+    };
   },
   computed: {
     filterByStatus() {
@@ -65,9 +67,9 @@ return{
       });
       return results;
     },
-    currentCoordinate(){
+    currentCoordinate() {
       return this.$store.state.center.lat;
-    }
+    },
   },
   methods: {
     addressToString(pothole) {
@@ -88,35 +90,37 @@ return{
 
       //1275+Kinnear+Rd,+Columbus,+OH
     },
+    dateFormat(potholeDate) {
+      let date = new Date(potholeDate);
+      return date.toLocaleString();
+    },
     retrieveId(potholeId) {
       this.$store.commit("SET_POTHOLE_ID", potholeId);
     },
     sendCenterLocations(id) {
-            
       let chosenPothole = this.potholes.filter((pothole) => {
         return pothole.potholeId == id;
       });
       console.log(chosenPothole[0].potholeId);
       let url = this.addressToString(chosenPothole[0]);
       MapService.getMapInformation(url).then((response) => {
-          let lat1 = response.data.results[0].geometry.location.lat;
-          let lng1 = response.data.results[0].geometry.location.lng;
-          this.$store.commit("SET_LAT", lat1);
-          this.$store.commit("SET_LNG", lng1);
-          this.$store.commit("SET_ZOOM", 15);
-          this.holder = response.data;
-        });
-      
+        let lat1 = response.data.results[0].geometry.location.lat;
+        let lng1 = response.data.results[0].geometry.location.lng;
+        this.$store.commit("SET_LAT", lat1);
+        this.$store.commit("SET_LNG", lng1);
+        this.$store.commit("SET_ZOOM", 15);
+        this.holder = response.data;
+      });
     },
-    setLat(lat){
-      this.$store.commit("SET_LAT", lat);  
+    setLat(lat) {
+      this.$store.commit("SET_LAT", lat);
     },
-      setLng(lng){
+    setLng(lng) {
       this.$store.commit("SET_LNG", lng);
     },
-    setZoom(zoom){
+    setZoom(zoom) {
       this.$store.commit("SET_ZOOM", zoom);
-    }
+    },
   },
 };
 </script>
