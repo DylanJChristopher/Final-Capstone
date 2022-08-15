@@ -58,8 +58,9 @@ methods:{
     
 
     prepareFormData(){
+        console.log("did it make it?")
         this.formData = new FormData();
-        this.formData.append("upload_preset","test123");
+        this.formData.append("upload_preset","vue-upload");
         this.formData.append("file",this.fileContents);
     },
     upload: function() {
@@ -67,6 +68,8 @@ methods:{
         this.reader.addEventListener("load", function(){
             this.fileContents = this.reader.result;
             console.log("elise is yelling at me");
+            this.fileContents = reader.result;
+            
             this.prepareFormData();
         let cloudinaryUploadURL = 'https://cors-anywhere.herokuapp.com/https://api.cloudinary.com/v1_1/tipsIndia/upload';
         let requestObj ={
@@ -100,7 +103,7 @@ methods:{
         }.bind(this),false);
 
         if(this.file && this.file.name){
-            this.reader.readAsDataURL(this.file);
+            reader.readAsDataURL(this.file);
         }
 
 

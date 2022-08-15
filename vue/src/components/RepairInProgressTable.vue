@@ -7,6 +7,7 @@
         <table cellpadding="0" cellspacing="0" border="0">
           <thead>
             <tr>
+              <th>Pothole ID</th>
               <th>Nearest Address</th>
               <th>Zip Code</th>
               <th>Severity</th>
@@ -29,26 +30,23 @@
               </router-link>
             </tr>
             <tr v-on:click="retrieveId(pothole.potholeId)" class="clickable">
+              <td>{{ pothole.potholeId }}</td>
               <td>
                 {{ pothole.address.streetNumber }}
                 {{ pothole.address.streetName }} {{ pothole.address.city }}, OH
               </td>
               <td>{{ pothole.address.zipCode }}</td>
-              <td>{{ pothole.severity }}</td>
+              <td>{{ pothole.severity }} / 10</td>
               <td>
-                {{
-                  pothole.repair.repairDate.toLocaleString("default", {
-                    month: "short",
-                  })
-                }}
+                {{ dateFormat(pothole.repair.repairDate) }}
               </td>
               <!-- <td><button v-on:click="retrieveId(pothole.potholeId)">More Details</button></td> -->
             </tr>
             <tr id="description" v-on:click="retrieveId(pothole.potholeId)">
-              <td colspan="4">{{ pothole.description }}</td>
+              <td colspan="5">{{ pothole.description }}</td>
             </tr>
             <tr>
-              <td id="placeholder" colspan="4"></td>
+              <td id="placeholder" colspan="5"></td>
             </tr>
           </tbody>
         </table>
@@ -74,6 +72,10 @@ export default {
     retrieveId(potholeId) {
       this.$store.commit("SET_POTHOLE_ID", potholeId);
     },
+    dateFormat(potholeDate) {
+      let date = new Date(potholeDate);
+      return date.toLocaleString();
+    },
   },
 };
 </script>
@@ -85,7 +87,7 @@ export default {
   cursor: pointer;
 }
 #print {
-  margin: 10px 0px 0px 5px; 
+  margin: 10px 0px 0px 5px;
   width: 20px;
   height: auto;
 }

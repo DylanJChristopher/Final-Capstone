@@ -9,7 +9,7 @@ import Potholes from '../views/Potholes.vue'
 import EmployeePage from '../views/EmployeePage'
 import ReportPothole from '../views/ReportPothole.vue'
 import PrintPage from "../views/PrintPage.vue"
-import cloudTest from '../components/cloudTest.vue'
+
 
 
 
@@ -92,14 +92,7 @@ const router = new Router({
         requiresAuth: false
       }
     },
-    {
-      path: '/test',
-      name: 'test',
-      component: cloudTest,
-      meta: {
-        requiresAuth: false
-      }
-    },
+ 
    
 
 
