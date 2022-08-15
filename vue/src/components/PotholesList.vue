@@ -11,6 +11,7 @@
             @click="setZoom(10), setLat(39.983334), setLng(-82.98333)"
           >
             <tr>
+              <th>Image</th>
               <th>Nearest Address</th>
               <th>Zip Code</th>
               <th>Direction of Travel</th>
@@ -27,6 +28,9 @@
               @click="sendCenterLocations(pothole.potholeId)"
               class="clickable"
             >
+            <td id= "img-container">
+              <img id ="pothole-img" v-bind:src= "pothole.secureUrl"  alt="picture of a very potty hole">
+            </td>
               <td>
                 {{ pothole.address.streetNumber }}
                 {{ pothole.address.streetName }} {{ pothole.address.city }}, OH
@@ -37,10 +41,10 @@
               <td>{{ dateFormat(pothole.discoveryDate) }}</td>
             </tr>
             <tr id="description">
-              <td colspan="5">{{ pothole.description }}</td>
+              <td colspan="6">{{ pothole.description }}</td>
             </tr>
             <tr>
-              <td id="placeholder" colspan="5"></td>
+              <td id="placeholder" colspan="6"></td>
             </tr>
           </tbody>
         </table>
@@ -126,6 +130,16 @@ export default {
 </script>
 
 <style scoped>
+#img-container{
+  height: 5rem;
+  width: 18%;
+}
+
+#pothole-img{
+  height: 5rem;
+  width: 84%;
+}
+
 .clickable:hover + #description {
   background-color: rgba(139, 27, 27, 0.63);
   opacity: 70%;

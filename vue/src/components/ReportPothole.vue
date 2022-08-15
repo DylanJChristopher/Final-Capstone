@@ -2,6 +2,7 @@
   <div>
      <button @click="openUploadModal">Upload Pothole Photo</button>
     <!-- v-show="showForm == true" Goes in form element -->
+    
     <form class="row g-3" v-on:submit.prevent="upload">
       <h1 class="h3 mb-3 font-weight-normal">Report a Pothole</h1>
       <div class="col-12">
@@ -162,6 +163,11 @@ export default {
     return {
       showForm: false,
       showButton: true,
+
+    imageData : null,
+    
+
+
       pothole: {
         address: {
           streetName: "",
@@ -169,6 +175,7 @@ export default {
           city: "",
           state: "",
           zipCode: "",
+          
         },
         repair: {
           status: "Pending",
@@ -178,6 +185,7 @@ export default {
         severity: "",
         discoveryDate: "",
         description: "",
+        secureUrl : "https://res.cloudinary.com/tipsindia/image/upload/v1660593331/placeholder-image.png",
       },
     };
   },
@@ -201,6 +209,8 @@ export default {
           (error, result) => {
             if (!error && result && result.event === "success") {
               console.log("Done uploading..: ", result.info);
+              this.imageData = result.info;
+              this.pothole.secureUrl = this.imageData.secure_url;
             }
           }
         )
