@@ -6,6 +6,13 @@
         <table cellpadding="0" cellspacing="0" border="0">
           <thead>
             <tr>
+              <td colspan="8">
+                Search:
+                <input type="text" placeholder="Enter Pothole ID" v-model="searchId">
+
+              </td>
+            </tr>
+            <tr>
               <th>Pothole ID</th>
               <th>Nearest Address</th>
               <th>Zip Code</th>
@@ -18,10 +25,11 @@
           </thead>
         </table>
       </div>
-      <div class="tbl-content">
-        <table cellpadding="0" cellspacing="0" border="0">
-          <tbody v-for="pothole in potholes" v-bind:key="pothole.id">
 
+
+      <div class="tbl-content" v-if="searchId ==''">
+        <table cellpadding="0" cellspacing="0" border="0">
+          <tbody v-for="pothole in sortedArray" v-bind:key="pothole.id">
             <tr v-on:click="retrieveId(pothole.potholeId)" class="clickable">
               <td>{{ pothole.potholeId }}</td>
               <td>
@@ -45,20 +53,90 @@
             </tr>
           </tbody>
         </table>
+
       </div>
+
+      <div class="tbl-content" v-else>
+
+        <table cellpadding="0" cellspacing="0" border="0">
+          <tbody v-for="pothole in searchById" v-bind:key="pothole.id">
+            <tr v-on:click="retrieveId(pothole.potholeId)" class="clickable">
+              <td>{{ pothole.potholeId }}</td>
+              <td>
+                {{ pothole.address.streetNumber }}
+                {{ pothole.address.streetName }} {{ pothole.address.city }}, OH
+              </td>
+              <td>{{ pothole.address.zipCode }}</td>
+              <td>{{ pothole.direction }}</td>
+              <td>{{ pothole.severity }} / 10</td>
+              <td>{{ dateFormat(pothole.discoveryDate) }}</td>
+              <td>{{ pothole.repair.status }}</td>
+              <td>
+                {{ dateFormat(pothole.repair.repairDate) }}
+              </td>
+            </tr>
+            <tr id="description">
+              <td colspan="8">{{ pothole.description }}</td>
+            </tr>
+            <tr>
+              <td id="placeholder" colspan="8"></td>
+            </tr>
+          </tbody>
+        </table>
+
+      </div>
+
+
+
+
+
     </section>
   </div>
 </template>
 
 <script>
 export default {
-  props: ["potholes"],
+  data(){
+    return{
+       searchId: '',
+    }
+  },
+ 
+ props: ["potholes"],
+ 
 
   methods: {
     dateFormat(potholeDate) {
       let date = new Date(potholeDate);
       return date.toLocaleString();
     },
+  },
+
+  computed: {
+    sortedArray() {
+      let filterPotholes = this.potholes;
+      filterPotholes = filterPotholes.sort((potholeA, potholeB) => {
+        let a = potholeA.repair.status.toLowerCase();
+        let b = potholeB.repair.status.toLowerCase();
+        if (a < b) {
+          return -1;
+        } else if (a > b) {
+          return 1;
+        } else {
+          return 0;
+        }
+      });
+      return filterPotholes;
+    },
+    searchById(){
+     let specificPothole = this.potholes;
+     let results = specificPothole.filter((pothole) => {
+        return pothole.potholeId == this.searchId;
+      });
+      return results;
+
+
+    }
   },
 };
 </script>
@@ -85,7 +163,7 @@ h1 {
   font-weight: bolder;
   text-align: center;
   height: 5%;
-  font-family: Arial, Helvetica, sans-serif;  
+  font-family: Arial, Helvetica, sans-serif;
 }
 table {
   width: 100%;

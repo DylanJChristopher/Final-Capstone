@@ -30,7 +30,9 @@
       </div>
     </div>
     <span class="line"></span>
-    <button id="print" @click="printWindow()">Print</button>
+    <router-link v-bind:to="{ name: 'employee' }"> <button id="print" @click="printWindow()">Print</button> </router-link>
+    
+    
   </div>
 </template>
 
