@@ -1,40 +1,47 @@
 <template>
   <div>
-    <section>
-      <!--for demo wrap-->
-      <h1>Pending Potholes</h1>
+    <section class="pagePrint">
+      <h1>All Potholes</h1>
       <div class="tbl-header">
         <table cellpadding="0" cellspacing="0" border="0">
           <thead>
             <tr>
+              <th>Pothole ID</th>
               <th>Nearest Address</th>
               <th>Zip Code</th>
+              <th>Direction of Travel</th>
               <th>Severity</th>
               <th>Discovery Date</th>
+              <th>Status</th>
+              <th>Repair Date</th>
             </tr>
           </thead>
         </table>
       </div>
       <div class="tbl-content">
         <table cellpadding="0" cellspacing="0" border="0">
-          <tbody
-            v-for="pothole in filterByStatus"
-            v-bind:key="pothole.potholeId"
-          >
+          <tbody v-for="pothole in potholes" v-bind:key="pothole.id">
+
             <tr v-on:click="retrieveId(pothole.potholeId)" class="clickable">
+              <td>{{ pothole.potholeId }}</td>
               <td>
                 {{ pothole.address.streetNumber }}
                 {{ pothole.address.streetName }} {{ pothole.address.city }}, OH
               </td>
               <td>{{ pothole.address.zipCode }}</td>
+              <td>{{ pothole.direction }}</td>
               <td>{{ pothole.severity }} / 10</td>
               <td>{{ dateFormat(pothole.discoveryDate) }}</td>
+              <td>{{ pothole.repair.status }}</td>
+              <td>
+                {{ dateFormat(pothole.repair.repairDate) }}
+              </td>
             </tr>
             <tr id="description">
-              <td colspan="4">{{ pothole.description }}</td>
+              <td colspan="8">{{ pothole.description }}</td>
             </tr>
             <tr>
-              <td id="placeholder" colspan="4"></td>
+              <td id="placeholder" colspan="8"></td>
             </tr>
           </tbody>
         </table>
@@ -47,20 +54,7 @@
 export default {
   props: ["potholes"],
 
-  computed: {
-    filterByStatus() {
-      let filteredPotholes = this.potholes;
-      // console.log(this.filteredPotholes);
-      const results = filteredPotholes.filter((pothole) => {
-        return pothole.repair.status == "Pending";
-      });
-      return results;
-    },
-  },
   methods: {
-    retrieveId(potholeId) {
-      this.$store.commit("SET_POTHOLE_ID", potholeId);
-    },
     dateFormat(potholeDate) {
       let date = new Date(potholeDate);
       return date.toLocaleString();
@@ -70,36 +64,20 @@ export default {
 </script>
 
 <style scoped>
-.clickable:hover + #description {
-  background-color: rgba(139, 27, 27, 0.63);
-  opacity: 70%;
-  cursor: pointer;
-}
-.clickable:hover {
-  background-color: rgba(139, 27, 27, 0.63);
-  opacity: 70%;
-  cursor: pointer;
-}
 #placeholder {
   background-color: rgba(139, 27, 27, 0.63);
   padding: 2px;
 }
 section {
-  width: 40vw;
-  /* background-image: url("../assets/how-potholes-form.jpg");
-    background-repeat: no-repeat;
-    background-size: cover; */
-  height: 70vh;
+  width: 90vw;
+  margin: 0px 0px 1000px 100px;
+  height: 60vh;
   border: outset 1px grey;
-  border-radius: 5%;
+  border-radius: 3%;
   box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24),
     0 17px 50px 0 rgba(0, 0, 0, 0.19);
 }
-div {
-  /* display: flex;
-    justify-content: center;
-    align-items: center; */
-}
+
 h1 {
   font-size: 20px;
   color: black;
@@ -107,7 +85,7 @@ h1 {
   font-weight: bolder;
   text-align: center;
   height: 5%;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: Arial, Helvetica, sans-serif;  
 }
 table {
   width: 100%;

@@ -12,6 +12,7 @@ import PrintPage from "../views/PrintPage.vue"
 
 
 
+
 Vue.use(Router)
 
 /**
@@ -67,6 +68,7 @@ const router = new Router({
         requiresAuth: false
       }
     },
+
     {
       path: '/employee',
       name: 'employee',

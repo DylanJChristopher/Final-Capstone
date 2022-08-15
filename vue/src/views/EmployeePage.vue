@@ -17,6 +17,7 @@
         v-bind:potholes="potholes"
       />
     </section>
+    <history id="bottomBottom" v-bind:potholes="potholes"/>
   </div>
 </template>
 
@@ -25,6 +26,7 @@ import EmployeeReviewPending from "../components/EmployeeReviewPending.vue";
 import Graph from "../components/Graph.vue";
 import PotholeCard from "../components/PotholeCard.vue";
 import RepairInProgress from "../components/RepairInProgressTable.vue";
+import History from "../components/History.vue"
 
 import potHolesService from "../services/PotholesService.js";
 
@@ -45,6 +47,7 @@ export default {
     Graph,
     PotholeCard,
     RepairInProgress,
+    History,
   },
 };
 </script>
@@ -55,7 +58,14 @@ export default {
   grid-template-columns: 1fr 1fr;
   grid-template-areas:
     "top top"
-    "bottom bottom";
+    "bottom bottom"
+    "section section";
+}
+#bottomBottom{
+  grid-area: section;
+  width: 100%;
+  height: 25vh;
+  margin: 150px 0px 100px 0px;
 }
 #top {
   grid-area: top;

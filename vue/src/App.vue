@@ -125,7 +125,7 @@ header {
   /* background-color: rgba(139, 27, 27, 0.63); */
   grid-area: footer;
   padding: 20px;
-  
+  margin: 250px 0px 0px 0px;
 
   /* margin: 20px 0px 0px 0px; */
   /* position: relative;
