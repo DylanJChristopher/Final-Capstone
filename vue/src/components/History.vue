@@ -6,6 +6,13 @@
         <table cellpadding="0" cellspacing="0" border="0">
           <thead>
             <tr>
+              <td colspan="8">
+                Search:
+                <input type="text" placeholder="Enter Pothole ID" v-model="searchId">
+
+              </td>
+            </tr>
+            <tr>
               <th>Pothole ID</th>
               <th>Nearest Address</th>
               <th>Zip Code</th>
@@ -18,7 +25,9 @@
           </thead>
         </table>
       </div>
-      <div class="tbl-content">
+
+
+      <div class="tbl-content" v-if="searchId ==''">
         <table cellpadding="0" cellspacing="0" border="0">
           <tbody v-for="pothole in sortedArray" v-bind:key="pothole.id">
             <tr v-on:click="retrieveId(pothole.potholeId)" class="clickable">
@@ -44,14 +53,57 @@
             </tr>
           </tbody>
         </table>
+
       </div>
+
+      <div class="tbl-content" v-else>
+
+        <table cellpadding="0" cellspacing="0" border="0">
+          <tbody v-for="pothole in searchById" v-bind:key="pothole.id">
+            <tr v-on:click="retrieveId(pothole.potholeId)" class="clickable">
+              <td>{{ pothole.potholeId }}</td>
+              <td>
+                {{ pothole.address.streetNumber }}
+                {{ pothole.address.streetName }} {{ pothole.address.city }}, OH
+              </td>
+              <td>{{ pothole.address.zipCode }}</td>
+              <td>{{ pothole.direction }}</td>
+              <td>{{ pothole.severity }} / 10</td>
+              <td>{{ dateFormat(pothole.discoveryDate) }}</td>
+              <td>{{ pothole.repair.status }}</td>
+              <td>
+                {{ dateFormat(pothole.repair.repairDate) }}
+              </td>
+            </tr>
+            <tr id="description">
+              <td colspan="8">{{ pothole.description }}</td>
+            </tr>
+            <tr>
+              <td id="placeholder" colspan="8"></td>
+            </tr>
+          </tbody>
+        </table>
+
+      </div>
+
+
+
+
+
     </section>
   </div>
 </template>
 
 <script>
 export default {
-  props: ["potholes"],
+  data(){
+    return{
+       searchId: '',
+    }
+  },
+ 
+ props: ["potholes"],
+ 
 
   methods: {
     dateFormat(potholeDate) {
@@ -76,6 +128,15 @@ export default {
       });
       return filterPotholes;
     },
+    searchById(){
+     let specificPothole = this.potholes;
+     let results = specificPothole.filter((pothole) => {
+        return pothole.potholeId == this.searchId;
+      });
+      return results;
+
+
+    }
   },
 };
 </script>
