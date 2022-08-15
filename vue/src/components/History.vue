@@ -20,8 +20,7 @@
       </div>
       <div class="tbl-content">
         <table cellpadding="0" cellspacing="0" border="0">
-          <tbody v-for="pothole in potholes" v-bind:key="pothole.id">
-
+          <tbody v-for="pothole in sortedArray" v-bind:key="pothole.id">
             <tr v-on:click="retrieveId(pothole.potholeId)" class="clickable">
               <td>{{ pothole.potholeId }}</td>
               <td>
@@ -60,6 +59,24 @@ export default {
       return date.toLocaleString();
     },
   },
+
+  computed: {
+    sortedArray() {
+      let filterPotholes = this.potholes;
+      filterPotholes = filterPotholes.sort((potholeA, potholeB) => {
+        let a = potholeA.repair.status.toLowerCase();
+        let b = potholeB.repair.status.toLowerCase();
+        if (a < b) {
+          return -1;
+        } else if (a > b) {
+          return 1;
+        } else {
+          return 0;
+        }
+      });
+      return filterPotholes;
+    },
+  },
 };
 </script>
 
@@ -85,7 +102,7 @@ h1 {
   font-weight: bolder;
   text-align: center;
   height: 5%;
-  font-family: Arial, Helvetica, sans-serif;  
+  font-family: Arial, Helvetica, sans-serif;
 }
 table {
   width: 100%;
