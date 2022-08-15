@@ -31,7 +31,7 @@
               </td>
               <td>{{ pothole.address.zipCode }}</td>
               <td>{{ pothole.direction }}</td>
-              <td>{{ pothole.severity }}</td>
+              <td>{{ pothole.severity }} / 10</td>
               <td>{{ pothole.discoveryDate }}</td>
             </tr>
             <tr id="description">

@@ -4,12 +4,15 @@
       <div class="detail" v-on:click="filterById">
         <div>Date Assigned: ____________________________</div>
         <div>
+          Pothole ID: {{ pothole.potholeId }}
+        </div>
+        <div>
           {{ pothole.address.streetNumber }}
           {{ pothole.address.streetName }} {{ pothole.address.city }}, OH
           {{ pothole.address.zipCode }}
         </div>
         <div>Discovery Date: {{ pothole.discoveryDate }}</div>
-        <div>Severity: {{ pothole.severity }}</div>
+        <div>Severity: {{ pothole.severity }} / 10</div>
 
         <div>Status: {{ pothole.repair.status }}</div>
         <div>Scheduled Repair Day: {{ pothole.repair.repairDate }}</div>

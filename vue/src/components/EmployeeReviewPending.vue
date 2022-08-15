@@ -24,7 +24,7 @@
                 {{ pothole.address.streetName }} {{ pothole.address.city }}, OH
               </td>
               <td>{{ pothole.address.zipCode }}</td>
-              <td>{{ pothole.severity }}</td>
+              <td>{{ pothole.severity }} / 10</td>
               <td>{{ pothole.discoveryDate }}</td>
               <!-- <td><button v-on:click="retrieveId(pothole.potholeId)">More Details</button></td> -->
             </tr>

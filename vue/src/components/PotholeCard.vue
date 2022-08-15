@@ -8,7 +8,7 @@
       >
         <div class="detail">
           <div>Discovery Date: {{ pothole.discoveryDate }}</div>
-          <div>Severity: {{ pothole.severity }}</div>
+          <div>Severity: {{ pothole.severity }} / 10</div>
           <div>
             {{ pothole.address.streetNumber }}
             {{ pothole.address.streetName }} {{ pothole.address.city }}, OH
@@ -66,7 +66,7 @@
       > -->
       <div class="detail">
       <div>Discovery Date: {{ filterByStatus.discoveryDate }}</div>
-      <div>Severity: {{ filterByStatus.severity }}</div>
+      <div>Severity: {{ filterByStatus.severity }} / 10</div>
       <div>
         {{ filterByStatus.address.streetNumber }}
         {{ filterByStatus.address.streetName }}
