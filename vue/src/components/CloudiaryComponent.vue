@@ -37,7 +37,7 @@ components: {
 data() {
     return {
     file : null,
-     filesSelected : 0,
+     filesSelected : null,
      formData : null,
      fileContents: [],
      progress: null,
@@ -58,35 +58,34 @@ methods:{
     
 
     prepareFormData(){
+        console.log("did it make it?")
         this.formData = new FormData();
-        this.formData.append("upload_preset","test123");
+        this.formData.append("upload_preset","vue-upload");
         this.formData.append("file",this.fileContents);
     },
     upload: function() {
          this.reader = new FileReader();
-        this.reader.removeEventListener("load", function(){
+        this.reader.addEventListener("load", function(){
             this.fileContents = this.reader.result;
             console.log("elise is yelling at me");
+            this.fileContents = reader.result;
+            
             this.prepareFormData();
-        let cloudinaryUploadURL = 'https://api.cloudinary.com/v1_1/team-india/upload';
+        let cloudinaryUploadURL = 'https://cors-anywhere.herokuapp.com/https://api.cloudinary.com/v1_1/tipsIndia/upload';
         let requestObj ={
             url: cloudinaryUploadURL,
             method: "POST",
-            DATA: this.formData,
+            data: this.formData,
             onUploadProgress: function(progressEvent){
-                console.log("progress", progressEvent);
-                this.progress=Math.round(
-                    (progressEvent.loaded * 100.0) / progressEvent.total
-                );
-                console.log(this.progress);
-            }.bind(this)
-        };
+                this.progress = Math.round(
+                    (progressEvent.loaded * 100.0) / progressEvent.total);
+            }.bind(this)};
+
         this.showProgress = true;
+
         axios(requestObj)
         .then(response => {
             this.results = response.data;
-            console.log(this.results);
-            console.log("public_id", this.results.public_id);
         })
         .catch(error => {
             this.errors.push(error);
@@ -104,7 +103,7 @@ methods:{
         }.bind(this),false);
 
         if(this.file && this.file.name){
-            this.reader.readAsDataURL(this.file);
+            reader.readAsDataURL(this.file);
         }
 
 

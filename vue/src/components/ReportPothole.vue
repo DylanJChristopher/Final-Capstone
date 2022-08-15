@@ -1,5 +1,6 @@
 <template>
   <div>
+     <button @click="openUploadModal">Upload Pothole Photo</button>
     <!-- v-show="showForm == true" Goes in form element -->
     <form class="row g-3" v-on:submit.prevent="upload">
       <h1 class="h3 mb-3 font-weight-normal">Report a Pothole</h1>
@@ -125,14 +126,16 @@
         <button v-on:click="submitPothole()" type="button" class="btn btn-submit">
           Submit TIP
         </button>
+        
         </div>
       </div>
     </form>
+   
     <!-- <button v-on:click="formSet()" v-show="showButton == true">
       Submit a Tip
     </button> -->
 <div>
-<cl-upload />
+<!-- <cl-upload /> -->
 
 </div>
 
@@ -144,13 +147,13 @@
 <script>
 
 import PotholeService from "../services/PotholesService";
-import CloudiaryUpload from "../components/CloudiaryComponent.vue"
+// import CloudiaryUpload from "../components/CloudiaryComponent.vue"
 
 export default {
 
   components:{
 
-    "cl-upload" : CloudiaryUpload,
+    // "cl-upload" : CloudiaryUpload,
 
   },
   
@@ -187,6 +190,21 @@ export default {
           this.$router.push({name: 'potholes'});
         }
       });
+    },
+        openUploadModal() {
+      window.cloudinary
+        .openUploadWidget(
+          {
+            cloud_name: "tipsindia",
+            upload_preset: "test123",
+          },
+          (error, result) => {
+            if (!error && result && result.event === "success") {
+              console.log("Done uploading..: ", result.info);
+            }
+          }
+        )
+        .open();
     },
   
     
