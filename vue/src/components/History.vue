@@ -1,17 +1,15 @@
 <template>
   <div>
     <section class="pagePrint">
+      <p>
+        Search:
+        <input type="text" placeholder="Enter Pothole ID" v-model="searchId" />
+      </p>
       <h1>All Potholes</h1>
       <div class="tbl-header">
         <table cellpadding="0" cellspacing="0" border="0">
           <thead>
-            <tr>
-              <td colspan="8">
-                Search:
-                <input type="text" placeholder="Enter Pothole ID" v-model="searchId">
-
-              </td>
-            </tr>
+            <tr></tr>
             <tr>
               <th>Pothole ID</th>
               <th>Nearest Address</th>
@@ -26,8 +24,7 @@
         </table>
       </div>
 
-
-      <div class="tbl-content" v-if="searchId ==''">
+      <div class="tbl-content" v-if="searchId == ''">
         <table cellpadding="0" cellspacing="0" border="0">
           <tbody v-for="pothole in sortedArray" v-bind:key="pothole.id">
             <tr v-on:click="retrieveId(pothole.potholeId)" class="clickable">
@@ -53,11 +50,9 @@
             </tr>
           </tbody>
         </table>
-
       </div>
 
       <div class="tbl-content" v-else>
-
         <table cellpadding="0" cellspacing="0" border="0">
           <tbody v-for="pothole in searchById" v-bind:key="pothole.id">
             <tr v-on:click="retrieveId(pothole.potholeId)" class="clickable">
@@ -83,27 +78,20 @@
             </tr>
           </tbody>
         </table>
-
       </div>
-
-
-
-
-
     </section>
   </div>
 </template>
 
 <script>
 export default {
-  data(){
-    return{
-       searchId: '',
-    }
+  data() {
+    return {
+      searchId: "",
+    };
   },
- 
- props: ["potholes"],
- 
+
+  props: ["potholes"],
 
   methods: {
     dateFormat(potholeDate) {
@@ -128,15 +116,13 @@ export default {
       });
       return filterPotholes;
     },
-    searchById(){
-     let specificPothole = this.potholes;
-     let results = specificPothole.filter((pothole) => {
+    searchById() {
+      let specificPothole = this.potholes;
+      let results = specificPothole.filter((pothole) => {
         return pothole.potholeId == this.searchId;
       });
       return results;
-
-
-    }
+    },
   },
 };
 </script>
@@ -187,6 +173,9 @@ th {
   color: black;
   text-transform: uppercase;
   font-family: Arial, Helvetica, sans-serif;
+}
+p{
+  margin: 15px;
 }
 td {
   padding: 15px;

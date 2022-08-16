@@ -1,9 +1,10 @@
 <template>
-  <div>
+  <div class= "printable">
     <div v-for="pothole in filterById" v-bind:key="pothole.potholeId">
       <div class="detail" v-on:click="filterById">
         <div>Date Assigned: ____________________________</div>
         <div>Pothole ID: {{ pothole.potholeId }}</div>
+       <img id ="pothole-img" v-bind:src= "pothole.secureUrl"  alt="picture of a very potty hole">
         <div>
           {{ pothole.address.streetNumber }}
           {{ pothole.address.streetName }} {{ pothole.address.city }}, OH
@@ -41,7 +42,8 @@ export default {
   props: ["potholes"],
   methods: {
     printWindow: function () {
-      window.print();
+      
+      window.print().printable;
     },
     dateFormat(potholeDate) {
       let date = new Date(potholeDate);
@@ -83,4 +85,8 @@ div {
 button {
   margin: 10px 0px 100px 10px;
 }
+#pothole-img{
+  height: 15rem;
+}
+
 </style>

@@ -21,7 +21,6 @@
         :position="m.position"
       ></gmap-marker>
     </gmap-map>
-    
   </div>
 </template>
  
@@ -51,44 +50,47 @@ export default {
 
       potholes1: [],
       potholes33: [],
-      
 
       potholeLocations: [],
       //1275+Kinnear+Rd,+Columbus,+OH
     };
   },
   computed: {
-
-    centerComputed(){
-        return {
+    centerComputed() {
+      return {
         lat: parseFloat(this.$store.state.center.lat),
 
         lng: parseFloat(this.$store.state.center.lng),
       };
     },
-    zoomValue(){
+    zoomValue() {
       let key = this.$store.state.zoomValue;
       return key;
-    }
+    },
   },
 
   methods: {
-    
     addressToString(potholes1) {
       console.log("blake");
       let streetName = "";
+      let potholeCity = "";
       for (let i = 0; i < potholes1.length; i++) {
         streetName = potholes1[i].address.streetName;
         console.log(streetName);
         if (streetName.includes(" ")) {
           streetName = streetName.replace(" ", "+");
         }
+        potholeCity = potholes1[i].address.city;
+        console.log(potholeCity);
+        if (potholeCity.includes(" ")) {
+          potholeCity = potholeCity.replace(" ", "+");
+        }
         this.addressString[i] =
           potholes1[i].address.streetNumber +
           "+" +
           streetName +
           ",+" +
-          potholes1[i].address.city +
+          potholeCity +
           ",+" +
           potholes1[i].address.state;
 
@@ -116,7 +118,6 @@ export default {
       }
     },
     retrieveAllPotholeLocations() {
-
       for (let i = 0; i < this.addressString.length; i++) {
         mapService.getMapInformation(this.addressString[i]).then((response) => {
           this.potholeLocations.push(response.data);
