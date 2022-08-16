@@ -243,7 +243,7 @@ export default {
   background-color: rgba(255, 255, 255, 0.3);
   opacity: 85%;
   border-radius: 10%;
-  box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24),
+  box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.24),
     0 17px 50px 0 rgba(0, 0, 0, 0.19);
   width: 60%;
 }

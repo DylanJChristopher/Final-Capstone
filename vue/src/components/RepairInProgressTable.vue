@@ -112,7 +112,7 @@ section {
   height: 70vh;
   border: outset 1px grey;
   border-radius: 5%;
-  box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24),
+  box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.24),
     0 17px 50px 0 rgba(0, 0, 0, 0.19);
 }
 div {
@@ -178,7 +178,7 @@ td {
 ::-webkit-scrollbar-thumb {
   background: rgba(139, 27, 27, 0.63);
   border-radius: 10px;
-  box-shadow: inset 0 0 5px rgb(0, 0, 0);
+  box-shadow: inset 0 0 1px rgb(0, 0, 0);
 }
 </style>
 

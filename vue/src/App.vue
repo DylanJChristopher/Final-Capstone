@@ -152,6 +152,7 @@ footer {
   margin: 0%;
   padding: 0%;
   background-image: linear-gradient(rgb(209, 191, 158), whitesmoke);
+
 }
 button {
   font-family: Arial, Helvetica, sans-serif;
