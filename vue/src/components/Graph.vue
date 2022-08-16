@@ -1,6 +1,6 @@
 <template>
 
-  <div>
+  <div id = "bar">
       <Bar
     :chart-options="chartOptions"
     :chart-data="chartData"
@@ -124,7 +124,7 @@ export default {
 </script>
 
 <style scoped>
-div{
+#bar{
     margin-top: 25px;
     display:flex;
     justify-content: center;

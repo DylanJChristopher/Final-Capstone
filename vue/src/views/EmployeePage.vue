@@ -53,6 +53,19 @@ export default {
 </script>
 
 <style scoped>
+#graph.box{
+  /* border: inset 1px grey;
+  border-radius: 20%; */
+  padding: 50px;
+  margin: -68px 0px 100px 0px;
+  width: 400px;
+  height: 325px;
+  border: outset 1px grey;
+  border-radius: 15px;
+  box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24),
+    0 17px 50px 0 rgba(0, 0, 0, 0.19);
+  
+}
 #container {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -72,7 +85,7 @@ export default {
   display: flex;
   width: 100%;
   height: 25vh;
-  margin: 100px 0px 100px 0px;
+  margin: 100px 0px 100px 200px;
 }
 
 #bottom {
@@ -84,7 +97,8 @@ export default {
   margin: 200px 0px 100px 0px;
 }
 #card {
-  margin: 200px 0px 200px 0px;
+  margin: 200px 0px 200px 196px;
+  
 }
 .box {
   width: 50vw;

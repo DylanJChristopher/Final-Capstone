@@ -141,13 +141,13 @@ export default {
 }
 
 .clickable:hover + #description {
-  background-color: rgba(139, 27, 27, 0.63);
-  opacity: 70%;
+  background-color: rgb(236, 227, 209);
+  opacity: 85%;
   cursor: pointer;
 }
 .clickable:hover {
-  background-color: rgba(139, 27, 27, 0.63);
-  opacity: 70%;
+  background-color: rgb(236, 227, 209);
+  opacity: 85%;
   cursor: pointer;
 }
 #placeholder {
@@ -208,7 +208,7 @@ td {
 
 /* Track */
 ::-webkit-scrollbar-track {
-  box-shadow: inset 0 0 5px grey;
+  /* box-shadow: inset 0 0 2px grey; */
   border-radius: 10px;
 }
 
@@ -216,6 +216,6 @@ td {
 ::-webkit-scrollbar-thumb {
   background: rgba(139, 27, 27, 0.63);
   border-radius: 10px;
-  box-shadow: inset 0 0 5px rgb(0, 0, 0);
+  /* box-shadow: inset 0 0 2px rgb(0, 0, 0); */
 }
 </style>

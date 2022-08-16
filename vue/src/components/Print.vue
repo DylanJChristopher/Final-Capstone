@@ -84,6 +84,9 @@ div {
 }
 button {
   margin: 10px 0px 100px 10px;
+  width:275px;
+  height: 35px;
+  font-size:medium
 }
 #pothole-img{
   height: 15rem;
