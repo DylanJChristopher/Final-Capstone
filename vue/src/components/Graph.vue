@@ -123,9 +123,12 @@ export default {
 
 <style scoped>
 div{
+    margin-top: 15px;
     display:flex;
     justify-content: center;
     align-items: center;
     
+    
 }
+
 </style>
