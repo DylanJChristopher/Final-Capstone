@@ -182,9 +182,8 @@ h1 {
   text-transform: none;
   background-image: linear-gradient(
     135deg,
-    rgb(28, 110, 164) 0%,
-    rgb(35, 136, 203) 50%,
-    rgb(20, 78, 117) 100%
+    forestgreen 0%,
+    #646F4B 100%
   );
   box-shadow: rgba(43, 49, 57, 0.85) 1px 3px 8px 11px;
   border: 2px solid rgb(28, 110, 164);
@@ -199,7 +198,7 @@ h1 {
 }
 #banner {
   display: flex;
-  background-color: #049264;
+  background-color: #646F4B;
   opacity: 100%;
   -webkit-box-shadow: 1px 3px 8px 11px rgba(43, 49, 57, 0.85);
   box-shadow: 1px 3px 8px 11px rgba(43, 49, 57, 0.85);

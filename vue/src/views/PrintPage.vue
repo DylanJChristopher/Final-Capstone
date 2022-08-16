@@ -25,4 +25,10 @@ export default {
 </script>
 
 <style>
+@media print {
+   header {display:none;}
+   footer {display:none;}
+   #print {display:none;}
+   
+}
 </style>
