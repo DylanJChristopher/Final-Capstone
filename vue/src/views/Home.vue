@@ -185,7 +185,8 @@ h1 {
     forestgreen 0%,
     #646F4B 100%
   );
-  box-shadow: rgba(43, 49, 57, 0.85) 1px 3px 8px 11px;
+  -webkit-box-shadow: 1px 1px 6px 4px rgba(0,0,0,0.31); 
+box-shadow: 1px 1px 6px 4px rgba(0,0,0,0.31);
   border: 2px solid rgb(28, 110, 164);
   display: inline-block;
   

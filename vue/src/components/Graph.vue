@@ -37,7 +37,10 @@ ChartJS.register(
 );
 
 export default {
+
+
   created() {
+    
     PotholesService.retrievePotholes().then((response) => {
       this.potholes = response.data;
       let result = this.chartData.datasets[0];
@@ -46,11 +49,14 @@ export default {
       result2.push(this.filterByStatusRepair);
       result2.push(this.filterByStatusFixed);
       result2.push(this.filterByStatusReject);
+      
     });
+    
   },
   name: "BarChart",
   components: { Bar },
   props: {
+   
     chartId: {
       type: String,
       default: "bar-chart",
@@ -79,6 +85,7 @@ export default {
       type: Object,
       default: () => {},
     },
+   
   },
   computed: {
     filterByStatusPending() {
@@ -131,4 +138,5 @@ div {
   justify-content: center;
   align-items: center;
 }
+
 </style>
