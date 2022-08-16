@@ -50,7 +50,9 @@
     </header>
 
     <router-view id="router-view" />
+    <footer>
     <the-foot-of-page id="footer"></the-foot-of-page>
+    </footer>
   </div>
 </template>
 <script>
@@ -120,7 +122,7 @@ header {
   margin-top: 5vh;
   position: relative;
 }
-#footer {
+footer {
   background-color: rgb(236, 227, 209);
   /* background-color: rgba(139, 27, 27, 0.63); */
   grid-area: footer;
@@ -155,4 +157,5 @@ button {
   font-family: Arial, Helvetica, sans-serif;
   font-weight: bold;
 }
+
 </style>
