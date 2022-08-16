@@ -1,8 +1,7 @@
 <template>
   <div>
-     <button @click="openUploadModal">Upload Pothole Photo</button>
     <!-- v-show="showForm == true" Goes in form element -->
-    
+
     <form class="row g-3" v-on:submit.prevent="upload">
       <h1 class="h3 mb-3 font-weight-normal">Report a Pothole</h1>
       <div class="col-12">
@@ -121,52 +120,45 @@
               v-model="pothole.discoveryDate"
             />
           </form>
+          <button @click="openUploadModal">Upload Pothole Photo</button>
         </div>
-      
+
         <div class="col-12">
-        <button v-on:click="submitPothole()" type="button" class="btn btn-submit">
-          Submit TIP
-        </button>
-        
+          <button
+            v-on:click="submitPothole()"
+            type="button"
+            class="btn btn-submit"
+          >
+            Submit TIP
+          </button>
         </div>
       </div>
     </form>
-   
+
     <!-- <button v-on:click="formSet()" v-show="showButton == true">
       Submit a Tip
     </button> -->
-<div>
-<!-- <cl-upload /> -->
-
-</div>
-
-
-
+    <div>
+      <!-- <cl-upload /> -->
+    </div>
   </div>
 </template>
 
 <script>
-
 import PotholeService from "../services/PotholesService";
 // import CloudiaryUpload from "../components/CloudiaryComponent.vue"
 
 export default {
-
-  components:{
-
+  components: {
     // "cl-upload" : CloudiaryUpload,
-
   },
-  
-  
+
   data() {
     return {
       showForm: false,
       showButton: true,
 
-    imageData : null,
-    
-
+      imageData: null,
 
       pothole: {
         address: {
@@ -175,7 +167,6 @@ export default {
           city: "",
           state: "",
           zipCode: "",
-          
         },
         repair: {
           status: "Pending",
@@ -185,7 +176,8 @@ export default {
         severity: "",
         discoveryDate: "",
         description: "",
-        secureUrl : "https://res.cloudinary.com/tipsindia/image/upload/v1660593331/placeholder-image.png",
+        secureUrl:
+          "https://res.cloudinary.com/tipsindia/image/upload/v1660593331/placeholder-image.png",
       },
     };
   },
@@ -195,11 +187,11 @@ export default {
       PotholeService.reportPothole(this.pothole).then((response) => {
         if (response.status == 200) {
           console.log("elise");
-          this.$router.push({name: 'potholes'});
+          this.$router.push({ name: "potholes" });
         }
       });
     },
-        openUploadModal() {
+    openUploadModal() {
       window.cloudinary
         .openUploadWidget(
           {
@@ -216,38 +208,20 @@ export default {
         )
         .open();
     },
-  
-    
   },
 };
-
-
 </script>
 
 <style scoped>
-.col-12{
+.col-12 {
   margin: 7px;
   font-family: Arial, Helvetica, sans-serif;
 }
-h1{
+h1 {
   text-align: center;
   height: 7vh;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+button{
+  margin: 5px 0px 5px 0px;
+}
 </style>
