@@ -1,79 +1,89 @@
 <template>
-
   <div>
-      <Bar
-    :chart-options="chartOptions"
-    :chart-data="chartData"
-    :chart-id="chartId"
-    :dataset-id-key="datasetIdKey"
-    :plugins="plugins"
-    :css-classes="cssClasses"
-    :styles="styles"
-    :width="width"
-    :height="height"
-  />
+    <Bar
+      :chart-options="chartOptions"
+      :chart-data="chartData"
+      :chart-id="chartId"
+      :dataset-id-key="datasetIdKey"
+      :plugins="plugins"
+      :css-classes="cssClasses"
+      :styles="styles"
+      :width="width"
+      :height="height"
+    />
   </div>
 </template>
 
 <script>
-import PotholesService from '../services/PotholesService.js'
-import { Bar } from 'vue-chartjs/legacy'
-import { Chart as ChartJS, Title, Tooltip, Legend, BarElement, CategoryScale, LinearScale } from 'chart.js'
+import PotholesService from "../services/PotholesService.js";
+import { Bar } from "vue-chartjs/legacy";
+import {
+  Chart as ChartJS,
+  Title,
+  Tooltip,
+  Legend,
+  BarElement,
+  CategoryScale,
+  LinearScale,
+} from "chart.js";
 
-
-ChartJS.register(Title, Tooltip, Legend, BarElement, CategoryScale, LinearScale)
+ChartJS.register(
+  Title,
+  Tooltip,
+  Legend,
+  BarElement,
+  CategoryScale,
+  LinearScale
+);
 
 export default {
-  created(){
+  created() {
     PotholesService.retrievePotholes().then((response) => {
-    this.potholes = response.data
-    let result = this.chartData.datasets[0]
-      let result2 = result.data
-      result2.push(this.filterByStatusPending)
-      result2.push(this.filterByStatusRepair)
-      result2.push(this.filterByStatusFixed)
-      result2.push(this.filterByStatusReject)
-
+      this.potholes = response.data;
+      let result = this.chartData.datasets[0];
+      let result2 = result.data;
+      result2.push(this.filterByStatusPending);
+      result2.push(this.filterByStatusRepair);
+      result2.push(this.filterByStatusFixed);
+      result2.push(this.filterByStatusReject);
     });
   },
-  name: 'BarChart',
+  name: "BarChart",
   components: { Bar },
   props: {
     chartId: {
       type: String,
-      default: 'bar-chart'
+      default: "bar-chart",
     },
     datasetIdKey: {
       type: String,
-      default: 'label'
+      default: "label",
     },
     width: {
       type: Number,
-      default: 400
+      default: 400,
     },
     height: {
       type: Number,
-      default: 400
+      default: 400,
     },
     cssClasses: {
-      default: '',
-      type: String
+      default: "",
+      type: String,
     },
     styles: {
       type: Object,
-      default: () => {}
+      default: () => {},
     },
     plugins: {
       type: Object,
-      default: () => {}
-    }
+      default: () => {},
+    },
   },
   computed: {
-
     filterByStatusPending() {
       let filteredPotholes = this.potholes;
       const results = filteredPotholes.filter((pothole) => {
-        
         return pothole.repair.status == "Pending";
       });
       return results.length;
@@ -81,7 +91,6 @@ export default {
     filterByStatusRepair() {
       let filteredPotholes = this.potholes;
       const results = filteredPotholes.filter((pothole) => {
-        
         return pothole.repair.status == "Repair Scheduled";
       });
       return results.length;
@@ -89,7 +98,6 @@ export default {
     filterByStatusFixed() {
       let filteredPotholes = this.potholes;
       const results = filteredPotholes.filter((pothole) => {
-        
         return pothole.repair.status == "Fixed";
       });
       return results.length;
@@ -97,35 +105,30 @@ export default {
     filterByStatusReject() {
       let filteredPotholes = this.potholes;
       const results = filteredPotholes.filter((pothole) => {
-        
         return pothole.repair.status == "Reject";
       });
       return results.length;
     },
-    
   },
   data() {
     return {
       potholes: [],
       chartData: {
-        labels: [ 'Pending', 'Repair Scheduled', 'Fixed', 'Rejected' ],
-        datasets: [ { data: [] } ]
+        labels: ["Pending", "Repair Scheduled", "Fixed", "Rejected"],
+        datasets: [{ data: [] }],
       },
       chartOptions: {
-        responsive: true
+        responsive: true,
       },
-     
-    }
-  }
-}
-  
+    };
+  },
+};
 </script>
 
 <style scoped>
-div{
-    display:flex;
-    justify-content: center;
-    align-items: center;
-    
+div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 </style>
