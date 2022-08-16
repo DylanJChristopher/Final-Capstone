@@ -2,7 +2,7 @@
 <template>
   <div id="app">
     <header>
-      <img src="./assets/actual logo.jpg" id="logo" />
+      <img src="./assets/logofornow.png" id="logo" />
       <nav id="nav">
         <div id="spaceHolder"></div>
         <ul>
@@ -97,7 +97,7 @@ ul {
   padding: 0;
 }
 #logo {
-  border-radius: 50%;
+  /* border-radius: 30%; */
   height: auto;
   /* width: 5%; */
   padding: 5px;
