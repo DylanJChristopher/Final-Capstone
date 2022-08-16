@@ -5,15 +5,16 @@
       <div class="home">
         <div class="shield-button">
           <div id="banner">
-            <h1>T.I.P.S. is dedicated to empowering community members by providing real-time pothole reporting. Every pothole will be inspected and repaired within 72 hours of its report.</h1>
-          </div>
-          <h2>
-            <button class="myButton">
+            <h1> Real-time pothole reporting for your community.
+              <button  class="myButton">
               <a id = "report-link" href="http://localhost:8080/report"
-                >Submit a TIP of a pothole today!</a
+                >Report Pothole</a
               >
-            </button>
-          </h2>
+            </button> 
+              Potholes  inspected and repaired within 72 hours.</h1>
+            
+          </div>
+        
         </div>
       </div>
     </div>
@@ -43,7 +44,7 @@
             alt="What are potholes"
           />
           <div class="card-body">
-            <h5 class="card-title">What are potholes?</h5>
+            <h5 class="card-title"> What are potholes?</h5>
             <p class="card-text">
               Learn from leading Road Technologist about Potholes and how they
               form.
@@ -95,12 +96,13 @@ h2{
   justify-content: space-evenly;
 }
 .card-title {
-  font-size: 3em;
+  font-size: 2em;
+  
   color: #2e5266;
   font-family: Arial, Helvetica, sans-serif;
 }
 .card-text {
-  font-size: 2em;
+  font-size: 1em;
   color: #2e5266;
   font-family: Arial, Helvetica, sans-serif;
 }
@@ -117,7 +119,7 @@ h2{
 -webkit-box-shadow: 1px 1px 6px 4px rgba(0,0,0,0.31); 
 box-shadow: 1px 1px 6px 4px rgba(0,0,0,0.31);
 
-  border-radius: 5%;
+  border-radius: 2%;
 }
 #left-card {
   padding-right: 2rem;
@@ -168,12 +170,13 @@ h1 {
   
 }
 
+
 .myButton {
   color: rgb(255, 255, 255);
-  font-size: 20px;
+  font-size: 30px;
   line-height: 20px;
   padding: 8px;
-  border-radius: 28px;
+  border-radius: 12px;
   font-family: Arial, Helvetica, sans-serif;
   font-weight: normal;
   text-decoration: none;
@@ -182,27 +185,41 @@ h1 {
   text-transform: none;
   background-image: linear-gradient(
     135deg,
-    forestgreen 0%,
-    #646F4B 100%
+    #f1881d 0%,
+    
+    #f6861a 100%
   );
-  -webkit-box-shadow: 1px 1px 6px 4px rgba(0,0,0,0.31); 
-box-shadow: 1px 1px 6px 4px rgba(0,0,0,0.31);
-  border: 2px solid rgb(28, 110, 164);
+-webkit-box-shadow: 0px 0px 6px 0px rgba(0,0,0,0.97); 
+box-shadow: 0px 0px 6px 0px rgba(0,0,0,0.97);
+  border: 2px solid #fa0201;
   display: inline-block;
+  height: 5rem;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  
   
 }
 .myButton:hover {
-  background: #3a435a;
+  
+   background: #fa0201;
+  border: 2px solid #f1881d; 
+  
+  
+}
+.myButton:hover + #report-link{
+color: #fff500; 
 }
 .myButton:active {
-  background: #1e2a44;
+  background: #fa0201;
+  
+  
 }
 #banner {
   display: flex;
   background-color: #646F4B;
   opacity: 100%;
-  -webkit-box-shadow: 1px 3px 8px 11px rgba(43, 49, 57, 0.85);
-  box-shadow: 1px 3px 8px 11px rgba(43, 49, 57, 0.85);
+ -webkit-box-shadow: 0px 0px 6px 1px rgba(0,0,0,0.97); 
+box-shadow: 0px 0px 6px 1px rgba(0,0,0,0.97);
   flex-direction: column;
   height: 50vh;
   width: 25vw;
@@ -234,7 +251,13 @@ box-shadow: 1px 1px 6px 4px rgba(0,0,0,0.31);
 
 #report-link{
   color: white;
-  text-decoration: none;
+   text-decoration: none; 
   font-family: Arial, Helvetica, sans-serif;
+  height: 100%;
+  width: 100%;
+}
+#report-link:hover{
+  color: #fff500;
+  
 }
 </style>
