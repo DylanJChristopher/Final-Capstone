@@ -91,7 +91,7 @@ section {
     background-size: cover; */
   height: 70vh;
   border: outset 1px grey;
-  border-radius: 5%;
+  border-radius: 15px;
   box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24),
     0 17px 50px 0 rgba(0, 0, 0, 0.19);
 }

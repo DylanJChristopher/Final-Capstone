@@ -48,7 +48,7 @@ export default {
     background-size: cover; */
     height: 70vh;
     border: outset 1px rgb(216, 213, 213);
-    border-radius: 3%;
+    border-radius: 15px;
     box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
     background-color: rgba(255, 255, 255, 0.603);
 }

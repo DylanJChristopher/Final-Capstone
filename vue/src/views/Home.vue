@@ -122,19 +122,19 @@ box-shadow: 1px 1px 6px 4px rgba(0,0,0,0.31);
 #left-card {
   padding-right: 2rem;
   padding-left: 2rem;
-  border-right: black solid 2px;
+  border-right: black solid 1px;
 }
 #middle-card {
   padding-right: 2rem;
   padding-left: 2rem;
   
-  border-left: black solid 2px;
+  border-left: black solid 1px;
 }
 #right-card {
   padding-right: 2rem;
   padding-left: 2rem;
-  border-left: black solid 2px;
-  border-right: black solid 2px;
+  border-left: black solid 1%;
+  border-right: black solid 1%;
 }
 
 #container {
