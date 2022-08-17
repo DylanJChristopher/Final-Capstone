@@ -190,7 +190,7 @@ export default {
         discoveryDate: "",
         description: "",
         secureUrl:
-          "https://res.cloudinary.com/tipsindia/image/upload/v1660593331/placeholder-image.png",
+          "https://res.cloudinary.com/tipsindia/image/upload/v1660760324/No-image.jpg",
       },
     };
   },
