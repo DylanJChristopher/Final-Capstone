@@ -93,16 +93,20 @@ h2{
 }
 #home-cards {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: center;
+  width: 100vw;
 }
 .card-title {
   font-size: 2em;
-  
+  font-weight: normal;
   color: #2e5266;
   font-family: Arial, Helvetica, sans-serif;
+  text-align: center;
 }
 .card-text {
+  height: 5vh;
   font-size: 1em;
+  font-weight:normal;
   color: #2e5266;
   font-family: Arial, Helvetica, sans-serif;
 }
@@ -114,8 +118,8 @@ h2{
 .card-img-top {
   width: 25vw;
   height: 25vh;
-  margin-left: 2rem;
-  margin-right: 2rem;
+  /* margin-left: 2rem;
+  margin-right: 2rem; */
 -webkit-box-shadow: 1px 1px 6px 4px rgba(0,0,0,0.31); 
 box-shadow: 1px 1px 6px 4px rgba(0,0,0,0.31);
 
@@ -124,25 +128,46 @@ box-shadow: 1px 1px 6px 4px rgba(0,0,0,0.31);
 #left-card {
   padding-right: 2rem;
   padding-left: 2rem;
-  border-right: black solid 1px;
+  /* border-right: black solid 1px; */
+  width: 33vw;
+  display:flex;
+  flex-direction: column;
+  align-items: center;
 }
 #middle-card {
   padding-right: 2rem;
   padding-left: 2rem;
   
-  border-left: black solid 1px;
+  /* border-left: black solid 1px; */
+  width: 33vw;
+  display:flex;
+  flex-direction: column;
+  align-items: center;
 }
 #right-card {
   padding-right: 2rem;
   padding-left: 2rem;
-  border-left: black solid 1%;
-  border-right: black solid 1%;
+  /* border-left: black solid 1%;
+  border-right: black solid 1%; */
+  width: 33vw;
+  display:flex;
+  flex-direction: column;
+  align-items: center;
 }
+.card-body{
+  border-right: black 2px;
+  right: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 
 #container {
   background-image: url("../assets/pothole-2.jpg");
   background-repeat: no-repeat;
   background-size: cover;
+  opacity: 100%;
 }
 .home {
   /* background-image:url("../assets/pothole-2.jpg"); */
@@ -239,11 +264,18 @@ box-shadow: 0px 0px 6px 1px rgba(0,0,0,0.97);
   flex-direction: column;
   justify-content: center;
   flex-grow: 1;
+ 
+}
+.home{
+   background-color: rgba(255, 255, 255, 0.432);
 }
 
 
 .btn-primary {
   color: blue;
+  text-align: center;
+  font-size: 20px;
+ 
 }
 .card-button:hover {
   color: black;
@@ -260,4 +292,5 @@ box-shadow: 0px 0px 6px 1px rgba(0,0,0,0.97);
   color: #fff500;
   
 }
+
 </style>
