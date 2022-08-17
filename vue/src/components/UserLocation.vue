@@ -19,6 +19,7 @@
         @click="center = m.position"
         v-for="(m, index) in locationMarkers"
         :position="m.position"
+        
       ></gmap-marker>
     </gmap-map>
     

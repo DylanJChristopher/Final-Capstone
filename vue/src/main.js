@@ -4,6 +4,8 @@ import router from './router/index'
 import store from './store/index'
 import axios from 'axios'
 import * as VueGoogleMaps from "vue2-google-maps"
+import Cloudinary from "cloudinary-vue"
+
 
 
 
@@ -15,6 +17,12 @@ Vue.use(VueGoogleMaps, {
     key: "AIzaSyCs0KV3vkvdaYxzfXSSszsWCmSxqguKZiE",
     libraries: "places"
   }
+});
+
+Vue.use(Cloudinary, {
+  configuration: { 
+    cloudName: "teamindia",
+    secure: false }
 });
 
 new Vue({

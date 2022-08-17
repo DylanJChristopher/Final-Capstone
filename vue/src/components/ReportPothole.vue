@@ -1,6 +1,6 @@
 <template>
   <div>
-     <button @click="openUploadModal">Upload Pothole Photo</button>
+    <button @click="openUploadModal">Upload Pothole Photo</button>
     <!-- v-show="showForm == true" Goes in form element -->
     <form class="row g-3" v-on:submit.prevent="upload">
       <h1 class="h3 mb-3 font-weight-normal">Report a Pothole</h1>
@@ -111,6 +111,7 @@
       <div class="col-12">
         <div>
           <form action="/action_page.php">
+           
             <label for="discovery date">Discovery Date (date and time): </label>
             <input
               type="datetime-local"
@@ -121,43 +122,35 @@
             />
           </form>
         </div>
-      
+
         <div class="col-12">
-        <button v-on:click="submitPothole()" type="button" class="btn btn-submit">
-          Submit TIP
-        </button>
-        
+          <button
+            v-on:click="submitPothole()"
+            type="button"
+            class="btn btn-submit"
+          >
+            Submit TIP
+          </button>
         </div>
+        <cld-image public-id="bbf23526bb1a3e6b26784d7bdfb1d828ebb737c665db2a9b0e9d5b14058fdfcc" />
+        <!-- <img src="https://res.cloudinary.com/tipsindia/image/upload/v1660577309/sample.jpg"/> -->
+       
       </div>
     </form>
-   
+    
+  
     <!-- <button v-on:click="formSet()" v-show="showButton == true">
       Submit a Tip
     </button> -->
-<div>
-<!-- <cl-upload /> -->
-
-</div>
-
-
-
   </div>
 </template>
 
 <script>
-
 import PotholeService from "../services/PotholesService";
-// import CloudiaryUpload from "../components/CloudiaryComponent.vue"
 
 export default {
+  components: {},
 
-  components:{
-
-    // "cl-upload" : CloudiaryUpload,
-
-  },
-  
-  
   data() {
     return {
       showForm: false,
@@ -178,6 +171,7 @@ export default {
         severity: "",
         discoveryDate: "",
         description: "",
+        imageID: '',
       },
     };
   },
@@ -187,57 +181,44 @@ export default {
       PotholeService.reportPothole(this.pothole).then((response) => {
         if (response.status == 200) {
           console.log("elise");
-          this.$router.push({name: 'potholes'});
+          this.$router.push({ name: "potholes" });
         }
       });
     },
-        openUploadModal() {
+    openUploadModal() {
       window.cloudinary
-        .openUploadWidget(
+        .createUploadWidget(
           {
             cloud_name: "tipsindia",
             upload_preset: "test123",
+
           },
           (error, result) => {
             if (!error && result && result.event === "success") {
               console.log("Done uploading..: ", result.info);
+              this.imageID = result.info.id;
             }
           }
         )
         .open();
     },
-  
-    
   },
 };
-
-
 </script>
 
 <style scoped>
-.col-12{
+.col-12 {
   margin: 7px;
   font-family: Arial, Helvetica, sans-serif;
 }
-h1{
+h1 {
   text-align: center;
   height: 7vh;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+img{
+  height: 200px;
+  width: 200px;
+}
 
 
 </style>
