@@ -225,8 +225,8 @@ export default {
   margin: 0px 0px 100px 0px;
   border: outset 1px grey;
   border-radius: 10px;
-  box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24),
-    0 17px 50px 0 rgba(0, 0, 0, 0.19);
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.24),
+    0 2px 2px 0 rgba(0, 0, 0, 0.19);
 }
 #container {
   margin: 400px;

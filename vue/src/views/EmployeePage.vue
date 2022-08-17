@@ -62,9 +62,9 @@ export default {
   height: 325px;
   border: outset 1px grey;
   border-radius: 15px;
-  box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24),
-    0 17px 50px 0 rgba(0, 0, 0, 0.19);
-  
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.24),
+    0 2px 2px 0 rgba(0, 0, 0, 0.19);
+  backdrop-filter:sepia(30%);
 }
 #container {
   display: grid;
