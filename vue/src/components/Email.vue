@@ -41,6 +41,7 @@ export default {
           },
           (error) => {
             console.log("FAILED...", error.text);
+            this.$router.push({ name: "employee" });
           }
         );
     },
