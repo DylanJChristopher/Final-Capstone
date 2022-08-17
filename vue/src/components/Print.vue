@@ -14,9 +14,9 @@
         <div>Severity: {{ pothole.severity }} / 10</div>
 
         <div>Status: {{ pothole.repair.status }}</div>
-        <div>Scheduled Repair Day: {{ pothole.repair.repairDate }}</div>
+        <div>Scheduled Repair Day: {{ dateFormat(pothole.repair.repairDate) }}</div>
         <div>Direction: {{ pothole.direction }}</div>
-        <div class="description">Description {{ pothole.description }}</div>
+        <div class="description">Description: {{ pothole.description }}</div>
         <section id="authorization">
           <div>Authorized By (Sign): _____________________________________</div>
           <div>
