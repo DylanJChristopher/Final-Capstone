@@ -97,7 +97,7 @@ export default {
   margin: 200px 0px 100px 0px;
 }
 #card {
-  margin: 200px 0px 200px 196px;
+  margin: 200px 0px 300px 196px;
   
 }
 .box {

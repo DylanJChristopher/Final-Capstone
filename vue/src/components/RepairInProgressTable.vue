@@ -82,8 +82,13 @@ export default {
 
 <style scoped>
 .clickable:hover + #description {
-  background-color: rgba(139, 27, 27, 0.63);
-  opacity: 70%;
+  background-color: rgb(235, 219, 191);
+  opacity: 85%;
+  cursor: pointer;
+}
+.clickable:hover {
+  background-color: rgb(235, 219, 191);
+  opacity: 85%;
   cursor: pointer;
 }
 #print {
@@ -94,11 +99,7 @@ export default {
 #print:hover {
   cursor: pointer;
 }
-.clickable:hover {
-  background-color: rgba(139, 27, 27, 0.63);
-  opacity: 70%;
-  cursor: pointer;
-}
+
 
 #placeholder {
   background-color: rgba(139, 27, 27, 0.63);
@@ -111,9 +112,9 @@ section {
     background-size: cover; */
   height: 70vh;
   border: outset 1px grey;
-  border-radius: 15px;
-  box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24),
-
+  border-radius: 5%;
+  box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.24),
+    0 17px 50px 0 rgba(0, 0, 0, 0.19);
 }
 div {
   /* display: flex;
