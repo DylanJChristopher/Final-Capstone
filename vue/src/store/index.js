@@ -22,7 +22,7 @@ export default new Vuex.Store({
     token: currentToken || '',
     user: currentUser || {},
     pothole: '',
-    zoomValue: 10,
+    zoomValue: 11,
     center: {
       lat: 39.983334,
       lng: -82.983330,

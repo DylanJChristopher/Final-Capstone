@@ -8,7 +8,7 @@
         <table cellpadding="0" cellspacing="0" border="0">
           <thead
             class="clickable"
-            @click="setZoom(10), setLat(39.983334), setLng(-82.98333)"
+            @click="setZoom(11), setLat(39.983334), setLng(-82.98333)"
           >
             <tr>
               <th>Image</th>
