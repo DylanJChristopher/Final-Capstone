@@ -8,7 +8,7 @@
         <table cellpadding="0" cellspacing="0" border="0">
           <thead
             class="clickable"
-            @click="setZoom(10), setLat(39.983334), setLng(-82.98333)"
+            @click="setZoom(11), setLat(39.983334), setLng(-82.98333)"
           >
             <tr>
               <th>Image</th>
@@ -24,12 +24,14 @@
       <div class="tbl-content">
         <table cellpadding="0" cellspacing="0" border="0">
           <tbody v-for="pothole in filterByStatus" v-bind:key="pothole.id">
-            <tr
+             
+            <tr type="radio" id="radio"
               @click="sendCenterLocations(pothole.potholeId)"
               class="clickable"
             >
+            <!-- <input id="radio" type="radio"> -->
             <td id= "img-container">
-              <img id ="pothole-img" v-bind:src= "pothole.secureUrl"  alt="picture of a very potty hole">
+              <img id ="pothole-img" v-bind:src= "pothole.secureUrl"  alt="picture of a hole of the pot variety">
             </td>
               <td>
                 {{ pothole.address.streetNumber }}
@@ -40,6 +42,7 @@
               <td>{{ pothole.severity }} / 10</td>
               <td>{{ dateFormat(pothole.discoveryDate) }}</td>
             </tr>
+            
             <tr id="description">
               <td colspan="6">{{ pothole.description }}</td>
             </tr>
@@ -130,6 +133,15 @@ export default {
 </script>
 
 <style scoped>
+
+#radio{
+  /* display:none; */
+}
+
+#radio:checked > td{
+  background-color: black;
+}
+
 #img-container{
   height: 5rem;
   width: 18%;
@@ -145,11 +157,13 @@ export default {
   opacity: 85%;
   cursor: pointer;
 }
+
 .clickable:hover {
   background-color: rgb(236, 227, 209);
   opacity: 85%;
   cursor: pointer;
 }
+
 #placeholder {
   background-color: rgba(139, 27, 27, 0.63);
   padding: 2px;

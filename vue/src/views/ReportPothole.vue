@@ -41,8 +41,8 @@ button:hover{
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  height: 60%;
-  width: 40%;
+  height: 85%;
+  width: 30%;
   background-color: whitesmoke;
   opacity: 85%;
  

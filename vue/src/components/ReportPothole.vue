@@ -120,20 +120,27 @@
               v-model="pothole.discoveryDate"
             />
           </form>
-          <button @click="openUploadModal">Upload Pothole Photo</button>
+         
+          <!-- {{this.imageData.original_filename}}.{{this.imageData.format}} -->
         </div>
 
-        <div class="col-12">
+        
+      </div>
+       <div class="col-12" id= "upload-photo">
+          <button @click="openUploadModal">Upload Pothole Photo</button>
+          <p>{{this.imageData.original_filename}}.{{this.imageData.format}}</p>
+          </div>
+    </form>
+    
+    <div class="button-background">
           <button
             v-on:click="submitPothole()"
             type="button"
             class="btn btn-submit"
           >
-            Submit TIP
+            Submit Pothole
           </button>
         </div>
-      </div>
-    </form>
 
     <!-- <button v-on:click="formSet()" v-show="showButton == true">
       Submit a Tip
@@ -160,7 +167,11 @@ export default {
       showForm: false,
       showButton: true,
 
-      imageData: null,
+      imageData: {
+        original_filename: "",
+        format: "",
+
+      },
 
       pothole: {
         address: {
@@ -179,7 +190,7 @@ export default {
         discoveryDate: "",
         description: "",
         secureUrl:
-          "https://res.cloudinary.com/tipsindia/image/upload/v1660593331/placeholder-image.png",
+          "https://res.cloudinary.com/tipsindia/image/upload/v1660760324/No-image.jpg",
       },
     };
   },
@@ -218,6 +229,7 @@ export default {
 .col-12 {
   margin: 7px;
   font-family: Arial, Helvetica, sans-serif;
+  padding-bottom: 1.5rem;
 }
 h1 {
   text-align: center;
@@ -225,5 +237,34 @@ h1 {
 }
 button{
   margin: 5px 0px 5px 0px;
+  font-family: Arial, Helvetica, sans-serif;
+  
+}
+.button-background{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.btn-submit{
+  font-size: 1.25rem;
+  color: rgba(0, 0, 0, 0.829);
+width: 50%;
+height: 5vh;
+  background-color: blanchedalmond;
+  border: black 2px solid;
+  border-radius: 12px;
+}
+.btn-submit:hover{
+  background-color: cornsilk;
+}
+#upload-photo{
+  display: flex;
+  height: 3.5vh;
+  margin-top:  1rem;
+  font-family: Arial, Helvetica, sans-serif;
+
+}
+label{
+  font-size: 1.25rem;
 }
 </style>
