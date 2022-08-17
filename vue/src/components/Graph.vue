@@ -110,7 +110,7 @@ export default {
     return {
       potholes: [],
       chartData: {
-        labels: [ 'Pending', 'Repair Scheduled', 'Fixed', 'Rejected' ],
+        labels: [ 'Pending', 'Repair Scheduled', 'Fixed', 'Reject' ],
         datasets: [ { data: [] } ]
       },
       chartOptions: {
