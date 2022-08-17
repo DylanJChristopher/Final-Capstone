@@ -71,13 +71,13 @@ export default {
 
 <style scoped>
 .clickable:hover + #description {
-  background-color: rgba(139, 27, 27, 0.63);
-  opacity: 70%;
+  background-color: rgb(235, 219, 191);
+  opacity: 85%;
   cursor: pointer;
 }
 .clickable:hover {
-  background-color: rgba(139, 27, 27, 0.63);
-  opacity: 70%;
+  background-color: rgb(235, 219, 191);
+  opacity: 85%;
   cursor: pointer;
 }
 #placeholder {
