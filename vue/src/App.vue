@@ -2,7 +2,7 @@
 <template>
   <div id="app">
     <header>
-      <img src="./assets/actual logo.jpg" id="logo" />
+      <img src="./assets/logofornow.png" id="logo" />
       <nav id="nav">
         <div id="spaceHolder"></div>
         <ul>
@@ -50,7 +50,9 @@
     </header>
 
     <router-view id="router-view" />
+    <footer>
     <the-foot-of-page id="footer"></the-foot-of-page>
+    </footer>
   </div>
 </template>
 <script>
@@ -97,7 +99,7 @@ ul {
   padding: 0;
 }
 #logo {
-  border-radius: 50%;
+  /* border-radius: 30%; */
   height: auto;
   /* width: 5%; */
   padding: 5px;
@@ -120,12 +122,12 @@ header {
   margin-top: 5vh;
   position: relative;
 }
-#footer {
-  background-color: #b2d3bd;
+footer {
+  background-color: rgb(236, 227, 209);
   /* background-color: rgba(139, 27, 27, 0.63); */
   grid-area: footer;
   padding: 20px;
-  
+  margin: 250px 0px 0px 0px;
 
   /* margin: 20px 0px 0px 0px; */
   /* position: relative;
@@ -150,9 +152,11 @@ header {
   margin: 0%;
   padding: 0%;
   background-image: linear-gradient(rgb(209, 191, 158), whitesmoke);
+
 }
 button {
   font-family: Arial, Helvetica, sans-serif;
   font-weight: bold;
 }
+
 </style>

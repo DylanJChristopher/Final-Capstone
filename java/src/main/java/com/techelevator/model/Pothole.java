@@ -13,7 +13,16 @@ public class Pothole {
     private String direction;
     private int severity;
     private LocalDateTime discoveryDate;
+    private String secureUrl;
     private String description;
+
+    public String getSecureUrl() {
+        return secureUrl;
+    }
+
+    public void setSecureUrl(String secureUrl) {
+        this.secureUrl = secureUrl;
+    }
 
     public int getPotholeId() {
         return potholeId;

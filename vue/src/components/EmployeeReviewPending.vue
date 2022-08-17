@@ -29,9 +29,8 @@
               <td>{{ pothole.address.zipCode }}</td>
               <td>{{ pothole.severity }} / 10</td>
               <td>{{ dateFormat(pothole.discoveryDate) }}</td>
-              <!-- <td><button v-on:click="retrieveId(pothole.potholeId)">More Details</button></td> -->
             </tr>
-            <tr id="description" v-on:click="retrieveId(pothole.potholeId)">
+            <tr id="description">
               <td colspan="4">{{ pothole.description }}</td>
             </tr>
             <tr>
@@ -72,13 +71,13 @@ export default {
 
 <style scoped>
 .clickable:hover + #description {
-  background-color: rgba(139, 27, 27, 0.63);
-  opacity: 70%;
+  background-color: rgb(235, 219, 191);
+  opacity: 85%;
   cursor: pointer;
 }
 .clickable:hover {
-  background-color: rgba(139, 27, 27, 0.63);
-  opacity: 70%;
+  background-color: rgb(235, 219, 191);
+  opacity: 85%;
   cursor: pointer;
 }
 #placeholder {
@@ -92,9 +91,11 @@ section {
     background-size: cover; */
   height: 70vh;
   border: outset 1px grey;
-  border-radius: 5%;
-  box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24),
-    0 17px 50px 0 rgba(0, 0, 0, 0.19);
+  border-radius: 15px;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.24),
+  0 2px 2px 0 rgba(0, 0, 0, 0.19);
+  margin-top: 80px;
+  margin-left: 24px;
 }
 div {
   /* display: flex;
@@ -151,7 +152,7 @@ td {
 
 /* Track */
 ::-webkit-scrollbar-track {
-  box-shadow: inset 0 0 5px grey;
+  box-shadow: inset 0 0 1px grey;
   border-radius: 10px;
 }
 
@@ -159,6 +160,6 @@ td {
 ::-webkit-scrollbar-thumb {
   background: rgba(139, 27, 27, 0.63);
   border-radius: 10px;
-  box-shadow: inset 0 0 5px rgb(0, 0, 0);
+  box-shadow: inset 0 0 1px rgb(0, 0, 0);
 }
 </style>

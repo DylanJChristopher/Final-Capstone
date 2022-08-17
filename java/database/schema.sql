@@ -31,7 +31,9 @@ CREATE TABLE pothole (
 	direction varchar(10)NOT NULL,
 	severity varchar(2)NOT NULL,
 	discovery_date timestamp NOT NULL,
+	secure_url varchar(500) NOT NULL,
 	description varchar(300),
+
 	CONSTRAINT PK_pothole PRIMARY KEY (pothole_id),
 	CONSTRAINT FK_address FOREIGN KEY (address_id) REFERENCES address (address_id)
 );

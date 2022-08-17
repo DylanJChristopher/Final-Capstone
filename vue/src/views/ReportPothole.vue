@@ -41,12 +41,12 @@ button:hover{
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  height: 60%;
-  width: 40%;
+  height: 85%;
+  width: 30%;
   background-color: whitesmoke;
   opacity: 85%;
  
-  border-radius: 6%;
+  border-radius:15px;
 
  align-items: center;
  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);

@@ -28,6 +28,14 @@
                   alt="Print Icon"
                 />
               </router-link>
+              <router-link v-bind:to="{ name: 'email' }">
+                <img
+                  src="../assets/emaillogo.png"
+                  alt="email icon"
+                  id="email"
+                  v-on:click="retrieveId(pothole.potholeId)"
+                />
+              </router-link>
             </tr>
             <tr v-on:click="retrieveId(pothole.potholeId)" class="clickable">
               <td>{{ pothole.potholeId }}</td>
@@ -71,6 +79,7 @@ export default {
   methods: {
     retrieveId(potholeId) {
       this.$store.commit("SET_POTHOLE_ID", potholeId);
+
     },
     dateFormat(potholeDate) {
       let date = new Date(potholeDate);
@@ -81,9 +90,19 @@ export default {
 </script>
 
 <style scoped>
+#email {
+  margin: 10px 0px 0px 5px;
+  width: 33px;
+  height: auto;
+}
 .clickable:hover + #description {
-  background-color: rgba(139, 27, 27, 0.63);
-  opacity: 70%;
+  background-color: rgb(235, 219, 191);
+  opacity: 85%;
+  cursor: pointer;
+}
+.clickable:hover {
+  background-color: rgb(235, 219, 191);
+  opacity: 85%;
   cursor: pointer;
 }
 #print {
@@ -92,11 +111,6 @@ export default {
   height: auto;
 }
 #print:hover {
-  cursor: pointer;
-}
-.clickable:hover {
-  background-color: rgba(139, 27, 27, 0.63);
-  opacity: 70%;
   cursor: pointer;
 }
 
@@ -111,9 +125,10 @@ section {
     background-size: cover; */
   height: 70vh;
   border: outset 1px grey;
-  border-radius: 5%;
-  box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24),
-    0 17px 50px 0 rgba(0, 0, 0, 0.19);
+  border-radius: 15px;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.24), 0 2px 2px 0 rgba(0, 0, 0, 0.19);
+  margin-top: 75px;
+  margin-left: 20px;
 }
 div {
   /* display: flex;
@@ -178,7 +193,7 @@ td {
 ::-webkit-scrollbar-thumb {
   background: rgba(139, 27, 27, 0.63);
   border-radius: 10px;
-  box-shadow: inset 0 0 5px rgb(0, 0, 0);
+  box-shadow: inset 0 0 1px rgb(0, 0, 0);
 }
 </style>
 

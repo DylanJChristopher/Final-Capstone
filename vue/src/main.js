@@ -8,7 +8,6 @@ import Cloudinary from "cloudinary-vue"
 
 
 
-
 Vue.config.productionTip = false
 
 axios.defaults.baseURL = process.env.VUE_APP_REMOTE_API;

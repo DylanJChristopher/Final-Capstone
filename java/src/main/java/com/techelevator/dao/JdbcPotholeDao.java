@@ -41,15 +41,15 @@ public class JdbcPotholeDao implements PotholeDao{
 
     public void addPothole(Pothole pothole){
 
-        String potholeSql ="INSERT INTO pothole (direction, address_id, severity, discovery_date, description) " +
-        "VALUES (?, ?, ?, ?, ?)";
+        String potholeSql ="INSERT INTO pothole (direction, address_id, severity, discovery_date, secure_url, description) " +
+        "VALUES (?, ?, ?, ?, ?, ?)";
 
         String addressSql = "INSERT INTO address (street_number, street_name, city, state_abbreviation, zipcode) " +
                 "VALUES ( ?,?,?,?,?)RETURNING address_id ";
         String repairSql = "INSERT INTO repair (pothole_id, status) "+
                 "VALUES ((SELECT pothole_id FROM pothole WHERE discovery_date = ?), 'Pending')";
         Integer addressId = jdbcTemplate.queryForObject(addressSql,Integer.class,pothole.getAddress().getStreetNumber(), pothole.getAddress().getStreetName(), pothole.getAddress().getCity(), pothole.getAddress().getState(), pothole.getAddress().getZipCode());
-        jdbcTemplate.update(potholeSql,pothole.getDirection(),addressId, pothole.getSeverity(),pothole.getDiscoveryDate(),pothole.getDescription());
+        jdbcTemplate.update(potholeSql,pothole.getDirection(),addressId, pothole.getSeverity(),pothole.getDiscoveryDate(), pothole.getSecureUrl(), pothole.getDescription());
         jdbcTemplate.update(repairSql, pothole.getDiscoveryDate());
 
     }
@@ -86,6 +86,7 @@ public class JdbcPotholeDao implements PotholeDao{
         pothole.setDirection(results.getString("direction"));
         pothole.setSeverity(results.getInt("severity"));
         pothole.setDiscoveryDate(results.getTimestamp("discovery_date").toLocalDateTime());
+        pothole.setSecureUrl(results.getString("secure_url"));
         pothole.setDescription(results.getString("description"));
 
 
