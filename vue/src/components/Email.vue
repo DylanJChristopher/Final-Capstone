@@ -68,13 +68,18 @@ export default {
 }
 
 .container {
-  display: block;
-  margin: auto;
+  display: flex;
+  flex-direction: column;
   text-align: center;
-  border-radius: 5px;
-  background-color: #f2f2f2;
   padding: 20px;
-  width: 50%;
+   height:100vh;
+   width: 100%;
+  justify-content: center;
+  background-color: rgb(255, 240, 212);;
+  opacity: 85%;
+  border-radius:15px;
+  align-items: center;
+  box-shadow: 0 2px 2px 0 rgba(0,0,0,0.24), 0 2px 2px 0 rgba(0,0,0,0.19);
 }
 
 label {
@@ -95,7 +100,7 @@ textarea {
 }
 
 input[type="submit"] {
-  background-color: #4caf50;
+  background-color: #646F4B;;
   color: white;
   padding: 12px 20px;
   border: none;
@@ -104,6 +109,8 @@ input[type="submit"] {
 }
 
 input[type="submit"]:hover {
-  background-color: #45a049;
+   box-shadow: 0 2px 2px 0 rgba(0,0,0,0.24), 0 2px 2px 0 rgba(0,0,0,0.19);
+   background-color: #7b8b54;
 }
+
 </style>

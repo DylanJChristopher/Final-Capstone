@@ -13,13 +13,19 @@
     <!-- <div>
       <label> Pothole Map </label>
     </div> -->
-    <gmap-map :zoom="zoomValue" :center="centerComputed" id="mapElement">
+    <!-- @click="center = m.position" -->
+    <gmap-map  :zoom="zoomValue" :center="centerComputed" id="mapElement">
       <gmap-marker
         :key="index"
         @click="center = m.position"
         v-for="(m, index) in locationMarkers"
         :position="m.position"
-      ></gmap-marker>
+        :icon="'https://res.cloudinary.com/tipsindia/image/upload/v1660768285/pothole-map-marker-removebg-preview.png'"
+        :clickable="true"
+        
+      >
+   
+      </gmap-marker>
     </gmap-map>
   </div>
 </template>
@@ -33,6 +39,7 @@ export default {
   props: ["potholes"],
   data() {
     return {
+      
       center: {
         lat: 39.983334,
         lng: -82.98333,
@@ -70,6 +77,8 @@ export default {
   },
 
   methods: {
+
+
     addressToString(potholes1) {
       console.log("blake");
       let streetName = "";
@@ -153,6 +162,11 @@ export default {
 };
 </script>
 <style scoped>
+#elise-is-yelling{
+  background-color: black; 
+  opacity: 100%;
+}
+
 #mapElement {
   width: 100%;
   height: 100%;

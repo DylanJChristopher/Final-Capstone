@@ -1,5 +1,5 @@
 <template>
-  <email v-bind:potholes="potholes"/>
+  <email id="container" v-bind:potholes="potholes"/>
 </template>
 
 <script>
@@ -23,4 +23,8 @@ export default {
 </script>
 
 <style>
+.container{
+
+  margin: 200px;
+}
 </style>
