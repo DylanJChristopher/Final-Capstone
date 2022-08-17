@@ -16,14 +16,20 @@
 
         <div id="socialMedia">
           <img class="icons" src="../assets/Linkedin.png" alt="Linkedin Logo" />
+          <a href="https://twitter.com/Vaderstill/status/1556636656941387776?s=20&t=jWx6WvvGoJqCrk0eM53t4w">
           <img class="icons" src="../assets/twitter.png" alt="Twitter Logo" />
+          </a>
+          <a href="https://www.facebook.com/pothole.info/">
           <img class="icons" src="../assets/FB.png" alt="FaceBook Logo" />
+          </a>
          <a href="https://www.instagram.com/reel/ChKUvnZrGR9/?igshid=YmMyMTA2M2Y="><img
             id="instagram"
             src="../assets/Instagram.png"
             alt="Instagram Logo"
           /></a> 
-          <img class="icons" src="../assets/YT.png" alt="YouTube Logo" />
+         <a href="https://youtu.be/G_iJrc7KJyU">
+         <img class="icons" src="../assets/YT.png" alt="YouTube Logo" />
+         </a>
         </div>
       </div>
 

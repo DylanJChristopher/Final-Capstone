@@ -92,7 +92,10 @@ section {
   height: 70vh;
   border: outset 1px grey;
   border-radius: 15px;
-  box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24),
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.24),
+  0 2px 2px 0 rgba(0, 0, 0, 0.19);
+  margin-top: 80px;
+  margin-left: 24px;
 }
 div {
   /* display: flex;

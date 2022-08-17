@@ -224,9 +224,9 @@ export default {
   padding: 50px;
   margin: 0px 0px 100px 0px;
   border: outset 1px grey;
-  border-radius: 10px;
-  box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24),
-    0 17px 50px 0 rgba(0, 0, 0, 0.19);
+  border-radius: 15px;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.24),
+    0 2px 2px 0 rgba(0, 0, 0, 0.19);
 }
 #container {
   margin: 400px;
@@ -236,10 +236,10 @@ export default {
   flex-direction: column;
   align-items: center;
   margin: 2px;
-
+  margin-left: 120px;
   background-color: rgba(255, 255, 255, 0.3);
   opacity: 85%;
-  border-radius: 10px;
+  border-radius: 15px;
   box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24);
   width: 60%;
 }
