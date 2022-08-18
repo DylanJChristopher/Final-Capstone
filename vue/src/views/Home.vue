@@ -5,16 +5,18 @@
       <div class="home">
         <div class="shield-button">
           <div id="banner">
-            <h1> Real-time pothole reporting for your community.
-              <button  class="myButton">
-              <a id = "report-link" href="http://localhost:8080/report"
+            <h1 id="first-h1">
+              Real-time pothole reporting for your community.
+            </h1>
+            <button class="myButton">
+              <a id="report-link" href="http://localhost:8080/report"
                 >Report Pothole</a
               >
-            </button> 
-              Potholes  inspected and repaired within 72 hours.</h1>
-            
+            </button>
+            <h1 id="last-h1">
+              Potholes inspected and repaired within 72 hours.
+            </h1>
           </div>
-        
         </div>
       </div>
     </div>
@@ -37,14 +39,14 @@
             <a href="#" class="btn btn-primary card-button">Learn More</a>
           </div>
         </div>
-          <div class="card" style="width: 40rem" id="right-card">
+        <div class="card" style="width: 40rem" id="right-card">
           <img
             src="../assets/pothole-5.jpg"
             class="card-img-top"
             alt="What are potholes"
           />
           <div class="card-body">
-            <h5 class="card-title"> What are potholes?</h5>
+            <h5 class="card-title">What are potholes?</h5>
             <p class="card-text">
               Learn from leading Road Technologist about Potholes and how they
               form.
@@ -68,8 +70,6 @@
             <a href="#" class="btn btn-primary card-button">Learn More</a>
           </div>
         </div>
-
-      
       </section>
     </div>
   </div>
@@ -81,6 +81,16 @@ export default {
 };
 </script>
 <style scoped>
+#first-h1 {
+  height: 10%;
+  padding-bottom: 14%;
+}
+#last-h1 {
+  width: 60%;
+  height: 20%;
+  font-size: 18px;
+  font-weight: bold;
+}
 #homepart2 h3 {
   font-size: 5em;
   font-weight: bold;
@@ -88,7 +98,7 @@ export default {
   color: #2e5266;
   font-family: Arial, Helvetica, sans-serif;
 }
-h2{
+h2 {
   align-self: center;
 }
 #home-cards {
@@ -106,7 +116,7 @@ h2{
 .card-text {
   height: 5vh;
   font-size: 1em;
-  font-weight:normal;
+  font-weight: normal;
   color: #2e5266;
   font-family: Arial, Helvetica, sans-serif;
 }
@@ -120,8 +130,8 @@ h2{
   height: 25vh;
   /* margin-left: 2rem;
   margin-right: 2rem; */
--webkit-box-shadow: 1px 1px 6px 4px rgba(0,0,0,0.31); 
-box-shadow: 1px 1px 6px 4px rgba(0,0,0,0.31);
+  -webkit-box-shadow: 1px 1px 6px 4px rgba(0, 0, 0, 0.31);
+  box-shadow: 1px 1px 6px 4px rgba(0, 0, 0, 0.31);
 
   border-radius: 2%;
 }
@@ -130,17 +140,17 @@ box-shadow: 1px 1px 6px 4px rgba(0,0,0,0.31);
   padding-left: 2rem;
   /* border-right: black solid 1px; */
   width: 33vw;
-  display:flex;
+  display: flex;
   flex-direction: column;
   align-items: center;
 }
 #middle-card {
   padding-right: 2rem;
   padding-left: 2rem;
-  
+
   /* border-left: black solid 1px; */
   width: 33vw;
-  display:flex;
+  display: flex;
   flex-direction: column;
   align-items: center;
 }
@@ -150,18 +160,17 @@ box-shadow: 1px 1px 6px 4px rgba(0,0,0,0.31);
   /* border-left: black solid 1%;
   border-right: black solid 1%; */
   width: 33vw;
-  display:flex;
+  display: flex;
   flex-direction: column;
   align-items: center;
 }
-.card-body{
+.card-body {
   border-right: black 2px;
   right: 50%;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-
 
 #container {
   background-image: url("../assets/pothole-2.jpg");
@@ -177,7 +186,7 @@ box-shadow: 1px 1px 6px 4px rgba(0,0,0,0.31);
   background-repeat: no-repeat;
   background-size: cover;
   height: 100vh;
-  
+
   display: flex;
   justify-content: center;
   align-items: center;
@@ -186,20 +195,19 @@ h1 {
   align-self: center;
   text-align: center;
   color: white;
-  width: 21rem;
-  height: 25rem;
-  font-size: 31px;
-  padding-top: 25px;
-  font-family: Arial, Helvetica, sans-serif;
-  
-  
-}
+  /* width: 21rem;
+  height: 25rem; */
+  font-size: 35px;
 
+  font-family: Arial, Helvetica, sans-serif;
+}
 
 .myButton {
   color: rgb(255, 255, 255);
   font-size: 30px;
-  line-height: 20px;
+
+  /* line-height: 20px; */
+  height: 10px;
   padding: 8px;
   border-radius: 12px;
   font-family: Arial, Helvetica, sans-serif;
@@ -208,49 +216,38 @@ h1 {
   font-style: normal;
   font-variant: normal;
   text-transform: none;
-  background-image: linear-gradient(
-    135deg,
-    #f1881d 0%,
-    
-    #f6861a 100%
-  );
--webkit-box-shadow: 0px 0px 6px 0px rgba(0,0,0,0.97); 
-box-shadow: 0px 0px 6px 0px rgba(0,0,0,0.97);
+  background-image: linear-gradient(135deg, #f1881d 0%, #f6861a 100%);
+  -webkit-box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.97);
+  box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.97);
   border: 2px solid #fa0201;
   display: inline-block;
   height: 5rem;
   margin-top: 2rem;
-  margin-bottom: 2rem;
-  
-  
+  align-self: center;
 }
 .myButton:hover {
-  
-   background: #fa0201;
-  border: 2px solid #f1881d; 
-  
-  
+  background: #fa0201;
+  border: 2px solid #f1881d;
 }
-.myButton:hover + #report-link{
-color: #fff500; 
+.myButton:hover + #report-link {
+  color: #fff500;
 }
 .myButton:active {
   background: #fa0201;
-  
-  
 }
 #banner {
   display: flex;
-  background-color: #646F4B;
+  background-color: #646f4b;
   opacity: 100%;
- -webkit-box-shadow: 0px 0px 6px 1px rgba(0,0,0,0.97); 
-box-shadow: 0px 0px 6px 1px rgba(0,0,0,0.97);
+  -webkit-box-shadow: 0px 0px 6px 1px rgba(0, 0, 0, 0.97);
+  box-shadow: 0px 0px 6px 1px rgba(0, 0, 0, 0.97);
   flex-direction: column;
   height: 50vh;
   width: 25vw;
   border: 10px solid var(--shield-border-color);
   border-radius: 50% 50% 50% 50% / 15% 15% 90% 90%;
   align-self: center;
+  justify-content: center;
 }
 #fullscreenimg {
   width: 100%;
@@ -264,33 +261,28 @@ box-shadow: 0px 0px 6px 1px rgba(0,0,0,0.97);
   flex-direction: column;
   justify-content: center;
   flex-grow: 1;
- 
 }
-.home{
-   background-color: rgba(255, 255, 255, 0.432);
+.home {
+  background-color: rgba(255, 255, 255, 0.432);
 }
-
 
 .btn-primary {
   color: blue;
   text-align: center;
   font-size: 20px;
- 
 }
 .card-button:hover {
   color: black;
 }
 
-#report-link{
+#report-link {
   color: white;
-   text-decoration: none; 
+  text-decoration: none;
   font-family: Arial, Helvetica, sans-serif;
   height: 100%;
   width: 100%;
 }
-#report-link:hover{
+#report-link:hover {
   color: #fff500;
-  
 }
-
 </style>

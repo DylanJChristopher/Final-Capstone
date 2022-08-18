@@ -9,12 +9,8 @@ import Potholes from '../views/Potholes.vue'
 import EmployeePage from '../views/EmployeePage'
 import ReportPothole from '../views/ReportPothole.vue'
 import PrintPage from "../views/PrintPage.vue"
-<<<<<<< HEAD
-import test from "../components/test.vue"
-=======
 import SendEmail from "../views/SendEmail.vue"
 
->>>>>>> d883dac85a5507c9e6aacfa1a7c568669230482d
 
 
 
@@ -100,15 +96,9 @@ const router = new Router({
       }
     },
     {
-<<<<<<< HEAD
-      path: '/test',
-      name: 'test',
-      component: test,
-=======
       path: '/email',
       name: 'email',
       component: SendEmail,
->>>>>>> d883dac85a5507c9e6aacfa1a7c568669230482d
       meta: {
         requiresAuth: false
       }
