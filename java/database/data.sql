@@ -35,7 +35,7 @@ INSERT INTO repair (pothole_id,status,repair_date) VALUES ('5','Pending','2022-0
 INSERT INTO repair (pothole_id,status,repair_date) VALUES ('6','Repair Scheduled','2022-08-026 8:22:01');
 INSERT INTO repair (pothole_id,status,repair_date) VALUES ('7','Pending','2023-03-06 10:03:04');
 INSERT INTO repair (pothole_id,status,repair_date) VALUES ('8','Pending','2024-02-14 14:14:04');
-INSERT INTO repair (pothole_id,status,repair_date) VALUES ('9','Rejected','2022-07-30 14:45:04');
+INSERT INTO repair (pothole_id,status,repair_date) VALUES ('9','Reject','2022-07-30 14:45:04');
 INSERT INTO repair (pothole_id,status,repair_date) VALUES ('10','Pending','2022-08-30 14:45:04');
 
 
