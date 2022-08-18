@@ -3,8 +3,7 @@
     <p>Pothole ID: {{ filterById.potholeId }}</p>
 
     <form ref="form" @submit.prevent="sendEmail">
-      <label>Name</label>
-      <input type="text" name="name" placeholder="Your Name" />
+     <h2>Message Pothole Inspection Team</h2>
       <label>Message</label>
       <textarea name="message" cols="30" rows="5" placeholder="Message">
       </textarea>

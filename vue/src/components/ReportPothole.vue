@@ -227,14 +227,18 @@ export default {
 </script>
 
 <style scoped>
+
+
 .col-12 {
   margin: 7px;
   font-family: Arial, Helvetica, sans-serif;
   padding-bottom: 1.5rem;
 }
 h1 {
+  font-size: 2rem;
   text-align: center;
   height: 7vh;
+  margin-bottom: 4vh;
 }
 button{
   margin: 5px 0px 5px 0px;
