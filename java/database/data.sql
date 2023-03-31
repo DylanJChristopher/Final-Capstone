@@ -30,12 +30,12 @@ Insert INTO pothole (address_id,direction,severity,discovery_date,secure_url,des
 INSERT INTO repair (pothole_id,status,repair_date) VALUES ('1','Pending','2045-03-06 10:03:04');
 INSERT INTO repair (pothole_id,status,repair_date) VALUES ('2','Pending','2022-05-07 9:02:04');
 INSERT INTO repair (pothole_id,status,repair_date) VALUES ('3','Pending','2023-02-01 8:02:01');
-INSERT INTO repair (pothole_id,status,repair_date) VALUES ('4','Fixed','2019-02-01 8:02:01');
+INSERT INTO repair (pothole_id,status,repair_date) VALUES ('4','Pending','2019-02-01 8:02:01');
 INSERT INTO repair (pothole_id,status,repair_date) VALUES ('5','Pending','2022-08-023 8:22:01');
-INSERT INTO repair (pothole_id,status,repair_date) VALUES ('6','Repair Scheduled','2022-08-026 8:22:01');
+INSERT INTO repair (pothole_id,status,repair_date) VALUES ('6','Pending','2022-08-026 8:22:01');
 INSERT INTO repair (pothole_id,status,repair_date) VALUES ('7','Pending','2023-03-06 10:03:04');
 INSERT INTO repair (pothole_id,status,repair_date) VALUES ('8','Pending','2024-02-14 14:14:04');
-INSERT INTO repair (pothole_id,status,repair_date) VALUES ('9','Reject','2022-07-30 14:45:04');
+INSERT INTO repair (pothole_id,status,repair_date) VALUES ('9','Pending','2022-07-30 14:45:04');
 INSERT INTO repair (pothole_id,status,repair_date) VALUES ('10','Pending','2022-08-30 14:45:04');
 
 

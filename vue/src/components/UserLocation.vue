@@ -14,7 +14,10 @@
       <label> Pothole Map </label>
     </div> -->
     <!-- @click="center = m.position" -->
+   
     <gmap-map  :zoom="zoomValue" :center="centerComputed" id="mapElement">
+
+      
       <gmap-marker
         :key="index"
         @click="center = m.position"
@@ -25,8 +28,8 @@
         
       >
    
-      </gmap-marker>
-    </gmap-map>
+      </gmap-marker> 
+    </gmap-map> 
   </div>
 </template>
  
@@ -51,6 +54,7 @@ export default {
       addressMarker: null,
       partialData: null,
       partialData2: null,
+     
 
       addressString: [],
       filteredPotholes: [],
@@ -111,10 +115,12 @@ export default {
       this.existingPlace = loc;
     },
     addLocationMarker() {
+      console.log("dylan")
       for (let i = 0; i < this.addressString.length; i++) {
         this.addressMarker = this.potholeLocations[i];
         this.partialData = this.addressMarker.results;
         this.partialData2 = this.partialData[0];
+        console.log("marker added")
 
         const marker = {
           lat: this.partialData2.geometry.location.lat,
@@ -127,9 +133,11 @@ export default {
       }
     },
     retrieveAllPotholeLocations() {
+      
       for (let i = 0; i < this.addressString.length; i++) {
         mapService.getMapInformation(this.addressString[i]).then((response) => {
           this.potholeLocations.push(response.data);
+          console.log(response.data);
           this.addLocationMarker();
         });
       }
