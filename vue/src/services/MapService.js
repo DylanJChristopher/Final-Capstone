@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const key = 'AIzaSyDB2LKekobExfOpTHmglGUOhnUyduno0ho';
+const key = "API_KEY_GOES_HERE";
 
 export default {
     getMapInformation(addressString){

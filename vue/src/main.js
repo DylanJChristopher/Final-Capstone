@@ -13,7 +13,7 @@ Vue.config.productionTip = false
 axios.defaults.baseURL = process.env.VUE_APP_REMOTE_API;
 Vue.use(VueGoogleMaps, {
   load: {
-    key: "AIzaSyDB2LKekobExfOpTHmglGUOhnUyduno0ho",
+    key: "API_GOES_HERE",
     libraries: "places"
   }
 });
